@@ -10,8 +10,8 @@ import java.util.Objects;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sample.fxml")));
-        primaryStage.setTitle("Hello World");
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/sample.fxml")));
+        primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
