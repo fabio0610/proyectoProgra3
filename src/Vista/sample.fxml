@@ -15,16 +15,21 @@
    <children>
       <Pane prefHeight="355.0" prefWidth="412.0">
          <children>
-            <Button layoutX="177.0" layoutY="220.0" mnemonicParsing="false" text="Ingresar" />
+            <Button fx:id="ingresarBoton" layoutX="177.0" layoutY="220.0" mnemonicParsing="false" onAction="#Button" text="Ingresar" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff5d" height="89.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
             <Label layoutX="137.0" layoutY="25.0" prefHeight="40.0" prefWidth="139.0" text="Bienvenido">
                <font>
                   <Font size="28.0" />
                </font></Label>
-            <PasswordField layoutX="132.0" layoutY="185.0" promptText="Ej: Cacahuate" />
-            <TextField layoutX="132.0" layoutY="137.0" promptText="Ej: Pepito1234" />
+            <PasswordField fx:id="clave" layoutX="132.0" layoutY="185.0" promptText="Ej: Cacahuate" />
+            <TextField fx:id="field" layoutX="132.0" layoutY="137.0" promptText="Ej: Pepito1234" />
             <Label layoutX="72.0" layoutY="141.0" text="Usuario" />
             <Label layoutX="78.0" layoutY="189.0" text="Clave" />
+            <Label fx:id="bloqueo" layoutX="192.0" layoutY="100.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
