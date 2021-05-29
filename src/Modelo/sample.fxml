@@ -15,7 +15,7 @@
    <children>
       <Pane prefHeight="337.0" prefWidth="331.0">
          <children>
-            <Button layoutX="140.0" layoutY="243.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="136.0" layoutY="223.0" mnemonicParsing="false" text="Ingresar" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff5d" height="89.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="338.0" />
             <Label layoutX="96.0" layoutY="26.0" prefHeight="40.0" prefWidth="139.0" text="Bienvenido">
                <font>
