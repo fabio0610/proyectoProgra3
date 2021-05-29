@@ -1,9 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="Controlador.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="337.0" prefWidth="331.0">
+         <children>
+            <Button layoutX="140.0" layoutY="243.0" mnemonicParsing="false" text="Button" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff5d" height="89.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="338.0" />
+            <Label layoutX="96.0" layoutY="26.0" prefHeight="40.0" prefWidth="139.0" text="Bienvenido">
+               <font>
+                  <Font size="28.0" />
+               </font></Label>
+            <PasswordField layoutX="92.0" layoutY="185.0" promptText="Ej: Cacahuate" />
+            <TextField layoutX="92.0" layoutY="137.0" promptText="Ej: Pepito1234" />
+            <Label layoutX="42.0" layoutY="141.0" text="Usuario" />
+            <Label layoutX="48.0" layoutY="189.0" text="Clave" />
+         </children>
+      </Pane>
+   </children>
 </GridPane>
