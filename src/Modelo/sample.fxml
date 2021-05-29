@@ -13,18 +13,18 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Pane prefHeight="337.0" prefWidth="331.0">
+      <Pane prefHeight="355.0" prefWidth="412.0">
          <children>
-            <Button layoutX="136.0" layoutY="223.0" mnemonicParsing="false" text="Ingresar" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff5d" height="89.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="338.0" />
-            <Label layoutX="96.0" layoutY="26.0" prefHeight="40.0" prefWidth="139.0" text="Bienvenido">
+            <Button layoutX="177.0" layoutY="220.0" mnemonicParsing="false" text="Ingresar" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff5d" height="89.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
+            <Label layoutX="137.0" layoutY="25.0" prefHeight="40.0" prefWidth="139.0" text="Bienvenido">
                <font>
                   <Font size="28.0" />
                </font></Label>
-            <PasswordField layoutX="92.0" layoutY="185.0" promptText="Ej: Cacahuate" />
-            <TextField layoutX="92.0" layoutY="137.0" promptText="Ej: Pepito1234" />
-            <Label layoutX="42.0" layoutY="141.0" text="Usuario" />
-            <Label layoutX="48.0" layoutY="189.0" text="Clave" />
+            <PasswordField layoutX="132.0" layoutY="185.0" promptText="Ej: Cacahuate" />
+            <TextField layoutX="132.0" layoutY="137.0" promptText="Ej: Pepito1234" />
+            <Label layoutX="72.0" layoutY="141.0" text="Usuario" />
+            <Label layoutX="78.0" layoutY="189.0" text="Clave" />
          </children>
       </Pane>
    </children>
