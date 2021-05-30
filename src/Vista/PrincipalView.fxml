@@ -39,7 +39,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <CheckBox fx:id="lecheBatida" layoutX="155.0" layoutY="127.0" mnemonicParsing="false" text="Leche Batida              ₡300" textFill="#e85058" />
+      <CheckBox fx:id="lecheBatida" layoutX="155.0" layoutY="127.0" mnemonicParsing="false" selected="true" text="Leche Batida              ₡300" textFill="#e85058" />
       <CheckBox fx:id="moca" layoutX="155.0" layoutY="144.0" mnemonicParsing="false" text="Moca                          ₡300" textFill="#e85058" />
       <CheckBox fx:id="soya" layoutX="155.0" layoutY="161.0" mnemonicParsing="false" text="Soya                           ₡250" textFill="#e85058" />
       <Button fx:id="nuevaOrden" layoutX="38.0" layoutY="309.0" mnemonicParsing="false" text="Nueva Orden" />
