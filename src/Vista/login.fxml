@@ -13,11 +13,11 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="field" layoutX="93.0" layoutY="143.0" promptText="Ej: Pepito1234" />
-      <Label layoutX="26.0" layoutY="147.0" text="Usuario" />
-      <Label layoutX="17.0" layoutY="204.0" text="Contraseña" />
+      <TextField fx:id="field" layoutX="105.0" layoutY="123.0" promptText="Ej: Pepito1234" />
+      <Label layoutX="48.0" layoutY="127.0" text="Usuario" />
+      <Label layoutX="39.0" layoutY="183.0" text="Contraseña" />
       <Label fx:id="bloqueo" layoutX="124.0" layoutY="109.0" prefHeight="17.0" prefWidth="82.0" />
       <Button fx:id="ingresarBoton" layoutX="139.0" layoutY="249.0" mnemonicParsing="false" onAction="#Button" text="Ingresar" />
-      <PasswordField fx:id="clave" layoutX="91.0" layoutY="200.0" promptText="Ej: Cacahuate" />
+      <PasswordField fx:id="clave" layoutX="105.0" layoutY="179.0" promptText="Ej: Cacahuate" />
    </children>
 </AnchorPane>
