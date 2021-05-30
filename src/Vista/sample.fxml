@@ -5,32 +5,19 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.Controller">
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="311.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.Controller">
    <children>
-      <Pane prefHeight="355.0" prefWidth="412.0">
-         <children>
-            <Button fx:id="ingresarBoton" layoutX="177.0" layoutY="220.0" mnemonicParsing="false" onAction="#Button" text="Ingresar" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff5d" height="89.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
-            <Label layoutX="137.0" layoutY="25.0" prefHeight="40.0" prefWidth="139.0" text="Bienvenido">
-               <font>
-                  <Font size="28.0" />
-               </font></Label>
-            <PasswordField fx:id="clave" layoutX="132.0" layoutY="185.0" promptText="Ej: Cacahuate" />
-            <TextField fx:id="field" layoutX="132.0" layoutY="137.0" promptText="Ej: Pepito1234" />
-            <Label layoutX="72.0" layoutY="141.0" text="Usuario" />
-            <Label layoutX="78.0" layoutY="189.0" text="Clave" />
-            <Label fx:id="bloqueo" layoutX="192.0" layoutY="100.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#acf5d5" height="97.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="330.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" prefHeight="97.0" prefWidth="338.0" text="Bienvenido" textAlignment="CENTER" textOverrun="CLIP">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="field" layoutX="93.0" layoutY="143.0" promptText="Ej: Pepito1234" />
+      <Label layoutX="26.0" layoutY="147.0" text="Usuario" />
+      <Label layoutX="17.0" layoutY="204.0" text="Contraseña" />
+      <Label fx:id="bloqueo" layoutX="124.0" layoutY="109.0" prefHeight="17.0" prefWidth="82.0" />
+      <Button fx:id="ingresarBoton" layoutX="139.0" layoutY="249.0" mnemonicParsing="false" onAction="#Button" text="Ingresar" />
+      <PasswordField fx:id="clave" layoutX="91.0" layoutY="200.0" promptText="Ej: Cacahuate" />
    </children>
-</GridPane>
+</AnchorPane>

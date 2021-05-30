@@ -19,7 +19,7 @@ public class Controller {
             System.out.println("Ingresando...");
     }
         else{contador++;
-            System.out.println("Datos Erroneos");
+            bloqueo.setText("Datos Erroneos");
         }
     if(contador>=3){
         bloqueo.setText("Cuenta Bloqueada");
