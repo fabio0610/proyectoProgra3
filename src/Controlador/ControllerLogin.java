@@ -28,7 +28,7 @@ public class ControllerLogin implements Initializable {
     public void Button(ActionEvent actionEvent)  throws IOException {
 
         if (clave.getText().equals("1234") & field.getText().equals("pepito")){
-           Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../VistaPrincipal/PrincipalView.fxml")));
+           Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
             Stage stage=new Stage();
             Scene scene=new Scene(root);
             stage.setTitle("Orders");
