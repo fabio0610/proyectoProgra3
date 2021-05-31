@@ -18,12 +18,10 @@ public class ControllerMenu {
 
     public void facturar(){
         if (Cafes.getSelectedToggle()==houseBlend){
-            HouseBlend houseBlend=new HouseBlend();
+            ICoffee houseBlend=new HouseBlend();
+            ICoffee prueba=new ButterMilk(new Moca(new Soy(new HouseBlend())));
             if(lecheAlvapor.isSelected()){
                 SteamedMilk steamedMilk=new SteamedMilk(houseBlend);
-               // if(lecheBatida.isSelected())
-              //      SteamedMilk steamedMilk1= new SteamedMilk( new SteamedMilk(new HouseBlend()));
-            //}
             if(lecheBatida.isSelected()){
                 ButterMilk butterMilk =new ButterMilk(houseBlend);
             }
@@ -34,7 +32,7 @@ public class ControllerMenu {
                 Soy soya =new Soy(houseBlend);
             }
 
-            System.out.println(houseBlend.getTipo());
+            System.out.println();
 
         }
-}}
+}}}
