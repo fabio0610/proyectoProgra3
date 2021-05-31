@@ -17,6 +17,7 @@ public abstract class Decorator {
     public abstract String getTipo();
 
     public abstract double getPrecio();
+
 }
 
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -17,18 +16,7 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <MenuButton fx:id="tipoCafe" contentDisplay="CENTER" layoutX="159.0" layoutY="67.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" text="Seleccione uno" textAlignment="CENTER">
-        <items>
-          <MenuItem mnemonicParsing="false" text="House Blend           ₡1400" />
-          <MenuItem mnemonicParsing="false" text="Dark Roast              ₡1450" />
-            <MenuItem mnemonicParsing="false" text="Descafeinado          ₡1100" />
-            <MenuItem mnemonicParsing="false" text="Expresso                  ₡1200" />
-        </items>
-         <effect>
-            <Blend />
-         </effect>
-      </MenuButton>
-      <Label layoutX="50.0" layoutY="70.0" text="Tipo de Café" textFill="#edbd13">
+      <Label layoutX="14.0" layoutY="71.0" text="Tipo de Café" textFill="#edbd13">
          <font>
             <Font size="14.0" />
          </font>
@@ -43,6 +31,14 @@
       <CheckBox fx:id="moca" layoutX="155.0" layoutY="144.0" mnemonicParsing="false" text="Moca                          ₡300" textFill="#e85058" />
       <CheckBox fx:id="soya" layoutX="155.0" layoutY="161.0" mnemonicParsing="false" text="Soya                           ₡250" textFill="#e85058" />
       <Button fx:id="nuevaOrden" layoutX="38.0" layoutY="309.0" mnemonicParsing="false" text="Nueva Orden" />
-      <Button fx:id="generarFactura" layoutX="200.0" layoutY="309.0" mnemonicParsing="false" text="Generar Factura" />
+      <Button fx:id="generarFactura" layoutX="200.0" layoutY="309.0" mnemonicParsing="false" onAction="#facturar" text="Generar Factura" />
+      <ToggleButton fx:id="houseBlend" layoutX="111.0" layoutY="68.0" mnemonicParsing="false" text="House Blend">
+         <toggleGroup>
+            <ToggleGroup fx:id="Cafes" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton fx:id="decaffeinated" layoutX="211.0" layoutY="68.0" mnemonicParsing="false" text="Decaffeinated" toggleGroup="$Cafes" />
+      <ToggleButton fx:id="darkRoast" layoutX="311.0" layoutY="68.0" mnemonicParsing="false" text="Dark Roast" toggleGroup="$Cafes" />
+      <ToggleButton fx:id="expresso" layoutX="398.0" layoutY="68.0" mnemonicParsing="false" text="Expresso" toggleGroup="$Cafes" />
    </children>
 </AnchorPane>

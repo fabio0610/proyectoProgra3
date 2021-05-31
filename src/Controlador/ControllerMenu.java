@@ -1,11 +1,7 @@
 package Controlador;
 
-import Modelo.ButterMilk;
-import Modelo.DarkRoast;
-import Modelo.HouseBlend;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.MenuButton;
+import Modelo.*;
+import javafx.scene.control.*;
 
 public class ControllerMenu {
     public Button generarFactura;
@@ -14,15 +10,31 @@ public class ControllerMenu {
     public CheckBox moca;
     public CheckBox soya;
     public Button nuevaOrden;
-    public MenuButton tipoCafe;
+    public ToggleGroup Cafes;
+    public ToggleButton houseBlend;
+    public ToggleButton decaffeinated;
+    public ToggleButton darkRoast;
+    public ToggleButton expresso;
 
     public void facturar(){
-        ButterMilk butterMilk;
-        HouseBlend houseBlend=new HouseBlend();
-        DarkRoast darkRoast;
-if(tipoCafe.getText().equals("House Blend           ₡1400")){
-    if(lecheAlvapor.isSelected())
-      butterMilk=new ButterMilk(houseBlend);
-    }
+        if (Cafes.getSelectedToggle()==houseBlend){
+            HouseBlend houseBlend=new HouseBlend();
+            if(lecheAlvapor.isSelected()){
+                SteamedMilk steamedMilk=new SteamedMilk(houseBlend);
+               // if(lecheBatida.isSelected())
+              //      SteamedMilk steamedMilk1= new SteamedMilk( new SteamedMilk(new HouseBlend()));
+            //}
+            if(lecheBatida.isSelected()){
+                ButterMilk butterMilk =new ButterMilk(houseBlend);
+            }
+            if(moca.isSelected()){
+               Moca moca =new Moca(houseBlend);
+            }
+            if(soya.isSelected()){
+                Soy soya =new Soy(houseBlend);
+            }
 
+            System.out.println(houseBlend.getTipo());
+
+        }
 }}
