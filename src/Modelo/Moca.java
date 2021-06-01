@@ -1,7 +1,7 @@
 package Modelo;
 public class Moca extends Decorator {
 
-    public Moca(ICoffee coffee) {
+    public Moca(AbstractCoffee coffee) {
         super(coffee);
     }
     

@@ -1,6 +1,6 @@
 package Controlador;
 
-/*import Modelo.ICoffee;
+/*import Modelo.AbstractCoffee;
 
 import javax.swing.*;
 
@@ -820,7 +820,7 @@ public class FacturaController extends javax.swing.JFrame {
     private javax.swing.JTextField tip1;
     // End of variables declaration//GEN-END:variables
     //CafeBase cafe;
-    ICoffee cafe;
+    AbstractCoffee cafe;
     static int orden = 0;
     boolean limitador = false;
     String condimento = "";

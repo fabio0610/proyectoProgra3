@@ -1,6 +1,11 @@
 package Modelo;
 
-public class Expresso implements ICoffee {
+public class Expresso extends AbstractCoffee {
+    @Override
+    public void addDecorator(Decorator decorator) {
+
+    }
+
     @Override
     public double getPrecio() {
         return 1200;

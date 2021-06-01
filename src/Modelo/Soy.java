@@ -1,7 +1,7 @@
 package Modelo;
 public class Soy extends Decorator {
 
-    public Soy(ICoffee coffee) {
+    public Soy(AbstractCoffee coffee) {
         super(coffee);
     }
 

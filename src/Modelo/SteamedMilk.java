@@ -13,7 +13,7 @@ public class SteamedMilk extends Decorator {
         return (getCoffee().getPrecio() + 50);
     }
 
-    public SteamedMilk(ICoffee coffe) {
+    public SteamedMilk(AbstractCoffee coffe) {
         super(coffe);
     }
 }

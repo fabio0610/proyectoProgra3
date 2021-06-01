@@ -1,16 +1,16 @@
 package Modelo;
 
 public abstract class Decorator {
-    private ICoffee coffee;
-    public ICoffee getCoffee() {
+    private AbstractCoffee coffee;
+    public AbstractCoffee getCoffee() {
         return this.coffee;
     }
 
-    public void setCoffee(ICoffee coffee) {
+    public void setCoffee(AbstractCoffee coffee) {
         this.coffee = coffee;
     }
 
-    public Decorator(ICoffee coffee) {
+    public Decorator(AbstractCoffee coffee) {
         this.coffee = coffee;
     }
 

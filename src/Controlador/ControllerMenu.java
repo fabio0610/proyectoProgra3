@@ -18,8 +18,8 @@ public class ControllerMenu {
 
     public void facturar(){
         if (Cafes.getSelectedToggle()==houseBlend){
-            ICoffee houseBlend=new HouseBlend();
-            ICoffee prueba=new ButterMilk(new Moca(new Soy(new HouseBlend())));
+            AbstractCoffee houseBlend=new HouseBlend();
+           // ICoffee prueba=new ButterMilk(new Moca(new Soy(new HouseBlend())));
             if(lecheAlvapor.isSelected()){
                 SteamedMilk steamedMilk=new SteamedMilk(houseBlend);
             if(lecheBatida.isSelected()){

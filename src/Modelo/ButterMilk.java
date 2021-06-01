@@ -1,7 +1,7 @@
 package Modelo;
 public class ButterMilk extends Decorator {
 
-    public ButterMilk(ICoffee coffee) {
+    public ButterMilk(AbstractCoffee coffee) {
         super(coffee);
     }
     @Override
