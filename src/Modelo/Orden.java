@@ -3,7 +3,7 @@ package Modelo;
 import java.util.ArrayList;
 
 public class Orden {
-    int contador=0;
+    public int contador=0;
     public Orden() {
 cafelist=new ArrayList<>();
     }
@@ -22,7 +22,6 @@ cafelist=new ArrayList<>();
     }
 
     public String toString(){
-        contador++;
         StringBuilder mensaje = new StringBuilder("Orden "+ contador+":\n");
         for(int i = 0; i < cafelist.size();i++){
            mensaje.append("Cafe: ").append(cafelist.get(i).getTipo().replaceFirst(",", "")).append(".").append("\n").append("Precio: ").append(cafelist.get(i).getPrecio()).append("\n");

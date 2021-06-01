@@ -5,6 +5,12 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class ControllerMenu<Order> {
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
@@ -99,7 +105,14 @@ public class ControllerMenu<Order> {
 
     }
 public void facturar(){
+        orden.contador=orden.contador+1;
        System.out.println( orden.toString());
+       Path path= Paths.get("Factura.txt");
+       try {
+           Files.writeString(path, orden.toString(), StandardCharsets.UTF_8);
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
 
 }
 public void newOrder(){

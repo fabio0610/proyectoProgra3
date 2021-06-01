@@ -1,0 +1,7 @@
+Orden 1:
+Cafe: House Blend 
+ Steamed Milk, Butter Milk.
+Precio: 1750.0
+Cafe: Decaffeinated
+ Steamed Milk, Butter Milk.
+Precio: 1450.0
