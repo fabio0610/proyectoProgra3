@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="304.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+<AnchorPane prefHeight="304.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
    <children>
       <ImageView fitHeight="369.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -30,8 +30,6 @@
       <CheckBox fx:id="lecheBatida" layoutX="155.0" layoutY="127.0" mnemonicParsing="false" selected="true" text="Leche Batida              ₡300" textFill="#e85058" />
       <CheckBox fx:id="moca" layoutX="155.0" layoutY="144.0" mnemonicParsing="false" text="Moca                          ₡300" textFill="#e85058" />
       <CheckBox fx:id="soya" layoutX="155.0" layoutY="161.0" mnemonicParsing="false" text="Soya                           ₡250" textFill="#e85058" />
-      <Button fx:id="nuevaOrden" layoutX="38.0" layoutY="309.0" mnemonicParsing="false" text="Nueva Orden" />
-      <Button fx:id="generarFactura" layoutX="200.0" layoutY="309.0" mnemonicParsing="false" onAction="#facturar" text="Generar Factura" />
       <ToggleButton fx:id="houseBlend" layoutX="111.0" layoutY="68.0" mnemonicParsing="false" text="House Blend">
          <toggleGroup>
             <ToggleGroup fx:id="Cafes" />
@@ -40,5 +38,12 @@
       <ToggleButton fx:id="decaffeinated" layoutX="211.0" layoutY="68.0" mnemonicParsing="false" text="Decaffeinated" toggleGroup="$Cafes" />
       <ToggleButton fx:id="darkRoast" layoutX="311.0" layoutY="68.0" mnemonicParsing="false" text="Dark Roast" toggleGroup="$Cafes" />
       <ToggleButton fx:id="expresso" layoutX="398.0" layoutY="68.0" mnemonicParsing="false" text="Expresso" toggleGroup="$Cafes" />
+      <ToggleButton layoutX="139.0" layoutY="309.0" mnemonicParsing="false" text="Agregar Orden">
+         <toggleGroup>
+            <ToggleGroup fx:id="factura" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton fx:id="nuevaOrden" layoutX="36.0" layoutY="309.0" mnemonicParsing="false" text="Nueva Orden" toggleGroup="$factura" />
+      <ToggleButton fx:id="generarFactura" layoutX="250.0" layoutY="309.0" mnemonicParsing="false" onAction="#facturar" text="Generar Factura" toggleGroup="$factura" />
    </children>
 </AnchorPane>
