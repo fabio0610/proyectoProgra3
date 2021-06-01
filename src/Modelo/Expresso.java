@@ -9,7 +9,7 @@ public class Expresso extends AbstractCoffee {
     @Override
     public void addDecorator(Decorator decorator) {
         precio=precio+decorator.getPrecio();
-        tipo=tipo+decorator.getTipo();
+        tipo=tipo+decorator.getTipo()+", ";
     }
     @Override
     public double getPrecio() {

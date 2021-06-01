@@ -10,7 +10,7 @@ public class ButterMilk extends Decorator {
     }
     @Override
     public String getTipo() {
-        return (" Butter Milk");
+        return ("Butter Milk");
     }
 
 }

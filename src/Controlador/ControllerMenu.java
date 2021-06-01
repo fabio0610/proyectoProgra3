@@ -1,25 +1,27 @@
 package Controlador;
 
 import Modelo.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 
-public class ControllerMenu {
-    public Button generarFactura;
+public class ControllerMenu<Order> {
+    public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
     public CheckBox lecheBatida;
     public CheckBox moca;
     public CheckBox soya;
-    public Button nuevaOrden;
+    public ToggleButton nuevaOrden;
     public ToggleGroup Cafes;
     public ToggleButton houseBlend;
     public ToggleButton decaffeinated;
     public ToggleButton darkRoast;
     public ToggleButton expresso;
+    private final Orden orden=new Orden();
+    public ToggleGroup factura;
+    public ToggleButton agregarOrden;
 
-    public void facturar() {
+    public void addToOrder() {
         if (Cafes.getSelectedToggle() == houseBlend) {
             HouseBlend houseBlend1 = new HouseBlend();
             if (lecheAlvapor.isSelected()) {
@@ -35,7 +37,7 @@ public class ControllerMenu {
                 houseBlend1.addDecorator(new Soy(houseBlend1));
             }
 
-            System.out.println(houseBlend1.getTipo());
+            orden.addCoffee(houseBlend1);
         }
 
 
@@ -55,7 +57,7 @@ public class ControllerMenu {
             }
 
 
-            System.out.println(decaffeinated1.getTipo());
+            orden.addCoffee(decaffeinated1);
         }
 
         if (Cafes.getSelectedToggle() == darkRoast) {
@@ -74,7 +76,7 @@ public class ControllerMenu {
             }
 
 
-            System.out.println(darkRoast1.getTipo());
+            orden.addCoffee(darkRoast1);
         }
         if (Cafes.getSelectedToggle() == expresso) {
             Expresso expresso1 = new Expresso();
@@ -92,8 +94,12 @@ public class ControllerMenu {
             }
 
 
-            System.out.println(expresso1.getTipo());
+            orden.addCoffee(expresso1);
         }
+        System.out.println(orden.toString());
+
     }
+
+
 }
 

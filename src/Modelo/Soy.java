@@ -12,7 +12,7 @@ public class Soy extends Decorator {
 
     @Override
     public String getTipo() {
-        return (" Soy");
+        return ("Soy");
     }
   
 }
