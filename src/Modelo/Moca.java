@@ -7,12 +7,12 @@ public class Moca extends Decorator {
     
     @Override
     public String getTipo() {
-        return (getCoffee().getTipo()+"+ Moca");
+        return ("+ Moca");
     }
 
     @Override
     public double getPrecio() {
-        return (getCoffee().getPrecio() + 300);
+        return ( 300);
     }
 
 }
