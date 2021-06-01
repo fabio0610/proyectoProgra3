@@ -7,7 +7,7 @@ public class Moca extends Decorator {
     
     @Override
     public String getTipo() {
-        return ("+ Moca");
+        return (" Moca");
     }
 
     @Override

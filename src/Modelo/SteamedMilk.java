@@ -5,7 +5,7 @@ public class SteamedMilk extends Decorator {
     
     @Override
     public String getTipo() {
-        return ("+ Steamed Milk");
+        return (" Steamed Milk");
     }
 
     @Override

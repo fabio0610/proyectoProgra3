@@ -3,7 +3,7 @@ package Modelo;
 public class Expresso extends AbstractCoffee {
     public Expresso() {
         precio=1200;
-        tipo="Expresso\n";
+        tipo="Expresso with\n";
     }
 
     @Override
