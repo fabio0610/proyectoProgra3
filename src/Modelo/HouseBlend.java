@@ -1,18 +1,23 @@
 package Modelo;
 
 public class HouseBlend extends AbstractCoffee {
-    @Override
-    public void addDecorator(Decorator decorator) {
-
+    public HouseBlend() {
+        tipo="House Blend\n";
+        precio=1400;
     }
 
     @Override
+    public void addDecorator(Decorator decorator) {
+        precio=precio+decorator.getPrecio();
+        tipo=tipo+decorator.getTipo();
+    }
+    @Override
     public double getPrecio() {
-        return 1400;
+        return precio;
     }
     @Override
     public String getTipo() {
-        return "House Blend\n";
+        return tipo;
     }
 
 }
