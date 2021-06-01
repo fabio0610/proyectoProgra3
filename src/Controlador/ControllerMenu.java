@@ -96,10 +96,23 @@ public class ControllerMenu<Order> {
 
             orden.addCoffee(expresso1);
         }
-        System.out.println(orden.toString());
 
     }
+public void facturar(){
+       System.out.println( orden.toString());
 
+}
+public void newOrder(){
+        lecheBatida.setSelected(true);
+        lecheAlvapor.setSelected(false);
+        moca.setSelected(false);
+        soya.setSelected(false);
+        houseBlend.setSelected(false);
+        decaffeinated.setSelected(false);
+        expresso.setSelected(false);
+        darkRoast.setSelected(false);
+        orden.eraseAll();
+}
 
 }
 

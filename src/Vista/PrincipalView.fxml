@@ -43,7 +43,7 @@
             <ToggleGroup fx:id="factura" />
          </toggleGroup>
       </ToggleButton>
-      <ToggleButton fx:id="nuevaOrden" layoutX="36.0" layoutY="309.0" mnemonicParsing="false" text="Nueva Orden" toggleGroup="$factura" />
-      <ToggleButton fx:id="generarFactura" layoutX="250.0" layoutY="309.0" mnemonicParsing="false" text="Generar Factura" toggleGroup="$factura" />
+      <ToggleButton fx:id="nuevaOrden" layoutX="36.0" layoutY="309.0" mnemonicParsing="false" onAction="#newOrder" text="Nueva Orden" toggleGroup="$factura" />
+      <ToggleButton fx:id="generarFactura" layoutX="250.0" layoutY="309.0" mnemonicParsing="false" onAction="#facturar" text="Generar Factura" toggleGroup="$factura" />
    </children>
 </AnchorPane>
