@@ -2,7 +2,7 @@ package Modelo;
 
 public class HouseBlend extends AbstractCoffee {
     public HouseBlend() {
-        tipo="House Blend with \n";
+        tipo="House Blend \n";
         precio=1400;
     }
 

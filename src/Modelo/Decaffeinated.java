@@ -2,7 +2,7 @@ package Modelo;
 
 public class Decaffeinated extends AbstractCoffee {
     public Decaffeinated() {
-        tipo="Decaffeinated with\n";
+        tipo="Decaffeinated\n";
         precio=1100;
     }
 

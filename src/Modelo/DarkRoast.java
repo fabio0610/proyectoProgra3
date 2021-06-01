@@ -3,7 +3,7 @@ package Modelo;
 public class DarkRoast extends AbstractCoffee {
     public DarkRoast() {
         precio=1450;
-        tipo="Dark Roast with\n ";
+        tipo="Dark Roast\n ";
     }
 
     @Override
