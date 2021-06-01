@@ -6,11 +6,11 @@ public class ButterMilk extends Decorator {
     }
     @Override
     public double getPrecio() {
-        return (getCoffee().getPrecio() + 300);
+        return ( 300);
     }
     @Override
     public String getTipo() {
-        return (getCoffee().getTipo()+"+ Leche Batida");
+        return ("+ Leche Batida");
     }
 
 }
