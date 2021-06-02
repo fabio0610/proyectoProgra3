@@ -142,6 +142,8 @@ public class ControllerMenu {
     }
 
     public void facturarOrdenes() throws IOException {
+        notificaAgregado.setText("");
+        alertaCafe.setText("");
         String ruta = "VariasFacturas.txt";
         File f = new File(ruta);
         FileWriter fw = new FileWriter(f);

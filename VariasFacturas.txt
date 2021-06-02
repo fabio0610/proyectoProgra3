@@ -1,15 +1,5 @@
-[Orden 4:
-Cafe: Expresso
- Steamed Milk, Butter Milk, Moca.
-Precio: 1850.0
+Orden 1:
 Cafe: Dark Roast
-  Soy.
-Precio: 1700.0
-, Orden 4:
-Cafe: Expresso
- Steamed Milk, Butter Milk, Moca.
-Precio: 1850.0
-Cafe: Dark Roast
-  Soy.
-Precio: 1700.0
-]
+  Steamed Milk, Butter Milk, Moca.
+Precio: 2100.0
+
