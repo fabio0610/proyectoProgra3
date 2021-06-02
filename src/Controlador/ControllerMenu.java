@@ -125,7 +125,6 @@ public class ControllerMenu {
         Path path = Paths.get("VariasFacturas.txt");
         try {
             Files.writeString(path, ordens.toString().toString(), StandardCharsets.UTF_8);
-            ordens.add(orden);
         } catch (IOException e) {
             e.printStackTrace();
         }

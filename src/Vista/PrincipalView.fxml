@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="304.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+<AnchorPane prefHeight="304.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
    <children>
       <ImageView fitHeight="369.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -45,5 +45,6 @@
       </ToggleButton>
       <ToggleButton fx:id="nuevaOrden" layoutX="36.0" layoutY="309.0" mnemonicParsing="false" onAction="#newOrder" text="Nueva Orden" toggleGroup="$factura" />
       <ToggleButton fx:id="generarFactura" layoutX="250.0" layoutY="309.0" mnemonicParsing="false" onAction="#facturar" text="Generar Factura" toggleGroup="$factura" />
+      <ToggleButton fx:id="prueba" layoutX="143.0" layoutY="254.0" mnemonicParsing="false" onAction="#facturarOrdenes" text="prueba" />
    </children>
 </AnchorPane>
