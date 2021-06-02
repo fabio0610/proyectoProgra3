@@ -118,6 +118,7 @@ public class ControllerMenu {
         try {
             Files.writeString(path, orden.print(), StandardCharsets.UTF_8);
             orders.add(orden.print());
+            facturarOrdenes();
         } catch (IOException e) {
             e.printStackTrace();
         }
