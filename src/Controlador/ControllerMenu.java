@@ -108,7 +108,7 @@ public class ControllerMenu {
 
             orden.addCoffee(expresso1);
         }
-
+        clean();
     }
 
     public void facturar() {
@@ -136,7 +136,7 @@ public class ControllerMenu {
         escritura.close();
     }
 
-    public void newOrder() {
+    public void clean(){
         lecheBatida.setSelected(true);
         lecheAlvapor.setSelected(false);
         moca.setSelected(false);
@@ -145,6 +145,9 @@ public class ControllerMenu {
         decaffeinated.setSelected(false);
         expresso.setSelected(false);
         darkRoast.setSelected(false);
+    }
+    public void newOrder() {
+        clean();
         orden.eraseAll();
     }
 }
