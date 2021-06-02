@@ -5,6 +5,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -107,27 +110,30 @@ public class ControllerMenu {
         }
 
     }
+    List<String> stringList = new ArrayList<String>();
       public void facturar(){
         orden.contador=orden.contador+1;
-       System.out.println( orden.toString());
+       System.out.println( orden.print());
        Path path= Paths.get("Factura.txt");
        try {
-           Files.writeString(path, orden.toString(), StandardCharsets.UTF_8);
-           ordens.add(orden);
+           Files.writeString(path, orden.print(), StandardCharsets.UTF_8);
+          stringList.add(orden.print());
        } catch (IOException e) {
            e.printStackTrace();
        }
-
 }
-    public void facturarOrdenes() {
-        orden.contador = orden.contador + 1;
-        System.out.println(orden.toString());
-        Path path = Paths.get("VariasFacturas.txt");
-        try {
-            Files.writeString(path, ordens.toString().toString(), StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            e.printStackTrace();
+
+    public void facturarOrdenes() throws IOException {
+
+        String ruta = "VariasFacturas.txt";
+        File f = new File(ruta);
+        FileWriter fw = new FileWriter(f);
+        BufferedWriter escritura = new BufferedWriter(fw);
+        for(int i=0;i<stringList.size();i++){
+            escritura.write(stringList.get(i));
+            escritura.newLine();
         }
+        escritura.close();
     }
 public void newOrder(){
         lecheBatida.setSelected(true);
