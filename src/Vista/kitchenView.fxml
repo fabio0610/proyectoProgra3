@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controlador.ControllerCocina"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="433.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerCocina">
+   <children>
+      <Label layoutX="134.0" layoutY="14.0" text="Cocina" textFill="#ff921e">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <ToggleButton layoutX="123.0" layoutY="359.0" mnemonicParsing="false" text="Orden finalizada" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="89.0" prefHeight="219.0" prefWidth="294.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+   </children>
 </AnchorPane>
