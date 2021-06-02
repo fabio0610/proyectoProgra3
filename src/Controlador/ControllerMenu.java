@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.*;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 
@@ -31,9 +32,23 @@ public class ControllerMenu {
     private final Orden orden = new Orden();
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
+    public Label notificaAgregado;
+    public Label alertaCafe;
+
     List<String> orders = new ArrayList<String>();
 
-    public void addToOrder() {
+    public void articuloAgre() throws InterruptedException {
+       notificaAgregado.setText("Artículo agregado");
+        notificaAgregado.setVisible(true);
+    }
+    public void alertCafe() throws InterruptedException {
+        alertaCafe.setText("Seleccione un tipo de cafe");
+        alertaCafe.setVisible(true);
+    }
+
+    public void addToOrder() throws InterruptedException {
+        alertaCafe.setText("");
+        notificaAgregado.setText("");
         if (Cafes.getSelectedToggle() == houseBlend) {
             HouseBlend houseBlend1 = new HouseBlend();
             if (lecheAlvapor.isSelected()) {
@@ -48,10 +63,9 @@ public class ControllerMenu {
             if (soya.isSelected()) {
                 houseBlend1.addDecorator(new Soy(houseBlend1));
             }
-
             orden.addCoffee(houseBlend1);
-        }
 
+        }
 
         if (Cafes.getSelectedToggle() == decaffeinated) {
             Decaffeinated decaffeinated1 = new Decaffeinated();
@@ -87,7 +101,6 @@ public class ControllerMenu {
                 darkRoast1.addDecorator(new Soy(darkRoast1));
             }
 
-
             orden.addCoffee(darkRoast1);
         }
         if (Cafes.getSelectedToggle() == expresso) {
@@ -104,11 +117,15 @@ public class ControllerMenu {
             if (soya.isSelected()) {
                 expresso1.addDecorator(new Soy(expresso1));
             }
-
-
             orden.addCoffee(expresso1);
         }
-        clean();
+        if(darkRoast.isSelected() || expresso.isSelected()|| decaffeinated.isSelected() ||houseBlend.isSelected()) {
+            articuloAgre();
+            clean();
+
+        }else{
+            alertCafe();
+        }
     }
 
     public void facturar() {
@@ -136,7 +153,7 @@ public class ControllerMenu {
         escritura.close();
     }
 
-    public void clean(){
+    public void clean() {
         lecheBatida.setSelected(true);
         lecheAlvapor.setSelected(false);
         moca.setSelected(false);

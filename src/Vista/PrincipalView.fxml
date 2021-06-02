@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="304.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+<AnchorPane prefHeight="304.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
    <children>
       <ImageView fitHeight="369.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="229.0" layoutY="14.0" text="STARBUZZ COFFEE" textFill="#edbd13">
@@ -42,5 +45,7 @@
       </ToggleButton>
       <ToggleButton fx:id="nuevaOrden" layoutX="36.0" layoutY="309.0" mnemonicParsing="false" onAction="#newOrder" text="Nueva Orden" toggleGroup="$factura" />
       <ToggleButton fx:id="generarFactura" layoutX="250.0" layoutY="309.0" mnemonicParsing="false" onAction="#facturar" text="Generar Factura" toggleGroup="$factura" />
+      <Label fx:id="notificaAgregado" layoutX="302.0" layoutY="240.0" text=" " AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="220.0" />
+      <Label fx:id="alertaCafe" layoutX="222.0" layoutY="220.0" prefHeight="17.0" prefWidth="142.0" text=" " AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="238.0" AnchorPane.topAnchor="220.0" />
    </children>
 </AnchorPane>
