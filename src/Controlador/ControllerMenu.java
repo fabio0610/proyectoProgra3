@@ -10,8 +10,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ControllerMenu<Order> {
+public class ControllerMenu {
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
     public CheckBox lecheBatida;
@@ -26,6 +28,7 @@ public class ControllerMenu<Order> {
     private final Orden orden=new Orden();
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
+    List<Orden> ordens = new ArrayList<Orden>();
 
     public void addToOrder() {
         if (Cafes.getSelectedToggle() == houseBlend) {
@@ -104,17 +107,29 @@ public class ControllerMenu<Order> {
         }
 
     }
-public void facturar(){
+      public void facturar(){
         orden.contador=orden.contador+1;
        System.out.println( orden.toString());
        Path path= Paths.get("Factura.txt");
        try {
            Files.writeString(path, orden.toString(), StandardCharsets.UTF_8);
+           ordens.add(orden);
        } catch (IOException e) {
            e.printStackTrace();
        }
 
 }
+    public void facturarOrdenes() {
+        orden.contador = orden.contador + 1;
+        System.out.println(orden.toString());
+        Path path = Paths.get("VariasFacturas.txt");
+        try {
+            Files.writeString(path, ordens.toString().toString(), StandardCharsets.UTF_8);
+            ordens.add(orden);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 public void newOrder(){
         lecheBatida.setSelected(true);
         lecheAlvapor.setSelected(false);

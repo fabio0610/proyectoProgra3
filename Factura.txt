@@ -1,7 +1,10 @@
 Orden 1:
-Cafe: House Blend 
- Steamed Milk, Butter Milk.
-Precio: 1750.0
 Cafe: Decaffeinated
- Steamed Milk, Butter Milk.
+ Butter Milk, Moca, Soy.
+Precio: 1950.0
+Cafe: House Blend 
+ Steamed Milk, Moca, Soy.
+Precio: 2000.0
+Cafe: Decaffeinated
+ Steamed Milk, Moca.
 Precio: 1450.0
