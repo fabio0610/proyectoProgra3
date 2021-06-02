@@ -28,10 +28,10 @@ public class ControllerMenu {
     public ToggleButton decaffeinated;
     public ToggleButton darkRoast;
     public ToggleButton expresso;
-    private final Orden orden=new Orden();
+    private final Orden orden = new Orden();
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
-    List<Orden> ordens = new ArrayList<Orden>();
+    List<String> orders = new ArrayList<String>();
 
     public void addToOrder() {
         if (Cafes.getSelectedToggle() == houseBlend) {
@@ -110,32 +110,32 @@ public class ControllerMenu {
         }
 
     }
-    List<String> stringList = new ArrayList<String>();
-      public void facturar(){
-        orden.contador=orden.contador+1;
-       System.out.println( orden.print());
-       Path path= Paths.get("Factura.txt");
-       try {
-           Files.writeString(path, orden.print(), StandardCharsets.UTF_8);
-          stringList.add(orden.print());
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
-}
+
+    public void facturar() {
+        orden.contador = orden.contador + 1;
+        System.out.println(orden.print());
+        Path path = Paths.get("Factura.txt");
+        try {
+            Files.writeString(path, orden.print(), StandardCharsets.UTF_8);
+            orders.add(orden.print());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void facturarOrdenes() throws IOException {
-
         String ruta = "VariasFacturas.txt";
         File f = new File(ruta);
         FileWriter fw = new FileWriter(f);
         BufferedWriter escritura = new BufferedWriter(fw);
-        for(int i=0;i<stringList.size();i++){
-            escritura.write(stringList.get(i));
+        for (int i = 0; i < orders.size(); i++) {
+            escritura.write(orders.get(i));
             escritura.newLine();
         }
         escritura.close();
     }
-public void newOrder(){
+
+    public void newOrder() {
         lecheBatida.setSelected(true);
         lecheAlvapor.setSelected(false);
         moca.setSelected(false);
@@ -145,7 +145,6 @@ public void newOrder(){
         expresso.setSelected(false);
         darkRoast.setSelected(false);
         orden.eraseAll();
-}
-
+    }
 }
 
