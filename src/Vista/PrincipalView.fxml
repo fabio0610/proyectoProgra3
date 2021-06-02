@@ -42,7 +42,7 @@
       </ToggleButton>
       <ToggleButton fx:id="nuevaOrden" layoutX="18.0" layoutY="309.0" mnemonicParsing="false" onAction="#newOrder" text="Nueva Orden" toggleGroup="$factura" />
       <ToggleButton fx:id="generarFactura" layoutX="229.0" layoutY="309.0" mnemonicParsing="false" onAction="#facturar" text="Generar Factura" toggleGroup="$factura" />
-      <Label fx:id="notificaAgregado" layoutX="208.0" layoutY="240.0" prefHeight="15.0" prefWidth="112.0" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="208.0" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="220.0">
+      <Label fx:id="notificaAgregado" layoutX="110.0" layoutY="275.0" prefHeight="15.0" prefWidth="112.0" textFill="#edbd13" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="378.0" AnchorPane.topAnchor="275.0">
          <font>
             <Font name="Bookshelf Symbol 7" size="14.0" />
          </font></Label>
