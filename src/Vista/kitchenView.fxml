@@ -11,7 +11,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <ToggleButton layoutX="123.0" layoutY="359.0" mnemonicParsing="false" text="Orden finalizada" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="89.0" prefHeight="219.0" prefWidth="294.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+      <ToggleButton fx:id="ordenFinalizada" layoutX="123.0" layoutY="359.0" mnemonicParsing="false" text="Orden finalizada" />
+      <Label fx:id="Ordenes" alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="89.0" prefHeight="219.0" prefWidth="294.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
    </children>
 </AnchorPane>
