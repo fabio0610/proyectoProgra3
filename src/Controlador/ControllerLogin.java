@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class ControllerLogin  {
+public class ControllerLogin {
     public PasswordField clave;
     public TextField field;
     public Button ingresarBoton;
@@ -24,9 +24,7 @@ public class ControllerLogin  {
 
     public void Button(ActionEvent actionEvent) throws IOException {
 
-
-
-     /*   if (clave.getText().equals("1234") & field.getText().equals("pepito")) {
+        if (clave.getText().equals("1234") & field.getText().equals("pepito")) {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
             Stage stage = new Stage();
             Scene scene = new Scene(root);
@@ -39,19 +37,16 @@ public class ControllerLogin  {
             stage2.setTitle("Kitchen");
             stage2.setScene(scene2);
             stage2.show();
-        }*/
+        }/*
         for (int i = 0; i < archivo.leerArchivo().size(); i++) {
             if (field.getText().equals(archivo.leerArchivo().get(i).getUsername()) &&
                     clave.getText().equals(archivo.leerArchivo().get(i).getPassword())) {
                 try {
-
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
                     stage.setTitle("Orders");
                     stage.setScene(scene);
                     stage.show();
-                    Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/kitchenView.fxml")));
                     Stage stage2 = new Stage();
                     Scene scene2 = new Scene(root2);
                     stage2.setTitle("Kitchen");
@@ -74,6 +69,7 @@ public class ControllerLogin  {
                 contador = 0;
             }
         }
+    }*/
     }
 }
 
