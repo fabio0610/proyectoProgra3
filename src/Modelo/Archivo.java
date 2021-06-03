@@ -31,7 +31,7 @@ public class Archivo {
 
     public List<Usuario> leerArchivo() {
         Usuario usuario;
-        File archivo = new File("C:\\Users\\teres\\Documents\\Progra III\\Contraseñas.txt");
+        File archivo = new File("Contraseñas.txt");
         FileReader lector = null;
         try {
             lector = new FileReader(archivo);

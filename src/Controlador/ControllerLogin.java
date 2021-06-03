@@ -24,8 +24,7 @@ public class ControllerLogin  {
 
     public void Button(ActionEvent actionEvent) throws IOException {
 
-        Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/kitchenView.fxml")));
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
+
 
      /*   if (clave.getText().equals("1234") & field.getText().equals("pepito")) {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
@@ -45,11 +44,14 @@ public class ControllerLogin  {
             if (field.getText().equals(archivo.leerArchivo().get(i).getUsername()) &&
                     clave.getText().equals(archivo.leerArchivo().get(i).getPassword())) {
                 try {
+
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
                     stage.setTitle("Orders");
                     stage.setScene(scene);
                     stage.show();
+                    Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/kitchenView.fxml")));
                     Stage stage2 = new Stage();
                     Scene scene2 = new Scene(root2);
                     stage2.setTitle("Kitchen");
