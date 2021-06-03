@@ -22,54 +22,47 @@ public class ControllerLogin {
     int contador = 0;
     Archivo archivo = new Archivo();
 
-    public void Button(ActionEvent actionEvent) throws IOException {
-
-        if (clave.getText().equals("1234") & field.getText().equals("pepito")) {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-            stage.setTitle("Orders");
-            stage.setScene(scene);
-            stage.show();
-            Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/kitchenView.fxml")));
-            Stage stage2 = new Stage();
-            Scene scene2 = new Scene(root2);
-            stage2.setTitle("Kitchen");
-            stage2.setScene(scene2);
-            stage2.show();
-        }/*
+    public boolean recorreLista() {
         for (int i = 0; i < archivo.leerArchivo().size(); i++) {
             if (field.getText().equals(archivo.leerArchivo().get(i).getUsername()) &&
                     clave.getText().equals(archivo.leerArchivo().get(i).getPassword())) {
-                try {
-                    Stage stage = new Stage();
-                    Scene scene = new Scene(root);
-                    stage.setTitle("Orders");
-                    stage.setScene(scene);
-                    stage.show();
-                    Stage stage2 = new Stage();
-                    Scene scene2 = new Scene(root2);
-                    stage2.setTitle("Kitchen");
-                    stage2.setScene(scene2);
-                    stage2.show();
-
-                } catch (Exception exception) {
-                    exception.printStackTrace();
-                }
-            } else if (!field.toString().equals(archivo.leerArchivo().get(i).getUsername()) &&
-                    !clave.toString().equals(archivo.leerArchivo().get(i).getPassword())) {
-                bloqueo.setText("Mensajito");
-                contador++;
-                field.clear();
-                clave.clear();
-            }
-            if (contador >= 3) {
-                bloqueo.setText("Cuenta Bloqueada");
-                ingresarBoton.setDisable(true);
-                contador = 0;
+                return true;
             }
         }
-    }*/
+        return false;
+    }
+
+    public void Button(ActionEvent actionEvent) throws IOException {
+
+
+        if (recorreLista()) {
+            try {
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setTitle("Orders");
+                stage.setScene(scene);
+                stage.show();
+                Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/kitchenView.fxml")));
+                Stage stage2 = new Stage();
+                Scene scene2 = new Scene(root2);
+                stage2.setTitle("Kitchen");
+                stage2.setScene(scene2);
+                stage2.show();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        } else {
+            bloqueo.setText("Mensajito");
+            contador++;
+            field.clear();
+            clave.clear();
+        }
+        if (contador >= 3) {
+            bloqueo.setText("Cuenta Bloqueada");
+            ingresarBoton.setDisable(true);
+            contador = 0;
+        }
     }
 }
 
