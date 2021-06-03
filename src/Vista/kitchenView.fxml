@@ -4,18 +4,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="433.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+<AnchorPane prefHeight="443.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
    <children>
-      <Label layoutX="134.0" layoutY="14.0" text="Cocina" textFill="#ff921e">
+      <Label layoutX="174.0" layoutY="14.0" prefHeight="39.0" prefWidth="85.0" text="Cocina" textFill="#ff921e">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label fx:id="ordenes" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="87.0" prefHeight="219.0" prefWidth="294.0" text="..." textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+      <Label fx:id="ordenes" alignment="CENTER" layoutX="27.0" layoutY="53.0" prefHeight="278.0" prefWidth="380.0" text="..." textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
          <graphic>
-            <ScrollBar orientation="VERTICAL" prefHeight="219.0" prefWidth="21.0" translateX="137.0" />
+            <ScrollBar orientation="VERTICAL" prefHeight="278.0" prefWidth="23.0" translateX="185.0" />
          </graphic></Label>
-      <Button fx:id="ordenFinalizada" layoutX="57.0" layoutY="375.0" mnemonicParsing="false" onAction="#OrdenLista" text="Orden Lista" />
-      <Button fx:id="actualizar" layoutX="215.0" layoutY="375.0" mnemonicParsing="false" onAction="#refresh" text="Actualizar" />
+      <Button fx:id="ordenFinalizada" layoutX="128.0" layoutY="375.0" mnemonicParsing="false" onAction="#ordenLista" text="Orden Lista" />
+      <Button fx:id="actualizar" layoutX="226.0" layoutY="375.0" mnemonicParsing="false" onAction="#refresh" text="Actualizar" />
    </children>
 </AnchorPane>

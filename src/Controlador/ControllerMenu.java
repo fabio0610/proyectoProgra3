@@ -131,21 +131,30 @@ public class ControllerMenu {
         System.out.println(orden.print());
         Path path = Paths.get("Factura.txt");
         try {
-           ListaPrueba.add(orden.print()+"\n");
+            ListaPrueba.add(orden.print() + "\n");
             Files.writeString(path, orden.print(), StandardCharsets.UTF_8);
-            if (posicion < ListaPrueba.size()) {
+          /*  if (posicion < ListaPrueba.size()) {
                 ordenes.setText(ListaPrueba.get(posicion));
                 String leerArchivo = readOrdenes();
                 leerArchivo = leerArchivo +ListaPrueba.get(posicion);
                 writeOrdenes(leerArchivo);
             } else
-                System.out.println("No sirveee");
-           // facturarOrdenes();
+                System.out.println("No sirveee");*/
+            // facturarOrdenes();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public void ordenLista() throws IOException {
+        if (posicion < ListaPrueba.size()) {
+            ordenes.setText(ListaPrueba.get(posicion));
+            String leerArchivo = readOrdenes();
+            leerArchivo = leerArchivo +ListaPrueba.get(posicion);
+            writeOrdenes(leerArchivo);
+        } else
+            System.out.println("No sirveee");
+    }
     /*public void facturarOrdenes() throws IOException {
         notificaAgregado.setText("");
         alertaCafe.setText("");
@@ -180,9 +189,6 @@ public class ControllerMenu {
         //  ordenes.setText(orders.print());
     }
 
-    public void OrdenLista() throws IOException {
-
-    }
     public String readOrdenes() throws IOException {
         String mensaje="";
         String ruta = "HistorialOrdenes.txt";

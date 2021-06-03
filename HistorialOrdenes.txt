@@ -22,3 +22,24 @@ Cafe: Expresso
 Precio: 2100.0
 
 
+Orden 1:
+Cafe: House Blend 
+ Steamed Milk, Butter Milk.
+Precio: 1750.0
+
+
+Orden 2:
+Cafe: Decaffeinated
+ Steamed Milk, Butter Milk.
+Precio: 1450.0
+
+
+Orden 1:
+Cafe: House Blend 
+ Butter Milk.
+Precio: 1700.0
+Cafe: Dark Roast
+  Butter Milk.
+Precio: 1750.0
+
+
