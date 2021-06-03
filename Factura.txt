@@ -1,7 +1,4 @@
-Orden 3:
-Cafe: Decaffeinated
- Butter Milk, Moca, Soy.
-Precio: 1950.0
+Orden 1:
 Cafe: Expresso
- Butter Milk, Moca.
-Precio: 1800.0
+ Steamed Milk, Butter Milk, Moca, Soy.
+Precio: 2100.0

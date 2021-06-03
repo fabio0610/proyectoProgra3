@@ -1,0 +1,24 @@
+Orden 1:
+Cafe: House Blend 
+ Steamed Milk, Butter Milk.
+Precio: 1750.0
+Cafe: Expresso
+ Steamed Milk, Butter Milk.
+Precio: 1550.0
+
+
+Orden 1:
+Cafe: House Blend 
+ Steamed Milk, Butter Milk.
+Precio: 1750.0
+Cafe: Decaffeinated
+ Soy.
+Precio: 1350.0
+
+
+Orden 1:
+Cafe: Expresso
+ Steamed Milk, Butter Milk, Moca, Soy.
+Precio: 2100.0
+
+

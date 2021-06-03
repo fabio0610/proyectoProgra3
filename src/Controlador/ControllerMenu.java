@@ -1,15 +1,9 @@
 package Controlador;
 
 import Modelo.*;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerMenu {
+    public int posicion=-1;
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
     public CheckBox lecheBatida;
@@ -29,13 +24,15 @@ public class ControllerMenu {
     public ToggleButton decaffeinated;
     public ToggleButton darkRoast;
     public ToggleButton expresso;
-    private final Orden orden = new Orden();
+    public final Orden orden = new Orden();
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
     public Label notificaAgregado;
     public Label alertaCafe;
-
-    List<String> orders = new ArrayList<String>();
+    public Button ordenFinalizada;
+    public Button actualizar;
+    public Label ordenes=new Label();
+    public ArrayList<String> ListaPrueba=new ArrayList<>();
 
     public void articuloAgre() throws InterruptedException {
        notificaAgregado.setText("Artículo agregado");
@@ -130,30 +127,38 @@ public class ControllerMenu {
 
     public void facturar() {
         orden.contador = orden.contador + 1;
+        posicion++;
         System.out.println(orden.print());
         Path path = Paths.get("Factura.txt");
         try {
+           ListaPrueba.add(orden.print()+"\n");
             Files.writeString(path, orden.print(), StandardCharsets.UTF_8);
-            orders.add(orden.print());
-            facturarOrdenes();
+            if (posicion < ListaPrueba.size()) {
+                ordenes.setText(ListaPrueba.get(posicion));
+                String leerArchivo = readOrdenes();
+                leerArchivo = leerArchivo +ListaPrueba.get(posicion);
+                writeOrdenes(leerArchivo);
+            } else
+                System.out.println("No sirveee");
+           // facturarOrdenes();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void facturarOrdenes() throws IOException {
+    /*public void facturarOrdenes() throws IOException {
         notificaAgregado.setText("");
         alertaCafe.setText("");
-        String ruta = "VariasFacturas.txt";
+        String ruta = "HistorialOrdenes.txt";
         File f = new File(ruta);
         FileWriter fw = new FileWriter(f);
         BufferedWriter escritura = new BufferedWriter(fw);
-        for (int i = 0; i < orders.size(); i++) {
-            escritura.write(orders.get(i));
+        for (int i = 0; i < ListaPrueba.size(); i++) {
+            escritura.write(ListaPrueba.get(i));
             escritura.newLine();
         }
         escritura.close();
-    }
+    }*/
 
     public void clean() {
         lecheBatida.setSelected(true);
@@ -168,6 +173,36 @@ public class ControllerMenu {
     public void newOrder() {
         clean();
         orden.eraseAll();
+    }
+
+    public void refresh() {
+        posicion++;
+        //  ordenes.setText(orders.print());
+    }
+
+    public void OrdenLista() throws IOException {
+
+    }
+    public String readOrdenes() throws IOException {
+        String mensaje="";
+        String ruta = "HistorialOrdenes.txt";
+        Path path =Paths.get(ruta);
+      List<String> x=Files.readAllLines(path,StandardCharsets.UTF_8);
+      for(int i=0; i<x.size();i++){
+          mensaje=mensaje+x.get(i)+"\n";
+      }
+      return mensaje;
+    }
+
+    public void writeOrdenes(String mensaje) throws IOException {
+        String ruta = "HistorialOrdenes.txt";
+        File f = new File(ruta);
+        FileWriter fw = new FileWriter(f);
+        BufferedWriter escritura = new BufferedWriter(fw);
+        escritura.write(mensaje);
+        escritura.newLine();
+
+        escritura.close();
     }
 }
 

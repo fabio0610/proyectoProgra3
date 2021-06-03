@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,8 +32,13 @@ public class ControllerLogin implements Initializable {
             Scene scene=new Scene(root);
             stage.setTitle("Orders");
             stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
+            Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/kitchenView.fxml")));
+            Stage stage2=new Stage();
+            Scene scene2=new Scene(root2);
+            stage2.setTitle("Kitchen");
+            stage2.setScene(scene2);
+            stage2.show();
     }
         else{contador++;
             bloqueo.setText("Datos Erroneos");
