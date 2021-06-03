@@ -54,5 +54,6 @@
       <Label layoutX="232.0" layoutY="51.0" text="₡ 1450" textFill="#edbd13" />
       <Label layoutX="139.0" layoutY="109.0" text="₡ 1100" textFill="#edbd13" />
       <Label layoutX="232.0" layoutY="109.0" text="₡ 1200" textFill="#edbd13" />
+      <Button fx:id="prueba" layoutX="303.0" layoutY="193.0" mnemonicParsing="false" onAction="#ordenLista" text="Button" />
    </children>
 </AnchorPane>
