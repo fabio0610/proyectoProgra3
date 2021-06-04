@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerMenu {
-    public int posicion=-1;
+    public static int posicion=-1;
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
     public CheckBox lecheBatida;
@@ -32,7 +32,7 @@ public class ControllerMenu {
     public Button ordenFinalizada;
     public Button actualizar;
     public Label ordenes=new Label();
-    public ArrayList<String> ListaPrueba=new ArrayList<>();
+    public static ArrayList<String> ListaPrueba=new ArrayList<>();
 
     public void articuloAgre() throws InterruptedException {
        notificaAgregado.setText("Artículo agregado");
@@ -133,7 +133,7 @@ public class ControllerMenu {
         try {
             ListaPrueba.add(orden.print() + "\n");
             Files.writeString(path, orden.print(), StandardCharsets.UTF_8);
-          /*  if (posicion < ListaPrueba.size()) {
+        /*  if (posicion < ListaPrueba.size()) {
                 ordenes.setText(ListaPrueba.get(posicion));
                 String leerArchivo = readOrdenes();
                 leerArchivo = leerArchivo +ListaPrueba.get(posicion);

@@ -1,4 +1,1 @@
 Orden 2:
-Cafe: Dark Roast
-  Steamed Milk, Butter Milk.
-Precio: 1800.0
