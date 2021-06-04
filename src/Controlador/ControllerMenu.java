@@ -143,28 +143,12 @@ public class ControllerMenu {
         try {
             ListaPrueba.add(orden.print() + "\n");
             Files.writeString(path, orden.print(), StandardCharsets.UTF_8);
-        /*  if (posicion < ListaPrueba.size()) {
-                ordenes.setText(ListaPrueba.get(posicion));
-                String leerArchivo = readOrdenes();
-                leerArchivo = leerArchivo +ListaPrueba.get(posicion);
-                writeOrdenes(leerArchivo);
-            } else
-                System.out.println("No sirveee");*/
-            // facturarOrdenes();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-   /* public void ordenLista() throws IOException {
-        if (posicion < ListaPrueba.size()) {
-            ordenes.setText(ListaPrueba.get(posicion));
-            String leerArchivo = readOrdenes();
-            leerArchivo = leerArchivo +ListaPrueba.get(posicion);
-            writeOrdenes(leerArchivo);
-        } else
-            System.out.println("No sirveee");
-    }*/
+
     public void ordenLista() throws IOException{
         if(posicion < ListaPrueba.size()){
             ordenes.setText(ListaPrueba.get(posicion));
@@ -176,19 +160,6 @@ public class ControllerMenu {
         else
             ordenes.setText("No hay mas pedidos aun");
     }
-    /*public void facturarOrdenes() throws IOException {
-        notificaAgregado.setText("");
-        alertaCafe.setText("");
-        String ruta = "HistorialOrdenes.txt";
-        File f = new File(ruta);
-        FileWriter fw = new FileWriter(f);
-        BufferedWriter escritura = new BufferedWriter(fw);
-        for (int i = 0; i < ListaPrueba.size(); i++) {
-            escritura.write(ListaPrueba.get(i));
-            escritura.newLine();
-        }
-        escritura.close();
-    }*/
 
     public void clean() {
         lecheBatida.setSelected(true);
@@ -213,7 +184,7 @@ public class ControllerMenu {
 
     public String readOrdenes() throws IOException {
         String mensaje="";
-        String ruta = "HistorialOrdenes.txt";
+        String ruta = "OrdenesListas.txt";
         Path path =Paths.get(ruta);
       List<String> x=Files.readAllLines(path,StandardCharsets.UTF_8);
       for(int i=0; i<x.size();i++){
@@ -223,7 +194,7 @@ public class ControllerMenu {
     }
 
     public void writeOrdenes(String mensaje) throws IOException {
-        String ruta = "HistorialOrdenes.txt";
+        String ruta = "OrdenesListas.txt";
         File f = new File(ruta);
         FileWriter fw = new FileWriter(f);
         BufferedWriter escritura = new BufferedWriter(fw);
