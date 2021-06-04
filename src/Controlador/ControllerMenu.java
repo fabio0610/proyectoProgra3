@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerMenu {
-    public static int posicion=-1;
+    public static int posicion=0;
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
     public CheckBox lecheBatida;
@@ -33,7 +33,6 @@ public class ControllerMenu {
     public Button actualizar;
     public Label ordenes=new Label();
     public static ArrayList<String> ListaPrueba=new ArrayList<>();
-    public int cont = 0;
     public CheckBox caramel;
 
     public void articuloAgre() throws InterruptedException {
@@ -139,7 +138,6 @@ public class ControllerMenu {
 
     public void facturar() {
         orden.contador = orden.contador + 1;
-        posicion++;
         System.out.println(orden.print());
         Path path = Paths.get("Factura.txt");
         try {
@@ -168,13 +166,15 @@ public class ControllerMenu {
             System.out.println("No sirveee");
     }*/
     public void ordenLista() throws IOException{
-        if(posicion-1 <= ListaPrueba.size()){
-            ordenes.setText(ListaPrueba.get(cont));
+        if(posicion < ListaPrueba.size()){
+            ordenes.setText(ListaPrueba.get(posicion));
             String leerArchivo = readOrdenes();
-            leerArchivo = leerArchivo +ListaPrueba.get(cont);
+            leerArchivo = leerArchivo +ListaPrueba.get(posicion);
             writeOrdenes(leerArchivo);
-            cont ++;
+           posicion ++;
         }
+        else
+            ordenes.setText("No hay mas pedidos aun");
     }
     /*public void facturarOrdenes() throws IOException {
         notificaAgregado.setText("");
