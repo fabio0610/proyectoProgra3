@@ -186,11 +186,15 @@ public class ControllerMenu {
         String mensaje="";
         String ruta = "OrdenesListas.txt";
         Path path =Paths.get(ruta);
+       if( Files.exists(path)){
       List<String> x=Files.readAllLines(path,StandardCharsets.UTF_8);
       for(int i=0; i<x.size();i++){
           mensaje=mensaje+x.get(i)+"\n";
       }
-      return mensaje;
+      return mensaje;}
+       else
+           writeOrdenes("");
+       return "";
     }
 
     public void writeOrdenes(String mensaje) throws IOException {
