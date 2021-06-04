@@ -34,7 +34,6 @@ public class ControllerLogin {
 
     public void Button(ActionEvent actionEvent) throws IOException {
 
-
         if (recorreLista()) {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));

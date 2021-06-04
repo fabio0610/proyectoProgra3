@@ -33,6 +33,7 @@ public class ControllerMenu {
     public Button actualizar;
     public Label ordenes=new Label();
     public static ArrayList<String> ListaPrueba=new ArrayList<>();
+    public int cont = 0;
 
     public void articuloAgre() throws InterruptedException {
        notificaAgregado.setText("Artículo agregado");
@@ -146,7 +147,7 @@ public class ControllerMenu {
         }
     }
 
-    public void ordenLista() throws IOException {
+   /* public void ordenLista() throws IOException {
         if (posicion < ListaPrueba.size()) {
             ordenes.setText(ListaPrueba.get(posicion));
             String leerArchivo = readOrdenes();
@@ -154,6 +155,15 @@ public class ControllerMenu {
             writeOrdenes(leerArchivo);
         } else
             System.out.println("No sirveee");
+    }*/
+    public void ordenLista() throws IOException{
+        if(posicion-1 <= ListaPrueba.size()){
+            ordenes.setText(ListaPrueba.get(0 + cont));
+            String leerArchivo = readOrdenes();
+            leerArchivo = leerArchivo +ListaPrueba.get(posicion-cont);
+            writeOrdenes(leerArchivo);
+            cont ++;
+        }
     }
     /*public void facturarOrdenes() throws IOException {
         notificaAgregado.setText("");
@@ -184,8 +194,10 @@ public class ControllerMenu {
         orden.eraseAll();
     }
 
-    public void refresh() {
+    public void refresh() throws IOException {
         posicion++;
+
+        ordenLista();
         //  ordenes.setText(orders.print());
     }
 
