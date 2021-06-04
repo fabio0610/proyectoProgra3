@@ -195,7 +195,7 @@ public class ControllerMenu {
     }
 
     public void refresh() throws IOException {
-        posicion++;
+      //  posicion++;
 
         ordenLista();
         //  ordenes.setText(orders.print());
