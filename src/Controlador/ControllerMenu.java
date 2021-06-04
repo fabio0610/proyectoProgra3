@@ -158,7 +158,7 @@ public class ControllerMenu {
            posicion ++;
         }
         else
-            ordenes.setText("No hay mas pedidos aun");
+            ordenes.setText("No hay mas pedidos en proceso");
     }
 
     public void clean() {
