@@ -43,12 +43,6 @@ public class ControllerLogin {
                 stage.setTitle("Orders");
                 stage.setScene(scene);
                 stage.show();
-                Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/kitchenView.fxml")));
-                Stage stage2 = new Stage();
-                Scene scene2 = new Scene(root2);
-                stage2.setTitle("Kitchen");
-                stage2.setScene(scene2);
-                stage2.show();
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
