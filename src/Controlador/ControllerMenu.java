@@ -158,7 +158,7 @@ public class ControllerMenu {
     }*/
     public void ordenLista() throws IOException{
         if(posicion-1 <= ListaPrueba.size()){
-            ordenes.setText(ListaPrueba.get(0 + cont));
+            ordenes.setText(ListaPrueba.get(cont));
             String leerArchivo = readOrdenes();
             leerArchivo = leerArchivo +ListaPrueba.get(posicion-cont);
             writeOrdenes(leerArchivo);
