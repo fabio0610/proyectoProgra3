@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerMenu {
-    public static int posicion=0;
+    public static int posicion=-1;
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
     public CheckBox lecheBatida;
@@ -33,6 +33,8 @@ public class ControllerMenu {
     public Button actualizar;
     public Label ordenes=new Label();
     public static ArrayList<String> ListaPrueba=new ArrayList<>();
+    public int cont = 0;
+    public CheckBox caramel;
 
     public void articuloAgre() throws InterruptedException {
        notificaAgregado.setText("Artículo agregado");
@@ -60,6 +62,9 @@ public class ControllerMenu {
             if (soya.isSelected()) {
                 houseBlend1.addDecorator(new Soy(houseBlend1));
             }
+            if (caramel.isSelected()){
+                houseBlend1.addDecorator(new Caramel(houseBlend1));
+            }
             orden.addCoffee(houseBlend1);
 
         }
@@ -78,7 +83,9 @@ public class ControllerMenu {
             if (soya.isSelected()) {
                 decaffeinated1.addDecorator(new Soy(decaffeinated1));
             }
-
+            if (caramel.isSelected()){
+                decaffeinated1.addDecorator(new Caramel(decaffeinated1));
+            }
 
             orden.addCoffee(decaffeinated1);
         }
@@ -97,7 +104,9 @@ public class ControllerMenu {
             if (soya.isSelected()) {
                 darkRoast1.addDecorator(new Soy(darkRoast1));
             }
-
+            if (caramel.isSelected()) {
+                darkRoast1.addDecorator(new Caramel(darkRoast1));
+            }
             orden.addCoffee(darkRoast1);
         }
         if (Cafes.getSelectedToggle() == expresso) {
@@ -114,6 +123,9 @@ public class ControllerMenu {
             if (soya.isSelected()) {
                 expresso1.addDecorator(new Soy(expresso1));
             }
+            if(caramel.isSelected()){
+                expresso1.addDecorator(new Caramel(expresso1));
+            }
             orden.addCoffee(expresso1);
         }
         if(darkRoast.isSelected() || expresso.isSelected()|| decaffeinated.isSelected() ||houseBlend.isSelected()) {
@@ -127,6 +139,7 @@ public class ControllerMenu {
 
     public void facturar() {
         orden.contador = orden.contador + 1;
+        posicion++;
         System.out.println(orden.print());
         Path path = Paths.get("Factura.txt");
         try {
@@ -154,15 +167,14 @@ public class ControllerMenu {
         } else
             System.out.println("No sirveee");
     }*/
-    public void ordenLista() throws IOException {
-        if(posicion < ListaPrueba.size()){
-            ordenes.setText(ListaPrueba.get(posicion));
+    public void ordenLista() throws IOException{
+        if(posicion-1 <= ListaPrueba.size()){
+            ordenes.setText(ListaPrueba.get(cont));
             String leerArchivo = readOrdenes();
-            leerArchivo = leerArchivo +ListaPrueba.get(posicion);
+            leerArchivo = leerArchivo +ListaPrueba.get(cont);
             writeOrdenes(leerArchivo);
-            posicion++;
+            cont ++;
         }
-        else ordenes.setText("No hay mas pedidos");
     }
     /*public void facturarOrdenes() throws IOException {
         notificaAgregado.setText("");
@@ -187,6 +199,7 @@ public class ControllerMenu {
         decaffeinated.setSelected(false);
         expresso.setSelected(false);
         darkRoast.setSelected(false);
+        caramel.setSelected(false);
     }
     public void newOrder() {
         clean();

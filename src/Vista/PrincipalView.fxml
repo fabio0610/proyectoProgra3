@@ -18,8 +18,8 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <CheckBox fx:id="lecheAlvapor" layoutX="107.0" layoutY="179.0" mnemonicParsing="false" text="Leche al Vapor           ₡50" textFill="#e85058" />
-      <Label layoutX="18.0" layoutY="202.0" text="Adicionales" textFill="#edbd13">
+      <CheckBox fx:id="lecheAlvapor" layoutX="107.0" layoutY="160.0" mnemonicParsing="false" text="Leche al Vapor           ₡50" textFill="#e85058" />
+      <Label layoutX="18.0" layoutY="196.0" text="Adicionales" textFill="#edbd13">
          <font>
             <Font size="14.0" />
          </font>
@@ -54,6 +54,6 @@
       <Label layoutX="232.0" layoutY="51.0" text="₡ 1450" textFill="#edbd13" />
       <Label layoutX="139.0" layoutY="109.0" text="₡ 1100" textFill="#edbd13" />
       <Label layoutX="232.0" layoutY="109.0" text="₡ 1200" textFill="#edbd13" />
-      <Button fx:id="prueba" layoutX="303.0" layoutY="193.0" mnemonicParsing="false" onAction="#ordenLista" text="Button" />
+      <CheckBox fx:id="caramel" layoutX="107.0" layoutY="179.0" mnemonicParsing="false" text="Caramelo                   ₡100" textFill="#e85058" />
    </children>
 </AnchorPane>
