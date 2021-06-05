@@ -1,10 +1,7 @@
 ----------------------
-Orden 1:
-Cafe House Blend 
-con: Steamed Milk, Butter Milk, Caramel
-Precio: 1850.0₡
+Orden 3:
 Cafe Decaffeinated
 con: Steamed Milk, Butter Milk
-Precio: 1450.0₡
+Precio: ₡1450.0
 Vendedor: Sebas
 ----------------------

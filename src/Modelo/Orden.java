@@ -17,16 +17,12 @@ cafelist=new ArrayList<>();
         cafelist.clear();
     }
 
-    public void rmCoffee(AbstractCoffee coffee){
-        cafelist.remove(coffee);
-    }
-
 
     public String print(){
         StringBuilder mensaje = new StringBuilder("----------------------\n"+"Orden "+ contador+":\n");
         for(int i = 0; i < cafelist.size();i++){
            mensaje.append("Cafe ").append(cafelist.get(i).getTipo().replaceFirst(",", "con:")).
-                   append("\n").append("Precio: ").append(cafelist.get(i).getPrecio()).append("₡").append("\n");
+                   append("\n").append("Precio: ").append("₡").append(cafelist.get(i).getPrecio()).append("\n");
         }
         return mensaje.toString();
     }

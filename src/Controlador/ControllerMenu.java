@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.*;
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 import java.io.BufferedWriter;
@@ -45,15 +46,11 @@ public class ControllerMenu implements DataManagement {
         notificaAgregado.setVisible(true);
     }
 
-    public void alertCafe() throws InterruptedException {
-        alertaCafe.setText("Seleccione un tipo de cafe");
-        alertaCafe.setVisible(true);
-    }
 
     public void addToOrder() throws InterruptedException {
         generarFactura.setDisable(false);
-        alertaCafe.setText("");
         notificaAgregado.setText("");
+        nuevaOrden.setDisable(false);
         if (Cafes.getSelectedToggle() == houseBlend) {
             HouseBlend houseBlend1 = new HouseBlend();
             if (lecheAlvapor.isSelected()) {
@@ -138,14 +135,14 @@ public class ControllerMenu implements DataManagement {
             articuloAgre();
             clean();
 
-        } else {
-            alertCafe();
         }
+        agregarOrden.setDisable(true);
+
     }
 
     public void facturar() {
         if(empleadoNombre.getText()==null || empleadoNombre.getText().equals(""))
-            empleadoNombre.setText("no se ingreso...");
+            empleadoNombre.setText("No se ingreso...");
         orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
         String pedido=orden.print() +"Vendedor: "+ empleadoNombre.getText()+"\n"+"----------------------\n";
@@ -157,7 +154,12 @@ public class ControllerMenu implements DataManagement {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        nuevaOrden.setDisable(false);
+        generarFactura.setDisable(true);
+        agregarOrden.setDisable(true);
+        decaffeinated.setDisable(true);
+        expresso.setDisable(true);
+        darkRoast.setDisable(true);
+        houseBlend.setDisable(true);
         notificaAgregado.setText("");
     }
 
@@ -165,13 +167,13 @@ public class ControllerMenu implements DataManagement {
     public void ordenLista() throws IOException {
         estadoDeOrden.setText("Estado de orden: Listo");
         if (posicion < ListaPrueba.size()) {
-            ordenes.setText(ListaPrueba.get(posicion));
             String leerArchivo = readOrdenes();
             leerArchivo = leerArchivo + ListaPrueba.get(posicion);
             writeOrdenes(leerArchivo);
             posicion++;
             ordenFinalizada.setDisable(true);
         }
+        actualizar.setDisable(false);
     }
 
     public void clean() {
@@ -188,17 +190,32 @@ public class ControllerMenu implements DataManagement {
 
     public void newOrder() {
         clean();
+        agregarOrden.setDisable(true);
+        generarFactura.setDisable(true);
+        nuevaOrden.setDisable(true);
+        decaffeinated.setDisable(false);
+        expresso.setDisable(false);
+        darkRoast.setDisable(false);
+        houseBlend.setDisable(false);
         orden.eraseAll();
     }
 
     public void refresh() throws IOException {
-        estadoDeOrden.setText("Estado de orden: Pendiente...");
+        if(ListaPrueba.size()<=0){
+            estadoDeOrden.setText("Esperando Ordenes...");
+        }
+        else{
         ordenFinalizada.setDisable(false);
         if (posicion < ListaPrueba.size()) {
+                estadoDeOrden.setText("Estado de orden: Pendiente...");
             ordenes.setText(ListaPrueba.get(posicion));
-            posicion++;
-        } else
-            ordenes.setText("No hay mas pedidos en proceso");
+            if(posicion>=0)
+                actualizar.setDisable(true);
+
+        } else{
+            ordenFinalizada.setDisable(true);
+            estadoDeOrden.setText("");
+            ordenes.setText("No hay mas pedidos en proceso");}}
     }
 
     @Override
@@ -227,6 +244,38 @@ public class ControllerMenu implements DataManagement {
         escritura.newLine();
 
         escritura.close();
+    }
+
+    public void DecaffeinatedAction(ActionEvent actionEvent) {
+        if(decaffeinated.isSelected())
+            agregarOrden.setDisable(false);
+        else
+            if(!decaffeinated.isSelected())
+                agregarOrden.setDisable(true);
+    }
+
+    public void DarkroastAction(ActionEvent actionEvent) {
+        if(darkRoast.isSelected())
+            agregarOrden.setDisable(false);
+        else
+        if(!darkRoast.isSelected())
+            agregarOrden.setDisable(true);
+    }
+
+    public void ExpressoAction(ActionEvent actionEvent) {
+        if(expresso.isSelected())
+            agregarOrden.setDisable(false);
+        else
+        if(!expresso.isSelected())
+            agregarOrden.setDisable(true);
+    }
+
+    public void houseBlendAction(ActionEvent actionEvent) {
+        if(houseBlend.isSelected())
+            agregarOrden.setDisable(false);
+        else
+        if(!houseBlend.isSelected())
+            agregarOrden.setDisable(true);
     }
 }
 
