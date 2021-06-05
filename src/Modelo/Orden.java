@@ -25,7 +25,9 @@ cafelist=new ArrayList<>();
     public String print(){
         StringBuilder mensaje = new StringBuilder("Orden "+ contador+":\n");
         for(int i = 0; i < cafelist.size();i++){
-           mensaje.append("Cafe: ").append(cafelist.get(i).getTipo().replaceFirst(",", "")).append(".").append("\n").append("Precio: ").append(cafelist.get(i).getPrecio()).append("\n");
+           mensaje.append("Cafe: ").append(cafelist.get(i).getTipo().replaceFirst(",", "")).append(".").
+                   append("₡").
+                   append("\n").append("Precio: ").append(cafelist.get(i).getPrecio()).append("\n");
         }
         return mensaje.toString();
     }

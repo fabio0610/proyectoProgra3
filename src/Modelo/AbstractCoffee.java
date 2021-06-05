@@ -4,6 +4,7 @@ package Modelo;
 public abstract class AbstractCoffee {
     double precio;
     String tipo;
+
     public void addDecorator(Decorator decorator) {
 
     }

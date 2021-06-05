@@ -3,7 +3,10 @@ package Controlador;
 import Modelo.*;
 import javafx.scene.control.*;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerMenu implements DataManagement {
-    public static int posicion=0;
+    public static int posicion = 0;
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
     public CheckBox lecheBatida;
@@ -31,14 +34,15 @@ public class ControllerMenu implements DataManagement {
     public Label alertaCafe;
     public Button ordenFinalizada;
     public Button actualizar;
-    public Label ordenes=new Label();
-    public static ArrayList<String> ListaPrueba=new ArrayList<>();
+    public Label ordenes = new Label();
+    public static ArrayList<String> ListaPrueba = new ArrayList<>();
     public CheckBox caramel;
 
     public void articuloAgre() throws InterruptedException {
-       notificaAgregado.setText("Artículo agregado");
+        notificaAgregado.setText("Artículo agregado");
         notificaAgregado.setVisible(true);
     }
+
     public void alertCafe() throws InterruptedException {
         alertaCafe.setText("Seleccione un tipo de cafe");
         alertaCafe.setVisible(true);
@@ -61,7 +65,7 @@ public class ControllerMenu implements DataManagement {
             if (soya.isSelected()) {
                 houseBlend1.addDecorator(new Soy(houseBlend1));
             }
-            if (caramel.isSelected()){
+            if (caramel.isSelected()) {
                 houseBlend1.addDecorator(new Caramel(houseBlend1));
             }
             orden.addCoffee(houseBlend1);
@@ -82,7 +86,7 @@ public class ControllerMenu implements DataManagement {
             if (soya.isSelected()) {
                 decaffeinated1.addDecorator(new Soy(decaffeinated1));
             }
-            if (caramel.isSelected()){
+            if (caramel.isSelected()) {
                 decaffeinated1.addDecorator(new Caramel(decaffeinated1));
             }
 
@@ -122,16 +126,16 @@ public class ControllerMenu implements DataManagement {
             if (soya.isSelected()) {
                 expresso1.addDecorator(new Soy(expresso1));
             }
-            if(caramel.isSelected()){
+            if (caramel.isSelected()) {
                 expresso1.addDecorator(new Caramel(expresso1));
             }
             orden.addCoffee(expresso1);
         }
-        if(darkRoast.isSelected() || expresso.isSelected()|| decaffeinated.isSelected() ||houseBlend.isSelected()) {
+        if (darkRoast.isSelected() || expresso.isSelected() || decaffeinated.isSelected() || houseBlend.isSelected()) {
             articuloAgre();
             clean();
 
-        }else{
+        } else {
             alertCafe();
         }
     }
@@ -149,15 +153,14 @@ public class ControllerMenu implements DataManagement {
     }
 
 
-    public void ordenLista() throws IOException{
-        if(posicion < ListaPrueba.size()){
+    public void ordenLista() throws IOException {
+        if (posicion < ListaPrueba.size()) {
             ordenes.setText(ListaPrueba.get(posicion));
             String leerArchivo = readOrdenes();
-            leerArchivo = leerArchivo +ListaPrueba.get(posicion);
+            leerArchivo = leerArchivo + ListaPrueba.get(posicion);
             writeOrdenes(leerArchivo);
-           posicion ++;
-        }
-        else
+            posicion++;
+        } else
             ordenes.setText("No hay mas pedidos en proceso");
     }
 
@@ -172,6 +175,7 @@ public class ControllerMenu implements DataManagement {
         darkRoast.setSelected(false);
         caramel.setSelected(false);
     }
+
     public void newOrder() {
         clean();
         orden.eraseAll();
@@ -181,22 +185,24 @@ public class ControllerMenu implements DataManagement {
         ordenLista();
         //  ordenes.setText(orders.print());
     }
-@Override
+
+    @Override
     public String readOrdenes() throws IOException {
-        String mensaje="";
+        String mensaje = "";
         String ruta = "OrdenesListas.txt";
-        Path path =Paths.get(ruta);
-       if( Files.exists(path)){
-      List<String> x=Files.readAllLines(path,StandardCharsets.UTF_8);
-      for(int i=0; i<x.size();i++){
-          mensaje=mensaje+x.get(i)+"\n";
-      }
-      return mensaje;}
-       else
-           writeOrdenes("");
-       return "";
+        Path path = Paths.get(ruta);
+        if (Files.exists(path)) {
+            List<String> x = Files.readAllLines(path, StandardCharsets.UTF_8);
+            for (int i = 0; i < x.size(); i++) {
+                mensaje = mensaje + x.get(i) + "\n";
+            }
+            return mensaje;
+        } else
+            writeOrdenes("");
+        return "";
     }
-@Override
+
+    @Override
     public void writeOrdenes(String mensaje) throws IOException {
         String ruta = "OrdenesListas.txt";
         File f = new File(ruta);

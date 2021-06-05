@@ -22,6 +22,7 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+
 public class ControllerLogin implements DataManagement {
     public PasswordField clave;
     public TextField field;
@@ -29,14 +30,14 @@ public class ControllerLogin implements DataManagement {
     public Label bloqueo;
     int contador = 0;
     Archivo archivo = new Archivo();
-   LocalDate fecha=LocalDate.now();
+    LocalDate fecha = LocalDate.now();
 
-public void escribirFecha() throws IOException {
-    int dia=(int)Math.floor((Math.floor(Math.random()*(30-1-1)+1)));
-    int mes=(int)Math.floor((Math.floor(Math.random()*(12-1-1)+1)));
-    String leerArchivo = readOrdenes();
-    leerArchivo=leerArchivo+(fecha.getDayOfMonth()+"/"+fecha.getMonthValue()+"/2021\n");
-    writeOrdenes(leerArchivo);
+    public void escribirFecha() throws IOException {
+        int dia = (int) Math.floor((Math.floor(Math.random() * (30 - 1 - 1) + 1)));
+        int mes = (int) Math.floor((Math.floor(Math.random() * (12 - 1 - 1) + 1)));
+        String leerArchivo = readOrdenes();
+        leerArchivo = leerArchivo + (fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021\n");
+        writeOrdenes(leerArchivo);
     }
 
     public boolean recorreLista() {
@@ -58,7 +59,7 @@ public void escribirFecha() throws IOException {
                 stage.setTitle("Orders");
                 stage.setScene(scene);
                 stage.show();
-               escribirFecha();
+                escribirFecha();
 
             } catch (Exception exception) {
                 exception.printStackTrace();
@@ -75,21 +76,23 @@ public void escribirFecha() throws IOException {
             contador = 0;
         }
     }
+
     @Override
     public String readOrdenes() throws IOException {
-        String mensaje="";
+        String mensaje = "";
         String ruta = "OrdenesListas.txt";
         Path path = Paths.get(ruta);
-        if( Files.exists(path)){
-            List<String> x=Files.readAllLines(path, StandardCharsets.UTF_8);
-            for(int i=0; i<x.size();i++){
-                mensaje=mensaje+x.get(i)+"\n";
+        if (Files.exists(path)) {
+            List<String> x = Files.readAllLines(path, StandardCharsets.UTF_8);
+            for (int i = 0; i < x.size(); i++) {
+                mensaje = mensaje + x.get(i) + "\n";
             }
-            return mensaje;}
-        else
+            return mensaje;
+        } else
             writeOrdenes("");
         return "";
     }
+
     @Override
     public void writeOrdenes(String mensaje) throws IOException {
         String ruta = "OrdenesListas.txt";

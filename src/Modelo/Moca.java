@@ -1,10 +1,11 @@
 package Modelo;
+
 public class Moca extends Decorator {
 
     public Moca(AbstractCoffee coffee) {
         super(coffee);
     }
-    
+
     @Override
     public String getTipo() {
         return ("Moca");
@@ -12,7 +13,7 @@ public class Moca extends Decorator {
 
     @Override
     public double getPrecio() {
-        return ( 300);
+        return (300);
     }
 
 }

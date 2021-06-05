@@ -1,4 +1,5 @@
 package Modelo;
+
 public class Soy extends Decorator {
 
     public Soy(AbstractCoffee coffee) {
@@ -7,12 +8,12 @@ public class Soy extends Decorator {
 
     @Override
     public double getPrecio() {
-        return ( 250);
+        return (250);
     }
 
     @Override
     public String getTipo() {
         return ("Soy");
     }
-  
+
 }

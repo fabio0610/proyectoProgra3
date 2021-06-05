@@ -2,6 +2,7 @@ package Modelo;
 
 public abstract class Decorator {
     private AbstractCoffee coffee;
+
     public AbstractCoffee getCoffee() {
         return this.coffee;
     }

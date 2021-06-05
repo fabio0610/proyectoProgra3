@@ -2,7 +2,7 @@ package Modelo;
 
 public class SteamedMilk extends Decorator {
 
-    
+
     @Override
     public String getTipo() {
         return ("Steamed Milk");
