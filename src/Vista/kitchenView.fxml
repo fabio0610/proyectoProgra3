@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="443.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+<AnchorPane prefHeight="443.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4bb93" height="450.0" layoutX="-7.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="447.0" />
       <Label layoutX="155.0" prefHeight="45.0" prefWidth="194.0" text="Cocina" textFill="#482f24">
@@ -13,14 +13,14 @@
             <Font name="Gabriola" size="49.0" />
          </font>
       </Label>
-      <Label fx:id="ordenes" alignment="CENTER" layoutX="27.0" layoutY="109.0" prefHeight="249.0" prefWidth="380.0" text="..." textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
-      <Button fx:id="ordenFinalizada" disable="true" layoutX="112.0" layoutY="375.0" mnemonicParsing="false" onAction="#ordenLista" style="-fx-background-color: #745437;" text="Orden Lista" textFill="WHITE">
+      <Label fx:id="ordenes" alignment="CENTER" layoutX="27.0" layoutY="80.0" prefHeight="249.0" prefWidth="380.0" text="..." textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+      <Button fx:id="ordenFinalizada" disable="true" layoutX="220.0" layoutY="355.0" mnemonicParsing="false" onAction="#ordenLista" style="-fx-background-color: #745437;" text="Completar orden" textFill="WHITE">
          <font>
-            <Font name="Gabriola" size="17.0" />
+            <Font name="Gabriola" size="20.0" />
          </font></Button>
-      <Button fx:id="actualizar" layoutX="227.0" layoutY="375.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #745437;" text="Actualizar" textFill="WHITE">
+      <Button fx:id="actualizar" layoutX="81.0" layoutY="355.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #745437;" text="Obtener orden" textFill="WHITE">
          <font>
-            <Font name="Gabriola" size="17.0" />
+            <Font name="Gabriola" size="20.0" />
          </font></Button>
       <Line endX="100.0" layoutX="216.0" layoutY="54.0" startX="-100.0" stroke="#482f24" strokeWidth="2.0" />
       <Label fx:id="estadoDeOrden" layoutX="27.0" layoutY="67.0" prefHeight="43.0" prefWidth="270.0">
