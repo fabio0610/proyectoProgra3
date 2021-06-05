@@ -64,7 +64,7 @@
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font></ToggleButton>
-      <ToggleButton fx:id="agregarOrden" layoutX="235.0" layoutY="350.0" mnemonicParsing="false" onAction="#addToOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Agregar Orden" textFill="#482f24">
+      <ToggleButton fx:id="agregarOrden" disable="true" layoutX="235.0" layoutY="350.0" mnemonicParsing="false" onAction="#addToOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Agregar Orden" textFill="#482f24">
          <toggleGroup>
             <ToggleGroup fx:id="factura" />
          </toggleGroup>
@@ -72,21 +72,17 @@
             <Font name="Times New Roman Bold" size="13.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="nuevaOrden" layoutX="98.0" layoutY="350.0" mnemonicParsing="false" onAction="#newOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Nueva Orden" textFill="#482f24" toggleGroup="$factura">
+      <ToggleButton fx:id="nuevaOrden" disable="true" layoutX="98.0" layoutY="350.0" mnemonicParsing="false" onAction="#newOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Nueva Orden" textFill="#482f24" toggleGroup="$factura">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></ToggleButton>
-      <ToggleButton fx:id="generarFactura" layoutX="379.0" layoutY="350.0" mnemonicParsing="false" onAction="#facturar" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Generar Factura" textFill="#482f24" toggleGroup="$factura">
+      <ToggleButton fx:id="generarFactura" disable="true" layoutX="379.0" layoutY="350.0" mnemonicParsing="false" onAction="#facturar" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Generar Factura" textFill="#482f24" toggleGroup="$factura">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></ToggleButton>
-      <Label fx:id="notificaAgregado" layoutX="229.0" layoutY="295.0" prefHeight="24.0" prefWidth="115.0" text="Articulo agregado" textFill="#482f24" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="229.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="295.0">
+      <Label fx:id="notificaAgregado" layoutX="229.0" layoutY="295.0" prefHeight="24.0" prefWidth="115.0" textFill="#482f24" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="229.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="295.0">
          <font>
             <Font name="Times New Roman Bold" size="14.0" />
-         </font></Label>
-      <Label fx:id="alertaCafe" layoutX="205.0" layoutY="294.0" prefHeight="25.0" prefWidth="162.0" textFill="#edbd13" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="224.0" AnchorPane.topAnchor="294.0">
-         <font>
-            <Font name="Bookshelf Symbol 7" size="14.0" />
          </font></Label>
       <Label layoutX="121.0" layoutY="80.0" prefHeight="15.0" prefWidth="43.0" text="₡ 1400" textFill="#482f24">
          <font>

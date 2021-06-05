@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="443.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+<AnchorPane prefHeight="443.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4bb93" height="450.0" layoutX="-7.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="447.0" />
       <Label layoutX="155.0" prefHeight="45.0" prefWidth="194.0" text="Cocina" textFill="#482f24">
@@ -13,11 +13,8 @@
             <Font name="Gabriola" size="49.0" />
          </font>
       </Label>
-      <Label fx:id="ordenes" alignment="CENTER" layoutX="27.0" layoutY="63.0" prefHeight="295.0" prefWidth="380.0" text="..." textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
-         <graphic>
-            <ScrollBar orientation="VERTICAL" prefHeight="284.0" prefWidth="23.0" style="-fx-background-color: #745437;" translateX="185.0" />
-         </graphic></Label>
-      <Button fx:id="ordenFinalizada" layoutX="112.0" layoutY="375.0" mnemonicParsing="false" onAction="#ordenLista" style="-fx-background-color: #745437;" text="Orden Lista" textFill="WHITE">
+      <Label fx:id="ordenes" alignment="CENTER" layoutX="27.0" layoutY="109.0" prefHeight="249.0" prefWidth="380.0" text="..." textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+      <Button fx:id="ordenFinalizada" disable="true" layoutX="112.0" layoutY="375.0" mnemonicParsing="false" onAction="#ordenLista" style="-fx-background-color: #745437;" text="Orden Lista" textFill="WHITE">
          <font>
             <Font name="Gabriola" size="17.0" />
          </font></Button>
@@ -26,5 +23,10 @@
             <Font name="Gabriola" size="17.0" />
          </font></Button>
       <Line endX="100.0" layoutX="216.0" layoutY="54.0" startX="-100.0" stroke="#482f24" strokeWidth="2.0" />
+      <Label fx:id="estadoDeOrden" layoutX="27.0" layoutY="67.0" prefHeight="43.0" prefWidth="270.0">
+         <font>
+            <Font name="Droid Sans Mono" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

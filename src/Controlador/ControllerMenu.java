@@ -38,6 +38,7 @@ public class ControllerMenu implements DataManagement {
     public static ArrayList<String> ListaPrueba = new ArrayList<>();
     public CheckBox caramel;
     public TextField empleadoNombre=new TextField();
+    public Label estadoDeOrden=new Label();
 
     public void articuloAgre() throws InterruptedException {
         notificaAgregado.setText("Artículo agregado");
@@ -50,6 +51,7 @@ public class ControllerMenu implements DataManagement {
     }
 
     public void addToOrder() throws InterruptedException {
+        generarFactura.setDisable(false);
         alertaCafe.setText("");
         notificaAgregado.setText("");
         if (Cafes.getSelectedToggle() == houseBlend) {
@@ -155,18 +157,21 @@ public class ControllerMenu implements DataManagement {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        nuevaOrden.setDisable(false);
+        notificaAgregado.setText("");
     }
 
 
     public void ordenLista() throws IOException {
+        estadoDeOrden.setText("Estado de orden: Listo");
         if (posicion < ListaPrueba.size()) {
             ordenes.setText(ListaPrueba.get(posicion));
             String leerArchivo = readOrdenes();
             leerArchivo = leerArchivo + ListaPrueba.get(posicion);
             writeOrdenes(leerArchivo);
             posicion++;
-        } else
-            ordenes.setText("No hay mas pedidos en proceso");
+            ordenFinalizada.setDisable(true);
+        }
     }
 
     public void clean() {
@@ -187,8 +192,13 @@ public class ControllerMenu implements DataManagement {
     }
 
     public void refresh() throws IOException {
-        ordenLista();
-        //  ordenes.setText(orders.print());
+        estadoDeOrden.setText("Estado de orden: Pendiente...");
+        ordenFinalizada.setDisable(false);
+        if (posicion < ListaPrueba.size()) {
+            ordenes.setText(ListaPrueba.get(posicion));
+            posicion++;
+        } else
+            ordenes.setText("No hay mas pedidos en proceso");
     }
 
     @Override
