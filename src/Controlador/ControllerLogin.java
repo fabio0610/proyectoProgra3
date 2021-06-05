@@ -19,10 +19,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
-
 public class ControllerLogin implements DataManagement {
     public PasswordField clave;
     public TextField field;
@@ -30,13 +29,13 @@ public class ControllerLogin implements DataManagement {
     public Label bloqueo;
     int contador = 0;
     Archivo archivo = new Archivo();
-    Random rand = new Random();
+   LocalDate fecha=LocalDate.now();
 
 public void escribirFecha() throws IOException {
     int dia=(int)Math.floor((Math.floor(Math.random()*(30-1-1)+1)));
     int mes=(int)Math.floor((Math.floor(Math.random()*(12-1-1)+1)));
     String leerArchivo = readOrdenes();
-    leerArchivo=leerArchivo+(dia+"/"+mes+"/2021\n");
+    leerArchivo=leerArchivo+(fecha.getDayOfMonth()+"/"+fecha.getMonthValue()+"/2021\n");
     writeOrdenes(leerArchivo);
     }
 
