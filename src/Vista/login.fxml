@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="311.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerLogin">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="311.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerLogin">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1b47a" height="97.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="330.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" prefHeight="97.0" prefWidth="338.0" text="Bienvenido" textAlignment="CENTER" textOverrun="CLIP">
@@ -16,7 +16,7 @@
       <TextField fx:id="field" layoutX="105.0" layoutY="123.0" promptText="Ej: Pepito1234" />
       <Label layoutX="48.0" layoutY="127.0" text="Usuario" />
       <Label layoutX="39.0" layoutY="183.0" text="Contraseña" />
-      <Label fx:id="bloqueo" layoutX="104.0" layoutY="213.0" prefHeight="26.0" prefWidth="140.0">
+      <Label fx:id="bloqueo" alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="213.0" prefHeight="26.0" prefWidth="140.0" AnchorPane.bottomAnchor="71.6" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="86.0">
          <font>
             <Font name="Fira Code Medium" size="14.0" />
          </font></Label>
