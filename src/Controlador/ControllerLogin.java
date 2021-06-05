@@ -31,17 +31,14 @@ public class ControllerLogin implements DataManagement {
     int contador = 0;
     Archivo archivo = new Archivo();
     LocalDate fecha = LocalDate.now();
-
+    int tam = archivo.leerArchivo().size();
     public void escribirFecha() throws IOException {
-        int dia = (int) Math.floor((Math.floor(Math.random() * (30 - 1 - 1) + 1)));
-        int mes = (int) Math.floor((Math.floor(Math.random() * (12 - 1 - 1) + 1)));
         String leerArchivo = readOrdenes();
         leerArchivo = leerArchivo + (fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021\n");
         writeOrdenes(leerArchivo);
     }
 
     public boolean revisaLista() {
-        int tam = archivo.leerArchivo().size();
         for (int i = 0; i < tam; i++) {
             if (field.getText().equals(archivo.leerArchivo().get(i).getUsername()) &&
                     clave.getText().equals(archivo.leerArchivo().get(i).getPassword())) {
@@ -66,8 +63,8 @@ public class ControllerLogin implements DataManagement {
                 exception.printStackTrace();
             }
         } else {
-            bloqueo.setText("NO mame");
             contador++;
+            bloqueo.setText("Datos Erroneos");
             field.clear();
             clave.clear();
             if (contador >= 3) {
