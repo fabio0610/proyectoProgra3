@@ -1,6 +1,6 @@
-3/3/2021
-
 Orden 1:
-Cafe: House Blend 
- Steamed Milk, Butter Milk, Moca, Soy, Caramel.
-Precio: 2400.0
+Cafe: Dark Roast
+  Steamed Milk, Butter Milk.
+Precio: 1800.0
+
+
