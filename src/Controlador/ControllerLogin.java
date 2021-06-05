@@ -40,8 +40,9 @@ public class ControllerLogin implements DataManagement {
         writeOrdenes(leerArchivo);
     }
 
-    public boolean recorreLista() {
-        for (int i = 0; i < archivo.leerArchivo().size(); i++) {
+    public boolean revisaLista() {
+        int tam = archivo.leerArchivo().size();
+        for (int i = 0; i < tam; i++) {
             if (field.getText().equals(archivo.leerArchivo().get(i).getUsername()) &&
                     clave.getText().equals(archivo.leerArchivo().get(i).getPassword())) {
                 return true;
@@ -51,7 +52,7 @@ public class ControllerLogin implements DataManagement {
     }
 
     public void Button(ActionEvent actionEvent) {
-        if (recorreLista()) {
+        if (revisaLista()) {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
                 Stage stage = new Stage();
@@ -65,15 +66,15 @@ public class ControllerLogin implements DataManagement {
                 exception.printStackTrace();
             }
         } else {
-            bloqueo.setText("Mensajito");
+            bloqueo.setText("NO mame");
             contador++;
             field.clear();
             clave.clear();
-        }
-        if (contador >= 3) {
-            bloqueo.setText("Cuenta Bloqueada");
-            ingresarBoton.setDisable(true);
-            contador = 0;
+            if (contador >= 3) {
+                bloqueo.setText("Cuenta Bloqueada");
+                ingresarBoton.setDisable(true);
+                contador = 0;
+            }
         }
     }
 
