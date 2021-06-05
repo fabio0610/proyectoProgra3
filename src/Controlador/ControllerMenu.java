@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControllerMenu {
+public class ControllerMenu implements DataManagement {
     public static int posicion=0;
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
@@ -181,7 +181,7 @@ public class ControllerMenu {
         ordenLista();
         //  ordenes.setText(orders.print());
     }
-
+@Override
     public String readOrdenes() throws IOException {
         String mensaje="";
         String ruta = "OrdenesListas.txt";
@@ -196,7 +196,7 @@ public class ControllerMenu {
            writeOrdenes("");
        return "";
     }
-
+@Override
     public void writeOrdenes(String mensaje) throws IOException {
         String ruta = "OrdenesListas.txt";
         File f = new File(ruta);

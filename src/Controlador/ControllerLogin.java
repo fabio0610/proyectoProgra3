@@ -11,16 +11,34 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
-public class ControllerLogin {
+public class ControllerLogin implements DataManagement {
     public PasswordField clave;
     public TextField field;
     public Button ingresarBoton;
     public Label bloqueo;
     int contador = 0;
     Archivo archivo = new Archivo();
+    Random rand = new Random();
+
+public void escribirFecha() throws IOException {
+    int dia=(int)Math.floor((Math.floor(Math.random()*(30-1-1)+1)));
+    int mes=(int)Math.floor((Math.floor(Math.random()*(12-1-1)+1)));
+    String leerArchivo = readOrdenes();
+    leerArchivo=leerArchivo+(dia+"/"+mes+"/2021\n");
+    writeOrdenes(leerArchivo);
+    }
 
     public boolean recorreLista() {
         for (int i = 0; i < archivo.leerArchivo().size(); i++) {
@@ -32,8 +50,7 @@ public class ControllerLogin {
         return false;
     }
 
-    public void Button(ActionEvent actionEvent) throws IOException {
-
+    public void Button(ActionEvent actionEvent) {
         if (recorreLista()) {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
@@ -42,6 +59,8 @@ public class ControllerLogin {
                 stage.setTitle("Orders");
                 stage.setScene(scene);
                 stage.show();
+               escribirFecha();
+
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
@@ -56,6 +75,32 @@ public class ControllerLogin {
             ingresarBoton.setDisable(true);
             contador = 0;
         }
+    }
+    @Override
+    public String readOrdenes() throws IOException {
+        String mensaje="";
+        String ruta = "OrdenesListas.txt";
+        Path path = Paths.get(ruta);
+        if( Files.exists(path)){
+            List<String> x=Files.readAllLines(path, StandardCharsets.UTF_8);
+            for(int i=0; i<x.size();i++){
+                mensaje=mensaje+x.get(i)+"\n";
+            }
+            return mensaje;}
+        else
+            writeOrdenes("");
+        return "";
+    }
+    @Override
+    public void writeOrdenes(String mensaje) throws IOException {
+        String ruta = "OrdenesListas.txt";
+        File f = new File(ruta);
+        FileWriter fw = new FileWriter(f);
+        BufferedWriter escritura = new BufferedWriter(fw);
+        escritura.write(mensaje);
+        escritura.newLine();
+
+        escritura.close();
     }
 }
 
