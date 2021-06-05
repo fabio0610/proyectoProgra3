@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="342.0" prefWidth="540.0" style="-fx-background-color: #d7bb93;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+<AnchorPane prefHeight="342.0" prefWidth="540.0" style="-fx-background-color: #d7bb93;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
    <children>
       <ImageView fitHeight="411.0" fitWidth="633.0" layoutX="-26.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -108,6 +108,6 @@
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></CheckBox>
-      <TextField layoutX="312.0" layoutY="237.0" prefHeight="18.0" prefWidth="149.0" />
+      <TextField fx:id="empleadoNombre" layoutX="312.0" layoutY="237.0" prefHeight="18.0" prefWidth="149.0" />
    </children>
 </AnchorPane>

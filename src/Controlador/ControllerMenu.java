@@ -37,6 +37,7 @@ public class ControllerMenu implements DataManagement {
     public Label ordenes = new Label();
     public static ArrayList<String> ListaPrueba = new ArrayList<>();
     public CheckBox caramel;
+    public TextField empleadoNombre=new TextField();
 
     public void articuloAgre() throws InterruptedException {
         notificaAgregado.setText("Artículo agregado");
@@ -141,12 +142,16 @@ public class ControllerMenu implements DataManagement {
     }
 
     public void facturar() {
+        if(empleadoNombre.getText()==null || empleadoNombre.getText().equals(""))
+            empleadoNombre.setText("no se ingreso...");
         orden.contador = orden.contador + 1;
-        System.out.println(orden.print());
+        System.out.println("Factura: ");
+        String pedido=orden.print() +"Vendedor: "+ empleadoNombre.getText()+"\n"+"----------------------\n";
+        System.out.println(pedido);
         Path path = Paths.get("Factura.txt");
         try {
-            ListaPrueba.add(orden.print() + "\n");
-            Files.writeString(path, orden.print(), StandardCharsets.UTF_8);
+            ListaPrueba.add(orden.print() +"Vendedor: "+ empleadoNombre.getText()+"\n"+"----------------------\n");
+            Files.writeString(path, pedido, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }
