@@ -142,7 +142,7 @@ public class ControllerMenu implements DataManagement {
 
     public void facturar() {
         if(empleadoNombre.getText()==null || empleadoNombre.getText().equals(""))
-            empleadoNombre.setText("No se ingreso...");
+            empleadoNombre.setText("Vendedor");
         orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
         String pedido=orden.print() +"Vendedor: "+ empleadoNombre.getText()+"\n"+"----------------------\n";
