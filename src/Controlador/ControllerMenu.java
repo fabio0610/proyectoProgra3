@@ -50,8 +50,6 @@ public class ControllerMenu implements DataManagement {
 
 
     public void addToOrder() throws InterruptedException {
-        if (listViewContador==0)
-            listView.getItems().add(orden);
         generarFactura.setDisable(false);
         notificaAgregado.setText("");
         nuevaOrden.setDisable(false);
@@ -72,8 +70,9 @@ public class ControllerMenu implements DataManagement {
             if (caramel.isSelected()) {
                 houseBlend1.addDecorator(new Caramel(houseBlend1));
             }
+            houseBlend1.changeTheComa();
             orden.addCoffee(houseBlend1);
-
+            listView.getItems().add(houseBlend1.getTipo());
         }
 
         if (Cafes.getSelectedToggle() == decaffeinated) {
@@ -93,8 +92,9 @@ public class ControllerMenu implements DataManagement {
             if (caramel.isSelected()) {
                 decaffeinated1.addDecorator(new Caramel(decaffeinated1));
             }
-
+decaffeinated1.changeTheComa();
             orden.addCoffee(decaffeinated1);
+            listView.getItems().add(decaffeinated1.getTipo());
         }
 
         if (Cafes.getSelectedToggle() == darkRoast) {
@@ -114,7 +114,9 @@ public class ControllerMenu implements DataManagement {
             if (caramel.isSelected()) {
                 darkRoast1.addDecorator(new Caramel(darkRoast1));
             }
+            darkRoast1.changeTheComa();
             orden.addCoffee(darkRoast1);
+            listView.getItems().add(darkRoast1.getTipo());
         }
         if (Cafes.getSelectedToggle() == expresso) {
             Expresso expresso1 = new Expresso();
@@ -133,7 +135,10 @@ public class ControllerMenu implements DataManagement {
             if (caramel.isSelected()) {
                 expresso1.addDecorator(new Caramel(expresso1));
             }
+
+            expresso1.changeTheComa();
             orden.addCoffee(expresso1);
+            listView.getItems().add(expresso1.getTipo());
         }
         if (darkRoast.isSelected() || expresso.isSelected() || decaffeinated.isSelected() || houseBlend.isSelected()) {
             articuloAgre();

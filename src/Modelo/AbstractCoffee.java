@@ -8,6 +8,9 @@ public abstract class AbstractCoffee {
     public void addDecorator(Decorator decorator) {
 
     }
+    public void changeTheComa() {
+
+    }
 
     public double getPrecio() {
         return 0;

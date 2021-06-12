@@ -11,6 +11,10 @@ public class HouseBlend extends AbstractCoffee {
         precio = precio + decorator.getPrecio();
         tipo = tipo + ", " + decorator.getTipo();
     }
+    @Override
+    public void changeTheComa() {
+        tipo=tipo.replaceFirst(",","");
+    }
 
     @Override
     public double getPrecio() {

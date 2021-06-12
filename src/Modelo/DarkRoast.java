@@ -5,7 +5,10 @@ public class DarkRoast extends AbstractCoffee {
         precio = 1450;
         tipo = "Dark Roast\n ";
     }
-
+@Override
+public void changeTheComa() {
+tipo=tipo.replaceFirst(",","");
+}
     @Override
     public void addDecorator(Decorator decorator) {
         precio = precio + decorator.getPrecio();
