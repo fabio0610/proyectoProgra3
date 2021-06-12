@@ -1,7 +1,13 @@
 ----------------------
-Orden 3:
+Orden 1:
+Cafe Dark Roast
+ con: Butter Milk
+Precio: ₡1750.0
+Cafe Dark Roast
+ con: Steamed Milk, Butter Milk
+Precio: ₡1800.0
 Cafe Decaffeinated
 con: Steamed Milk, Butter Milk
 Precio: ₡1450.0
-Vendedor: Sebas
+Vendedor: Vendedor
 ----------------------

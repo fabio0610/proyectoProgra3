@@ -40,6 +40,8 @@ public class ControllerMenu implements DataManagement {
     public CheckBox caramel;
     public TextField empleadoNombre=new TextField();
     public Label estadoDeOrden=new Label();
+    public ListView listView=new ListView();
+    private int listViewContador=0;
 
     public void articuloAgre() throws InterruptedException {
         notificaAgregado.setText("Artículo agregado");
@@ -48,6 +50,8 @@ public class ControllerMenu implements DataManagement {
 
 
     public void addToOrder() throws InterruptedException {
+        if (listViewContador==0)
+            listView.getItems().add(orden);
         generarFactura.setDisable(false);
         notificaAgregado.setText("");
         nuevaOrden.setDisable(false);
@@ -136,6 +140,7 @@ public class ControllerMenu implements DataManagement {
             clean();
 
         }
+        listView.refresh();
         agregarOrden.setDisable(true);
 
     }
@@ -154,6 +159,7 @@ public class ControllerMenu implements DataManagement {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         generarFactura.setDisable(true);
         agregarOrden.setDisable(true);
         decaffeinated.setDisable(true);
@@ -242,7 +248,6 @@ public class ControllerMenu implements DataManagement {
         BufferedWriter escritura = new BufferedWriter(fw);
         escritura.write(mensaje);
         escritura.newLine();
-
         escritura.close();
     }
 

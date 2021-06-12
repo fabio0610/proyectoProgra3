@@ -6,45 +6,45 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="342.0" prefWidth="540.0" style="-fx-background-color: #d7bb93;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+<AnchorPane prefHeight="627.0" prefWidth="1017.0" style="-fx-background-color: #d7bb93;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
    <children>
-      <ImageView fitHeight="411.0" fitWidth="633.0" layoutX="-26.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="690.0" fitWidth="1027.0" layoutX="-10.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="https://media.istockphoto.com/photos/coffee-bean-picture-id466732980?k=6&amp;m=466732980&amp;s=612x612&amp;w=0&amp;h=7NyhAw5KS3EJECcJPOHgSqZffX2RFCAU_92ydPr8iZU=" />
          </image></ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7bb93" height="411.0" layoutX="68.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="451.0" />
-      <Label layoutX="177.0" layoutY="6.0" text="STARBUZZ COFFEE" textFill="#482f24">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7bb93" height="692.0" layoutX="154.0" layoutY="-8.0" stroke="BLACK" strokeType="INSIDE" width="681.0" />
+      <Label layoutX="370.0" layoutY="22.0" text="STARBUZZ COFFEE" textFill="#482f24">
          <font>
             <Font name="Gabriola" size="37.0" />
          </font>
       </Label>
-      <Label layoutX="244.0" layoutY="45.0" text="Tipo de Café" textFill="#482f24">
+      <Label layoutX="456.0" layoutY="67.0" text="Tipo de Café" textFill="#482f24">
          <font>
             <Font name="Gabriola" size="20.0" />
          </font>
       </Label>
-      <CheckBox fx:id="lecheAlvapor" layoutX="305.0" layoutY="176.0" mnemonicParsing="false" text="Leche al Vapor     ₡50" textFill="#482f24">
+      <CheckBox fx:id="lecheAlvapor" layoutX="507.0" layoutY="176.0" mnemonicParsing="false" text="Leche al Vapor     ₡50" textFill="#482f24">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></CheckBox>
-      <Label layoutX="234.0" layoutY="132.0" text="Adicionales" textFill="#482f24">
+      <Label layoutX="442.0" layoutY="132.0" text="Adicionales" textFill="#482f24">
          <font>
             <Font name="Gabriola" size="27.0" />
          </font>
       </Label>
-      <CheckBox fx:id="lecheBatida" layoutX="305.0" layoutY="208.0" mnemonicParsing="false" selected="true" text="Leche Batida         ₡300" textFill="#482f24">
+      <CheckBox fx:id="lecheBatida" layoutX="507.0" layoutY="208.0" mnemonicParsing="false" selected="true" text="Leche Batida         ₡300" textFill="#482f24">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></CheckBox>
-      <CheckBox fx:id="moca" layoutX="100.0" layoutY="208.0" mnemonicParsing="false" text="Moca                 ₡300" textFill="#482f24">
+      <CheckBox fx:id="moca" layoutX="221.0" layoutY="208.0" mnemonicParsing="false" text="Moca                 ₡300" textFill="#482f24">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></CheckBox>
-      <CheckBox fx:id="soya" layoutX="100.0" layoutY="240.0" mnemonicParsing="false" text="Soya                  ₡250" textFill="#482f24">
+      <CheckBox fx:id="soya" layoutX="221.0" layoutY="245.0" mnemonicParsing="false" prefWidth="150.0" text="Soya                  ₡250" textFill="#482f24">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></CheckBox>
-      <ToggleButton fx:id="houseBlend" layoutX="103.0" layoutY="96.0" mnemonicParsing="false" onAction="#houseBlendAction" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="House Blend" textFill="#482f24">
+      <ToggleButton fx:id="houseBlend" layoutX="221.0" layoutY="108.0" mnemonicParsing="false" onAction="#houseBlendAction" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="House Blend" textFill="#482f24">
          <toggleGroup>
             <ToggleGroup fx:id="Cafes" />
          </toggleGroup>
@@ -52,19 +52,19 @@
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="decaffeinated" layoutX="286.0" layoutY="96.0" mnemonicParsing="false" onAction="#DecaffeinatedAction" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Decaffeinated" textFill="#482f24" toggleGroup="$Cafes">
+      <ToggleButton fx:id="decaffeinated" layoutX="516.0" layoutY="108.0" mnemonicParsing="false" onAction="#DecaffeinatedAction" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Decaffeinated" textFill="#482f24" toggleGroup="$Cafes">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font></ToggleButton>
-      <ToggleButton fx:id="darkRoast" layoutX="195.0" layoutY="96.0" mnemonicParsing="false" onAction="#DarkroastAction" prefHeight="20.0" prefWidth="79.0" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Dark Roast" textFill="#482f24" toggleGroup="$Cafes">
+      <ToggleButton fx:id="darkRoast" layoutX="347.0" layoutY="108.0" mnemonicParsing="false" onAction="#DarkroastAction" prefHeight="20.0" prefWidth="79.0" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Dark Roast" textFill="#482f24" toggleGroup="$Cafes">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font></ToggleButton>
-      <ToggleButton fx:id="expresso" layoutX="386.0" layoutY="96.0" mnemonicParsing="false" onAction="#ExpressoAction" style="-fx-border-radius: 6; -fx-border-color: #482f24;" text="Expresso" textFill="#482f24" toggleGroup="$Cafes">
+      <ToggleButton fx:id="expresso" layoutX="684.0" layoutY="108.0" mnemonicParsing="false" onAction="#ExpressoAction" style="-fx-border-radius: 6; -fx-border-color: #482f24;" text="Expresso" textFill="#482f24" toggleGroup="$Cafes">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font></ToggleButton>
-      <ToggleButton fx:id="agregarOrden" disable="true" layoutX="235.0" layoutY="350.0" mnemonicParsing="false" onAction="#addToOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Agregar Orden" textFill="#482f24">
+      <ToggleButton fx:id="agregarOrden" disable="true" layoutX="425.0" layoutY="323.0" mnemonicParsing="false" onAction="#addToOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Agregar Orden" textFill="#482f24">
          <toggleGroup>
             <ToggleGroup fx:id="factura" />
          </toggleGroup>
@@ -72,38 +72,39 @@
             <Font name="Times New Roman Bold" size="13.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="nuevaOrden" disable="true" layoutX="98.0" layoutY="350.0" mnemonicParsing="false" onAction="#newOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Nueva Orden" textFill="#482f24" toggleGroup="$factura">
+      <ToggleButton fx:id="nuevaOrden" disable="true" layoutX="236.0" layoutY="323.0" mnemonicParsing="false" onAction="#newOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Nueva Orden" textFill="#482f24" toggleGroup="$factura">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></ToggleButton>
-      <ToggleButton fx:id="generarFactura" disable="true" layoutX="379.0" layoutY="350.0" mnemonicParsing="false" onAction="#facturar" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Generar Factura" textFill="#482f24" toggleGroup="$factura">
+      <ToggleButton fx:id="generarFactura" disable="true" layoutX="627.0" layoutY="323.0" mnemonicParsing="false" onAction="#facturar" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Generar Factura" textFill="#482f24" toggleGroup="$factura">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></ToggleButton>
-      <Label fx:id="notificaAgregado" layoutX="229.0" layoutY="295.0" prefHeight="24.0" prefWidth="115.0" textFill="#482f24" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="229.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="295.0">
+      <Label fx:id="notificaAgregado" layoutX="226.0" layoutY="391.0" prefHeight="24.0" prefWidth="115.0" textFill="#482f24" AnchorPane.bottomAnchor="-11.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="391.0">
          <font>
             <Font name="Times New Roman Bold" size="14.0" />
          </font></Label>
-      <Label layoutX="121.0" layoutY="80.0" prefHeight="15.0" prefWidth="43.0" text="₡ 1400" textFill="#482f24">
+      <Label layoutX="241.0" layoutY="83.0" prefHeight="15.0" prefWidth="43.0" text="₡ 1400" textFill="#482f24">
          <font>
             <Font name="Franklin Gothic Demi Cond" size="13.0" />
          </font></Label>
-      <Label layoutX="211.0" layoutY="80.0" prefHeight="15.0" prefWidth="43.0" text="₡ 1450" textFill="#482f24">
+      <Label layoutX="361.0" layoutY="83.0" prefHeight="15.0" prefWidth="43.0" text="₡ 1450" textFill="#482f24">
          <font>
             <Font name="Franklin Gothic Demi Cond" size="13.0" />
          </font></Label>
-      <Label layoutX="305.0" layoutY="80.0" prefHeight="15.0" prefWidth="43.0" text="₡ 1100" textFill="#482f24">
+      <Label layoutX="538.0" layoutY="86.0" prefHeight="15.0" prefWidth="43.0" text="₡ 1100" textFill="#482f24">
          <font>
             <Font name="Franklin Gothic Demi Cond" size="13.0" />
          </font></Label>
-      <Label layoutX="399.0" layoutY="80.0" text="₡ 1200" textFill="#482f24">
+      <Label layoutX="696.0" layoutY="86.0" text="₡ 1200" textFill="#482f24">
          <font>
             <Font name="Franklin Gothic Demi Cond" size="13.0" />
          </font></Label>
-      <CheckBox fx:id="caramel" layoutX="100.0" layoutY="176.0" mnemonicParsing="false" text="Caramelo          ₡100" textFill="#482f24">
+      <CheckBox fx:id="caramel" layoutX="220.0" layoutY="176.0" mnemonicParsing="false" text="Caramelo          ₡100" textFill="#482f24">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></CheckBox>
-      <TextField fx:id="empleadoNombre" layoutX="312.0" layoutY="237.0" prefHeight="18.0" prefWidth="149.0" promptText="Nombre del vendedor" />
+      <TextField fx:id="empleadoNombre" layoutX="506.0" layoutY="241.0" prefHeight="18.0" prefWidth="149.0" promptText="Nombre del vendedor" />
+      <ListView fx:id="listView" layoutX="185.0" layoutY="391.0" prefHeight="286.0" prefWidth="623.0" />
    </children>
 </AnchorPane>
