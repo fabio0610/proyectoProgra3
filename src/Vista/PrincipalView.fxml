@@ -13,12 +13,12 @@
             <Image url="https://media.istockphoto.com/photos/coffee-bean-picture-id466732980?k=6&amp;m=466732980&amp;s=612x612&amp;w=0&amp;h=7NyhAw5KS3EJECcJPOHgSqZffX2RFCAU_92ydPr8iZU=" />
          </image></ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7bb93" height="692.0" layoutX="154.0" layoutY="-8.0" stroke="BLACK" strokeType="INSIDE" width="681.0" />
-      <Label layoutX="351.0" prefHeight="56.0" prefWidth="265.0" text="STARBUZZ COFFEE" textFill="#482f24">
+      <Label layoutX="362.0" prefHeight="56.0" prefWidth="265.0" text="STARBUZZ COFFEE" textFill="#482f24">
          <font>
             <Font name="Gabriola" size="41.0" />
          </font>
       </Label>
-      <Label layoutX="437.0" layoutY="59.0" prefHeight="34.0" prefWidth="90.0" text="Tipo de Café" textFill="#482f24">
+      <Label layoutX="450.0" layoutY="67.0" prefHeight="34.0" prefWidth="90.0" text="Tipo de Café" textFill="#482f24">
          <font>
             <Font name="Gabriola" size="23.0" />
          </font>
@@ -27,7 +27,7 @@
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></CheckBox>
-      <Label layoutX="434.0" layoutY="165.0" text="Adicionales" textFill="#482f24">
+      <Label layoutX="447.0" layoutY="167.0" text="Adicionales" textFill="#482f24">
          <font>
             <Font name="Gabriola" size="27.0" />
          </font>
@@ -64,7 +64,7 @@
          <font>
             <Font name="Times New Roman" size="15.0" />
          </font></ToggleButton>
-      <ToggleButton fx:id="agregarOrden" disable="true" layoutX="392.0" layoutY="349.0" mnemonicParsing="false" onAction="#addToOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Agregar Orden" textFill="#482f24">
+      <ToggleButton fx:id="agregarOrden" disable="true" layoutX="381.0" layoutY="349.0" mnemonicParsing="false" onAction="#addToOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Agregar Orden" textFill="#482f24">
          <toggleGroup>
             <ToggleGroup fx:id="factura" />
          </toggleGroup>
@@ -72,11 +72,11 @@
             <Font name="Times New Roman Bold" size="13.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="nuevaOrden" disable="true" layoutX="215.0" layoutY="349.0" mnemonicParsing="false" onAction="#newOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Nueva Orden" textFill="#482f24" toggleGroup="$factura">
+      <ToggleButton fx:id="nuevaOrden" disable="true" layoutX="200.0" layoutY="349.0" mnemonicParsing="false" onAction="#newOrder" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Nueva Orden" textFill="#482f24" toggleGroup="$factura">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></ToggleButton>
-      <ToggleButton fx:id="generarFactura" disable="true" layoutX="581.0" layoutY="349.0" mnemonicParsing="false" onAction="#facturar" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Generar Factura" textFill="#482f24" toggleGroup="$factura">
+      <ToggleButton fx:id="generarFactura" disable="true" layoutX="569.0" layoutY="349.0" mnemonicParsing="false" onAction="#facturar" style="-fx-border-color: #482f24; -fx-border-radius: 6;" text="Generar Factura" textFill="#482f24" toggleGroup="$factura">
          <font>
             <Font name="Times New Roman Bold" size="13.0" />
          </font></ToggleButton>
@@ -105,11 +105,21 @@
             <Font name="Times New Roman Bold" size="13.0" />
          </font></CheckBox>
       <TextField fx:id="empleadoNombre" layoutX="582.0" layoutY="286.0" prefHeight="18.0" prefWidth="149.0" promptText="Nombre del vendedor" />
-      <ListView fx:id="listView" layoutX="185.0" layoutY="391.0" prefHeight="286.0" prefWidth="541.0" />
-      <Button fx:id="eliminar" alignment="CENTER" disable="true" layoutX="735.0" layoutY="408.0" mnemonicParsing="false" onAction="#deleteCoffe" prefHeight="34.0" prefWidth="90.0" style="-fx-border-radius: 6; -fx-border-color: #482f24;" text="Eliminar" textFill="#482f24">
+      <ListView fx:id="listView" layoutX="163.0" layoutY="389.0" prefHeight="286.0" prefWidth="541.0" />
+      <Button fx:id="eliminar" alignment="CENTER" disable="true" layoutX="725.0" layoutY="408.0" mnemonicParsing="false" onAction="#deleteCoffe" prefHeight="34.0" prefWidth="90.0" style="-fx-border-radius: 6; -fx-border-color: #482f24;" text="Eliminar" textFill="#482f24">
          <font>
             <Font name="Times New Roman" size="15.0" />
          </font>
       </Button>
+      <Label layoutX="709.0" layoutY="540.0" prefHeight="34.0" prefWidth="122.0" text="Total Orden: " textFill="#482f24">
+         <font>
+            <Font name="Times New Roman" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalOrden" layoutX="709.0" layoutY="575.0" prefHeight="41.0" prefWidth="122.0" text="₡ 22650.00" textFill="#482f24">
+         <font>
+            <Font name="Times New Roman" size="26.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

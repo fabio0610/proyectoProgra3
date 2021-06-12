@@ -28,7 +28,7 @@ public class ControllerMenu implements DataManagement {
     public ToggleButton decaffeinated;
     public ToggleButton darkRoast;
     public ToggleButton expresso;
-    public static final Orden orden = new Orden();
+    public static Orden orden = new Orden();
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
     public Label notificaAgregado;
@@ -37,11 +37,12 @@ public class ControllerMenu implements DataManagement {
     public Label ordenes = new Label();
     public static ArrayList<String> ListaPrueba = new ArrayList<>();
     public CheckBox caramel;
-    public TextField empleadoNombre=new TextField();
-    public Label estadoDeOrden=new Label();
-    public ListView listView=new ListView();
+    public TextField empleadoNombre = new TextField();
+    public Label estadoDeOrden = new Label();
+    public ListView listView = new ListView();
     public Button eliminar;
-int condicion=0;
+    public Label totalOrden;
+
     public void articuloAgre() throws InterruptedException {
         notificaAgregado.setText("Artículo agregado");
         notificaAgregado.setVisible(true);
@@ -93,7 +94,7 @@ int condicion=0;
             if (caramel.isSelected()) {
                 decaffeinated1.addDecorator(new Caramel(decaffeinated1));
             }
-decaffeinated1.changeTheComa();
+            decaffeinated1.changeTheComa();
             orden.addCoffee(decaffeinated1);
             listView.getItems().add(decaffeinated1.getTipo());
         }
@@ -146,26 +147,27 @@ decaffeinated1.changeTheComa();
             clean();
 
         }
+        totalOrden.setText("₡ " + String.valueOf(orden.total()));
         listView.refresh();
         agregarOrden.setDisable(true);
 
     }
 
     public void facturar() {
-        if(empleadoNombre.getText()==null || empleadoNombre.getText().equals(""))
+        if (empleadoNombre.getText() == null || empleadoNombre.getText().equals(""))
             empleadoNombre.setText("No se ingreso...");
         orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
-        String pedido=orden.print() +"Vendedor: "+ empleadoNombre.getText()+"\n"+"----------------------\n";
+        String pedido = orden.print() + "Vendedor: " + empleadoNombre.getText() + "\n" + "----------------------\n";
         System.out.println(pedido);
         Path path = Paths.get("Factura.txt");
         try {
-            ListaPrueba.add(orden.print() +"Vendedor: "+ empleadoNombre.getText()+"\n"+"----------------------\n");
+            ListaPrueba.add(orden.print() + "Vendedor: " + empleadoNombre.getText() + "\n" + "----------------------\n");
             Files.writeString(path, pedido, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        totalOrden.setText("₡ " + String.valueOf(orden.total()));
         generarFactura.setDisable(true);
         agregarOrden.setDisable(true);
         decaffeinated.setDisable(true);
@@ -212,24 +214,26 @@ decaffeinated1.changeTheComa();
         houseBlend.setDisable(false);
         listView.getItems().clear();
         orden.eraseAll();
+        totalOrden.setText(String.valueOf(orden.getTotal()));
     }
 
     public void refresh() throws IOException {
-        if(ListaPrueba.size()<=0){
+        if (ListaPrueba.size() <= 0) {
             estadoDeOrden.setText("Esperando Ordenes...");
-        }
-        else{
-        ordenFinalizada.setDisable(false);
-        if (posicion < ListaPrueba.size()) {
+        } else {
+            ordenFinalizada.setDisable(false);
+            if (posicion < ListaPrueba.size()) {
                 estadoDeOrden.setText("Estado de orden: Pendiente...");
-            ordenes.setText(ListaPrueba.get(posicion));
-            if(posicion>=0)
-                actualizar.setDisable(true);
+                ordenes.setText(ListaPrueba.get(posicion));
+                if (posicion >= 0)
+                    actualizar.setDisable(true);
 
-        } else{
-            ordenFinalizada.setDisable(true);
-            estadoDeOrden.setText("");
-            ordenes.setText("No hay mas pedidos en proceso");}}
+            } else {
+                ordenFinalizada.setDisable(true);
+                estadoDeOrden.setText("");
+                ordenes.setText("No hay mas pedidos en proceso");
+            }
+        }
     }
 
     @Override
@@ -260,49 +264,46 @@ decaffeinated1.changeTheComa();
     }
 
     public void DecaffeinatedAction(ActionEvent actionEvent) {
-        if(decaffeinated.isSelected())
+        if (decaffeinated.isSelected())
             agregarOrden.setDisable(false);
-        else
-            if(!decaffeinated.isSelected())
-                agregarOrden.setDisable(true);
+        else if (!decaffeinated.isSelected())
+            agregarOrden.setDisable(true);
     }
 
     public void DarkroastAction(ActionEvent actionEvent) {
-        if(darkRoast.isSelected())
+        if (darkRoast.isSelected())
             agregarOrden.setDisable(false);
-        else
-        if(!darkRoast.isSelected())
+        else if (!darkRoast.isSelected())
             agregarOrden.setDisable(true);
     }
 
     public void ExpressoAction(ActionEvent actionEvent) {
-        if(expresso.isSelected())
+        if (expresso.isSelected())
             agregarOrden.setDisable(false);
-        else
-        if(!expresso.isSelected())
+        else if (!expresso.isSelected())
             agregarOrden.setDisable(true);
     }
 
     public void houseBlendAction(ActionEvent actionEvent) {
-        if(houseBlend.isSelected())
+        if (houseBlend.isSelected())
             agregarOrden.setDisable(false);
-        else
-        if(!houseBlend.isSelected())
+        else if (!houseBlend.isSelected())
             agregarOrden.setDisable(true);
     }
 
     public void deleteCoffe(ActionEvent actionEvent) {
-        if(listView.getSelectionModel().getSelectedItem()!=null){
-            for(int i=0; i<orden.cafelist.size(); i++){
-                if(orden.cafelist.get(i).getTipo()==listView.getSelectionModel().getSelectedItem())
+        if (listView.getSelectionModel().getSelectedItem() != null) {
+            for (int i = 0; i < orden.cafelist.size(); i++) {
+                if (orden.cafelist.get(i).getTipo() == listView.getSelectionModel().getSelectedItem())
                     orden.cafelist.remove(i);
-               listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
-               listView.refresh();
-               return;
+                listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
+                listView.refresh();
+                totalOrden.setText("₡ " + String.valueOf(orden.total()));
+                return;
             }
-        }
-        else
+        } else
             notificaAgregado.setText("No ha sleccionado nada");
     }
+
 }
 

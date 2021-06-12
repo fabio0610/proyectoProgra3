@@ -1,7 +1,19 @@
 ----------------------
 Orden 1:
+Cafe Dark Roast
+  Butter Milk
+Precio: ₡1750.0
+Cafe Dark Roast
+  Butter Milk
+Precio: ₡1750.0
+Cafe Decaffeinated
+ Steamed Milkcon: Butter Milk, Moca, Soy, Caramel
+Precio: ₡2100.0
+Cafe Dark Roast
+  Steamed Milkcon: Butter Milk, Moca, Soy, Caramel
+Precio: ₡2450.0
 Cafe House Blend 
- Butter Milkcon: Moca, Soy, Caramel
-Precio: ₡2350.0
-Vendedor: Vendedor
+ Steamed Milkcon: Butter Milk, Moca, Soy, Caramel
+Precio: ₡2400.0
+Vendedor: No se ingreso...
 ----------------------

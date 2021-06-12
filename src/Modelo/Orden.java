@@ -3,6 +3,7 @@ package Modelo;
 import java.util.ArrayList;
 
 public class Orden {
+   private double total=0;
     public int contador=0;
     public Orden() {
 cafelist=new ArrayList<>();
@@ -15,6 +16,18 @@ cafelist=new ArrayList<>();
     }
     public void eraseAll(){
         cafelist.clear();
+        contador=0;
+        total=0;
+    }
+    public double total(){
+        total=0;
+        for (AbstractCoffee abstractCoffee : cafelist) {
+            total += abstractCoffee.getPrecio();
+        }
+        return total;
+    }
+    public double getTotal(){
+        return total;
     }
 
 
