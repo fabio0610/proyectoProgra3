@@ -28,11 +28,10 @@ public class ControllerMenu implements DataManagement {
     public ToggleButton decaffeinated;
     public ToggleButton darkRoast;
     public ToggleButton expresso;
-    public final Orden orden = new Orden();
+    public static final Orden orden = new Orden();
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
     public Label notificaAgregado;
-    public Label alertaCafe;
     public Button ordenFinalizada;
     public Button actualizar;
     public Label ordenes = new Label();
@@ -41,8 +40,8 @@ public class ControllerMenu implements DataManagement {
     public TextField empleadoNombre=new TextField();
     public Label estadoDeOrden=new Label();
     public ListView listView=new ListView();
-    private int listViewContador=0;
-
+    public Button eliminar;
+int condicion=0;
     public void articuloAgre() throws InterruptedException {
         notificaAgregado.setText("Artículo agregado");
         notificaAgregado.setVisible(true);
@@ -53,6 +52,8 @@ public class ControllerMenu implements DataManagement {
         generarFactura.setDisable(false);
         notificaAgregado.setText("");
         nuevaOrden.setDisable(false);
+        eliminar.setDisable(false);
+
         if (Cafes.getSelectedToggle() == houseBlend) {
             HouseBlend houseBlend1 = new HouseBlend();
             if (lecheAlvapor.isSelected()) {
@@ -152,7 +153,7 @@ decaffeinated1.changeTheComa();
 
     public void facturar() {
         if(empleadoNombre.getText()==null || empleadoNombre.getText().equals(""))
-            empleadoNombre.setText("Vendedor");
+            empleadoNombre.setText("No se ingreso...");
         orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
         String pedido=orden.print() +"Vendedor: "+ empleadoNombre.getText()+"\n"+"----------------------\n";
@@ -201,6 +202,7 @@ decaffeinated1.changeTheComa();
 
     public void newOrder() {
         clean();
+        eliminar.setDisable(true);
         agregarOrden.setDisable(true);
         generarFactura.setDisable(true);
         nuevaOrden.setDisable(true);
@@ -208,6 +210,7 @@ decaffeinated1.changeTheComa();
         expresso.setDisable(false);
         darkRoast.setDisable(false);
         houseBlend.setDisable(false);
+        listView.getItems().clear();
         orden.eraseAll();
     }
 
@@ -286,6 +289,20 @@ decaffeinated1.changeTheComa();
         else
         if(!houseBlend.isSelected())
             agregarOrden.setDisable(true);
+    }
+
+    public void deleteCoffe(ActionEvent actionEvent) {
+        if(listView.getSelectionModel().getSelectedItem()!=null){
+            for(int i=0; i<orden.cafelist.size(); i++){
+                if(orden.cafelist.get(i).getTipo()==listView.getSelectionModel().getSelectedItem())
+                    orden.cafelist.remove(i);
+               listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
+               listView.refresh();
+               return;
+            }
+        }
+        else
+            notificaAgregado.setText("No ha sleccionado nada");
     }
 }
 
