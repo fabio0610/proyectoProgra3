@@ -54,7 +54,6 @@ public class ControllerMenu implements DataManagement {
         notificaAgregado.setText("");
         nuevaOrden.setDisable(false);
         eliminar.setDisable(false);
-
         if (Cafes.getSelectedToggle() == houseBlend) {
             HouseBlend houseBlend1 = new HouseBlend();
             if (lecheAlvapor.isSelected()) {
@@ -175,6 +174,25 @@ public class ControllerMenu implements DataManagement {
         darkRoast.setDisable(true);
         houseBlend.setDisable(true);
         notificaAgregado.setText("");
+        if(orden.cafelist.size()>=9)
+            block();
+    }
+
+    private void block() {
+        lecheBatida.setDisable(true);
+        lecheAlvapor.setDisable(true);
+        moca.setDisable(true);
+        soya.setDisable(true);
+        houseBlend.setDisable(true);
+        decaffeinated.setDisable(true);
+        expresso.setDisable(true);
+        darkRoast.setDisable(true);
+        caramel.setDisable(true);
+        generarFactura.setDisable(true);
+        agregarOrden.setDisable(true);
+        nuevaOrden.setDisable(false);
+        notificaAgregado.setText("No se pueden agregar mas ordenes");
+
     }
 
 
@@ -212,6 +230,11 @@ public class ControllerMenu implements DataManagement {
         expresso.setDisable(false);
         darkRoast.setDisable(false);
         houseBlend.setDisable(false);
+        lecheBatida.setDisable(false);
+        lecheAlvapor.setDisable(false);
+        moca.setDisable(false);
+        soya.setDisable(false);
+        caramel.setDisable(false);
         listView.getItems().clear();
         orden.eraseAll();
         totalOrden.setText(String.valueOf(orden.getTotal()));
