@@ -1,191 +1,24 @@
-4/6/2021
+12/6/2021
 
 ----------------------
 Orden 1:
-Cafe House Blend 
-con: Butter Milk, Caramel
+Cafe Decaffeinated
+ Leche batidacon: Doble de Caramelo
+Precio: ₡1600.0
+Cafe Expresso
+ Doble de Leche batida
 Precio: ₡1800.0
 Vendedor: Sebas
 ----------------------
-
-----------------------
-Orden 2:
-Cafe House Blend 
-con: Steamed Milk, Butter Milk
-Precio: ₡1750.0
-Cafe Decaffeinated
-con: Steamed Milk, Butter Milk
-Precio: ₡1450.0
-Vendedor: Sebas
-----------------------
-
-4/6/2021
-
-----------------------
-Orden 1:
-Cafe Decaffeinated
-con: Steamed Milk, Butter Milk
-Precio: ₡1450.0
-Vendedor: Sebas
-----------------------
-
-----------------------
-Orden 2:
-Cafe Dark Roast
- con: Steamed Milk, Butter Milk
-Precio: ₡1800.0
-Vendedor: Sebas
-----------------------
-
-----------------------
-Orden 3:
-Cafe Decaffeinated
-con: Steamed Milk, Butter Milk
-Precio: ₡1450.0
-Vendedor: Sebas
-----------------------
-
-
-5/6/2021
-
-----------------------
-Orden 1:
-Cafe Decaffeinated
-con: Steamed Milk, Butter Milk
-Precio: ₡1450.0
-Vendedor: Sebas
-----------------------
-
-7/6/2021
-
-----------------------
-Orden 1:
-Cafe House Blend 
-con: Butter Milk, Caramel
-Precio: ₡1800.0
-Cafe Decaffeinated
-con: Steamed Milk
-Precio: ₡1150.0
-Vendedor: Sebas
-----------------------
-
-----------------------
-Orden 2:
-Cafe House Blend 
-con: Caramel
-Precio: ₡1500.0
-Vendedor: Sebas
-----------------------
-
-7/6/2021
-
-7/6/2021
-
-7/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
 
 12/6/2021
 
 ----------------------
 Orden 1:
 Cafe Dark Roast
-  Butter Milk
-Precio: ₡1750.0
-Vendedor: Vendedor
+  Leche batida, Caramelo
+Precio: ₡1850.0
+Vendedor: No se ingreso...
+Codigo: 26134
 ----------------------
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
-
-12/6/2021
 

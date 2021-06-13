@@ -99,6 +99,7 @@ public class ControllerMenu implements DataManagement {
                     houseBlend1.addDecorator(new Caramel(houseBlend1));
             }
             houseBlend1.changeTheComa();
+            houseBlend.setDisable(true);
             orden.addCoffee(houseBlend1);
             listView.getItems().add(houseBlend1.getTipo());
         }
@@ -138,6 +139,7 @@ public class ControllerMenu implements DataManagement {
             decaffeinated1.changeTheComa();
             orden.addCoffee(decaffeinated1);
             listView.getItems().add(decaffeinated1.getTipo());
+            decaffeinated.setDisable(true);
         }
 
         if (Cafes.getSelectedToggle() == darkRoast) {
@@ -172,6 +174,7 @@ public class ControllerMenu implements DataManagement {
                 else
                     darkRoast1.addDecorator(new Caramel(darkRoast1));
             }
+            darkRoast.setDisable(true);
             darkRoast1.changeTheComa();
             orden.addCoffee(darkRoast1);
             listView.getItems().add(darkRoast1.getTipo());
@@ -208,7 +211,7 @@ public class ControllerMenu implements DataManagement {
                 else
                     expresso1.addDecorator(new Caramel(expresso1));
             }
-
+expresso.setDisable(true);
             expresso1.changeTheComa();
             orden.addCoffee(expresso1);
             listView.getItems().add(expresso1.getTipo());
@@ -230,11 +233,14 @@ public class ControllerMenu implements DataManagement {
             empleadoNombre.setText("No se ingreso...");
         orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
-        String pedido = orden.print() + "Vendedor: " + empleadoNombre.getText() + "\n" + "----------------------\n";
+        String pedido = orden.print() + "Vendedor: " + empleadoNombre.getText() + "\n" +"Codigo: " +
+                ( (int) Math.floor(Math.random()*(10 +1)+0))+  ( (int) Math.floor(Math.random()*(10 +1)+0))+
+                ( (int) Math.floor(Math.random()*(10 +1)+0))+  ( (int) Math.floor(Math.random()*(10 +1)+0))+
+                ( (int) Math.floor(Math.random()*(10 +1)+0)) +"\n" +"----------------------\n";
         System.out.println(pedido);
         Path path = Paths.get("Factura.txt");
         try {
-            ListaPrueba.add(orden.print() + "Vendedor: " + empleadoNombre.getText() + "\n" + "----------------------\n");
+            ListaPrueba.add(pedido);
             Files.writeString(path, pedido, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
@@ -249,8 +255,7 @@ public class ControllerMenu implements DataManagement {
         notificaAgregado.setText("");
         generarFactura.setSelected(false);
         eliminar.setDisable(true);
-        if (orden.cafelist.size() >= 9)
-            block();
+
     }
 
     private void block() {
