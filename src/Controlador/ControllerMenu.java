@@ -1,7 +1,6 @@
 package Controlador;
 
 import Modelo.*;
-import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 import java.io.BufferedWriter;
@@ -32,8 +31,6 @@ public class ControllerMenu implements DataManagement {
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
     public Label notificaAgregado;
-    public Button ordenFinalizada;
-    public Button actualizar;
     public Label ordenes = new Label();
     public static ArrayList<String> ListaPrueba = new ArrayList<>();
     public CheckBox caramel;
@@ -52,6 +49,9 @@ public class ControllerMenu implements DataManagement {
     public ToggleButton mocax2;
     public ToggleGroup VaporX2;
     public ToggleButton vaporX2;
+    public ListView<String> kitchenList=new ListView<>();
+    public Button marcarListo;
+    public Label warningCocina;
 
 
     public void articuloAgre() {
@@ -234,13 +234,16 @@ expresso.setDisable(true);
         orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
         String pedido = orden.print() + "Vendedor: " + empleadoNombre.getText() + "\n" +"Codigo: " +
-                ( (int) Math.floor(Math.random()*(10 +1)+0))+  ( (int) Math.floor(Math.random()*(10 +1)+0))+
-                ( (int) Math.floor(Math.random()*(10 +1)+0))+  ( (int) Math.floor(Math.random()*(10 +1)+0))+
-                ( (int) Math.floor(Math.random()*(10 +1)+0)) +"\n" +"----------------------\n";
+                ( (int) Math.floor(Math.random()*(9 +1)+0))+  ( (int) Math.floor(Math.random()*(9 +1)+0))+
+                ( (int) Math.floor(Math.random()*(9 +1)+0))+  ( (int) Math.floor(Math.random()*(9 +1)+0))+
+                ( (int) Math.floor(Math.random()*(9 +1)+0)) +"\n" +"----------------------\n";
         System.out.println(pedido);
         Path path = Paths.get("Factura.txt");
         try {
+            kitchenList.setDisable(false);
             ListaPrueba.add(pedido);
+            kitchenList.getItems().add(pedido);
+            kitchenList.refresh();
             Files.writeString(path, pedido, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
@@ -258,34 +261,21 @@ expresso.setDisable(true);
 
     }
 
-    private void block() {
-        lecheBatida.setDisable(true);
-        lecheAlvapor.setDisable(true);
-        moca.setDisable(true);
-        soya.setDisable(true);
-        houseBlend.setDisable(true);
-        decaffeinated.setDisable(true);
-        expresso.setDisable(true);
-        darkRoast.setDisable(true);
-        caramel.setDisable(true);
-        generarFactura.setDisable(true);
-        agregarOrden.setDisable(true);
-        nuevaOrden.setDisable(false);
-        notificaAgregado.setText("No se pueden agregar mas ordenes");
-
-    }
-
-
-    public void ordenLista() throws IOException {
-        estadoDeOrden.setText("Estado de orden: Listo");
-        if (posicion < ListaPrueba.size()) {
+    public void BotonOrdenLista() throws IOException {
+        if (kitchenList.getSelectionModel().getSelectedItem()!=null){
+            String x=kitchenList.getSelectionModel().getSelectedItem();
+            for(int i=0; i<ListaPrueba.size();i++)
+        if (ListaPrueba.get(i).equals(x)) {
+            warningCocina.setText("");
             String leerArchivo = readOrdenes();
-            leerArchivo = leerArchivo + ListaPrueba.get(posicion);
+            leerArchivo = leerArchivo + ListaPrueba.get(i);
             writeOrdenes(leerArchivo);
-            posicion++;
-            ordenFinalizada.setDisable(true);
+            ListaPrueba.remove(ListaPrueba.get(i));
+            kitchenList.getItems().remove(kitchenList.getSelectionModel().getSelectedItem());
         }
-        actualizar.setDisable(false);
+        }
+        else
+            warningCocina.setText("No hay ningun pedido seleccionado");
     }
 
     public void clean() {
@@ -325,25 +315,6 @@ expresso.setDisable(true);
         orden.eraseAll();
         notificaAgregado.setText("");
         totalOrden.setText(String.valueOf(orden.getTotal()));
-    }
-
-    public void refresh() {
-        if (ListaPrueba.size() <= 0) {
-            estadoDeOrden.setText("Esperando Ordenes...");
-        } else {
-            ordenFinalizada.setDisable(false);
-            if (posicion < ListaPrueba.size()) {
-                estadoDeOrden.setText("Estado de orden: Pendiente...");
-                ordenes.setText(ListaPrueba.get(posicion));
-                if (posicion >= 0)
-                    actualizar.setDisable(true);
-
-            } else {
-                ordenFinalizada.setDisable(true);
-                estadoDeOrden.setText("");
-                ordenes.setText("No hay mas pedidos en proceso");
-            }
-        }
     }
 
     @Override
@@ -459,9 +430,11 @@ expresso.setDisable(true);
             soyaX2.setSelected(false);
     }
 
-    public void CarameloBox(ActionEvent actionEvent) {
+    public void CarameloBox() {
         if (!caramel.isSelected())
             caramelox2.setSelected(false);
     }
+
+
 }
 
