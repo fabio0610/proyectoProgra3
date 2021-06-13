@@ -28,7 +28,7 @@ public class ControllerMenu implements DataManagement {
     public ToggleButton decaffeinated;
     public ToggleButton darkRoast;
     public ToggleButton expresso;
-    public static Orden orden = new Orden();
+    public static final Orden orden = new Orden();
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
     public Label notificaAgregado;
@@ -39,17 +39,28 @@ public class ControllerMenu implements DataManagement {
     public CheckBox caramel;
     public TextField empleadoNombre = new TextField();
     public Label estadoDeOrden = new Label();
-    public ListView listView = new ListView();
+    public ListView<String> listView = new ListView<>();
     public Button eliminar;
     public Label totalOrden;
+    public ToggleGroup SoyaX2;
+    public ToggleButton soyaX2;
+    public ToggleGroup BatidaX2;
+    public ToggleButton batidax2;
+    public ToggleGroup CaraX2;
+    public ToggleButton caramelox2;
+    public ToggleGroup MocaX2;
+    public ToggleButton mocax2;
+    public ToggleGroup VaporX2;
+    public ToggleButton vaporX2;
 
-    public void articuloAgre() throws InterruptedException {
+
+    public void articuloAgre() {
         notificaAgregado.setText("Artículo agregado");
         notificaAgregado.setVisible(true);
     }
 
 
-    public void addToOrder() throws InterruptedException {
+    public void addToOrder() {
         generarFactura.setDisable(false);
         notificaAgregado.setText("");
         nuevaOrden.setDisable(false);
@@ -57,19 +68,35 @@ public class ControllerMenu implements DataManagement {
         if (Cafes.getSelectedToggle() == houseBlend) {
             HouseBlend houseBlend1 = new HouseBlend();
             if (lecheAlvapor.isSelected()) {
-                houseBlend1.addDecorator(new SteamedMilk(houseBlend1));
+                if (vaporX2.isSelected())
+                    houseBlend1.addDecorator(new SteamedMilk(houseBlend1, 2));
+                else
+                    houseBlend1.addDecorator(new SteamedMilk(houseBlend1));
             }
             if (lecheBatida.isSelected()) {
-                houseBlend1.addDecorator(new ButterMilk(houseBlend1));
+                if (batidax2.isSelected())
+                    houseBlend1.addDecorator(new ButterMilk(houseBlend1, 2));
+                else
+                    houseBlend1.addDecorator(new ButterMilk(houseBlend1));
             }
             if (moca.isSelected()) {
-                houseBlend1.addDecorator(new Moca(houseBlend1));
+                if (mocax2.isSelected())
+                    houseBlend1.addDecorator(new Moca(houseBlend1, 2));
+                else
+                    houseBlend1.addDecorator(new Moca(houseBlend1));
             }
             if (soya.isSelected()) {
-                houseBlend1.addDecorator(new Soy(houseBlend1));
+                if (soyaX2.isSelected())
+                    houseBlend1.addDecorator(new Soy(houseBlend1, 2));
+                else
+                    houseBlend1.addDecorator(new Soy(houseBlend1));
+
             }
             if (caramel.isSelected()) {
-                houseBlend1.addDecorator(new Caramel(houseBlend1));
+                if (caramelox2.isSelected())
+                    houseBlend1.addDecorator(new Caramel(houseBlend1, 2));
+                else
+                    houseBlend1.addDecorator(new Caramel(houseBlend1));
             }
             houseBlend1.changeTheComa();
             orden.addCoffee(houseBlend1);
@@ -79,19 +106,34 @@ public class ControllerMenu implements DataManagement {
         if (Cafes.getSelectedToggle() == decaffeinated) {
             Decaffeinated decaffeinated1 = new Decaffeinated();
             if (lecheAlvapor.isSelected()) {
-                decaffeinated1.addDecorator(new SteamedMilk(decaffeinated1));
+                if (vaporX2.isSelected())
+                    decaffeinated1.addDecorator(new SteamedMilk(decaffeinated1, 2));
+                else
+                    decaffeinated1.addDecorator(new SteamedMilk(decaffeinated1));
             }
             if (lecheBatida.isSelected()) {
-                decaffeinated1.addDecorator(new ButterMilk(decaffeinated1));
+                if (batidax2.isSelected())
+                    decaffeinated1.addDecorator(new ButterMilk(decaffeinated1, 2));
+                else
+                    decaffeinated1.addDecorator(new ButterMilk(decaffeinated1));
             }
             if (moca.isSelected()) {
-                decaffeinated1.addDecorator(new Moca(decaffeinated1));
+                if (mocax2.isSelected())
+                    decaffeinated1.addDecorator(new Moca(decaffeinated1, 2));
+                else
+                    decaffeinated1.addDecorator(new Moca(decaffeinated1));
             }
             if (soya.isSelected()) {
-                decaffeinated1.addDecorator(new Soy(decaffeinated1));
+                if (soyaX2.isSelected())
+                    decaffeinated1.addDecorator(new Soy(decaffeinated1, 2));
+                else
+                    decaffeinated1.addDecorator(new Soy(decaffeinated1));
             }
             if (caramel.isSelected()) {
-                decaffeinated1.addDecorator(new Caramel(decaffeinated1));
+                if (caramelox2.isSelected())
+                    decaffeinated1.addDecorator(new Caramel(decaffeinated1, 2));
+                else
+                    decaffeinated1.addDecorator(new Caramel(decaffeinated1));
             }
             decaffeinated1.changeTheComa();
             orden.addCoffee(decaffeinated1);
@@ -101,19 +143,34 @@ public class ControllerMenu implements DataManagement {
         if (Cafes.getSelectedToggle() == darkRoast) {
             DarkRoast darkRoast1 = new DarkRoast();
             if (lecheAlvapor.isSelected()) {
-                darkRoast1.addDecorator(new SteamedMilk(darkRoast1));
+                if (vaporX2.isSelected())
+                    darkRoast1.addDecorator(new SteamedMilk(darkRoast1, 2));
+                else
+                    darkRoast1.addDecorator(new SteamedMilk(darkRoast1));
             }
             if (lecheBatida.isSelected()) {
-                darkRoast1.addDecorator(new ButterMilk(darkRoast1));
+                if (batidax2.isSelected())
+                    darkRoast1.addDecorator(new ButterMilk(darkRoast1, 2));
+                else
+                    darkRoast1.addDecorator(new ButterMilk(darkRoast1));
             }
             if (moca.isSelected()) {
-                darkRoast1.addDecorator(new Moca(darkRoast1));
+                if (moca.isSelected())
+                    darkRoast1.addDecorator(new Moca(darkRoast1, 2));
+                else
+                    darkRoast1.addDecorator(new Moca(darkRoast1));
             }
             if (soya.isSelected()) {
-                darkRoast1.addDecorator(new Soy(darkRoast1));
+                if (soyaX2.isSelected())
+                    darkRoast1.addDecorator(new Soy(darkRoast1, 2));
+                else
+                    darkRoast1.addDecorator(new Soy(darkRoast1));
             }
             if (caramel.isSelected()) {
-                darkRoast1.addDecorator(new Caramel(darkRoast1));
+                if (caramelox2.isSelected())
+                    darkRoast1.addDecorator(new Caramel(darkRoast1, 2));
+                else
+                    darkRoast1.addDecorator(new Caramel(darkRoast1));
             }
             darkRoast1.changeTheComa();
             orden.addCoffee(darkRoast1);
@@ -122,19 +179,34 @@ public class ControllerMenu implements DataManagement {
         if (Cafes.getSelectedToggle() == expresso) {
             Expresso expresso1 = new Expresso();
             if (lecheAlvapor.isSelected()) {
-                expresso1.addDecorator(new SteamedMilk(expresso1));
+                if (vaporX2.isSelected())
+                    expresso1.addDecorator(new SteamedMilk(expresso1, 2));
+                else
+                    expresso1.addDecorator(new SteamedMilk(expresso1));
             }
             if (lecheBatida.isSelected()) {
-                expresso1.addDecorator(new ButterMilk(expresso1));
+                if (lecheBatida.isSelected())
+                    expresso1.addDecorator(new ButterMilk(expresso1, 2));
+                else
+                    expresso1.addDecorator(new ButterMilk(expresso1));
             }
             if (moca.isSelected()) {
-                expresso1.addDecorator(new Moca(expresso1));
+                if (mocax2.isSelected())
+                    expresso1.addDecorator(new Moca(expresso1, 2));
+                else
+                    expresso1.addDecorator(new Moca(expresso1));
             }
             if (soya.isSelected()) {
-                expresso1.addDecorator(new Soy(expresso1));
+                if (soyaX2.isSelected())
+                    expresso1.addDecorator(new Soy(expresso1));
+                else
+                    expresso1.addDecorator(new Soy(expresso1, 2));
             }
             if (caramel.isSelected()) {
-                expresso1.addDecorator(new Caramel(expresso1));
+                if (caramelox2.isSelected())
+                    expresso1.addDecorator(new Caramel(expresso1, 2));
+                else
+                    expresso1.addDecorator(new Caramel(expresso1));
             }
 
             expresso1.changeTheComa();
@@ -146,9 +218,10 @@ public class ControllerMenu implements DataManagement {
             clean();
 
         }
-        totalOrden.setText("₡ " + String.valueOf(orden.total()));
+        totalOrden.setText("₡ " + orden.total());
         listView.refresh();
         agregarOrden.setDisable(true);
+        agregarOrden.setSelected(false);
 
     }
 
@@ -166,7 +239,7 @@ public class ControllerMenu implements DataManagement {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        totalOrden.setText("₡ " + String.valueOf(orden.total()));
+        totalOrden.setText("₡ " + orden.total());
         generarFactura.setDisable(true);
         agregarOrden.setDisable(true);
         decaffeinated.setDisable(true);
@@ -174,7 +247,9 @@ public class ControllerMenu implements DataManagement {
         darkRoast.setDisable(true);
         houseBlend.setDisable(true);
         notificaAgregado.setText("");
-        if(orden.cafelist.size()>=9)
+        generarFactura.setSelected(false);
+        eliminar.setDisable(true);
+        if (orden.cafelist.size() >= 9)
             block();
     }
 
@@ -218,6 +293,11 @@ public class ControllerMenu implements DataManagement {
         expresso.setSelected(false);
         darkRoast.setSelected(false);
         caramel.setSelected(false);
+        vaporX2.setSelected(false);
+        batidax2.setSelected(false);
+        mocax2.setSelected(false);
+        soyaX2.setSelected(false);
+        caramelox2.setSelected(false);
     }
 
     public void newOrder() {
@@ -236,11 +316,13 @@ public class ControllerMenu implements DataManagement {
         soya.setDisable(false);
         caramel.setDisable(false);
         listView.getItems().clear();
+        agregarOrden.setSelected(false);
         orden.eraseAll();
+        notificaAgregado.setText("");
         totalOrden.setText(String.valueOf(orden.getTotal()));
     }
 
-    public void refresh() throws IOException {
+    public void refresh() {
         if (ListaPrueba.size() <= 0) {
             estadoDeOrden.setText("Esperando Ordenes...");
         } else {
@@ -261,15 +343,15 @@ public class ControllerMenu implements DataManagement {
 
     @Override
     public String readOrdenes() throws IOException {
-        String mensaje = "";
+        StringBuilder mensaje = new StringBuilder();
         String ruta = "OrdenesListas.txt";
         Path path = Paths.get(ruta);
         if (Files.exists(path)) {
             List<String> x = Files.readAllLines(path, StandardCharsets.UTF_8);
-            for (int i = 0; i < x.size(); i++) {
-                mensaje = mensaje + x.get(i) + "\n";
+            for (String s : x) {
+                mensaje.append(s).append("\n");
             }
-            return mensaje;
+            return mensaje.toString();
         } else
             writeOrdenes("");
         return "";
@@ -286,47 +368,95 @@ public class ControllerMenu implements DataManagement {
         escritura.close();
     }
 
-    public void DecaffeinatedAction(ActionEvent actionEvent) {
+    public void DecaffeinatedAction() {
         if (decaffeinated.isSelected())
             agregarOrden.setDisable(false);
         else if (!decaffeinated.isSelected())
             agregarOrden.setDisable(true);
     }
 
-    public void DarkroastAction(ActionEvent actionEvent) {
+    public void DarkroastAction() {
         if (darkRoast.isSelected())
             agregarOrden.setDisable(false);
         else if (!darkRoast.isSelected())
             agregarOrden.setDisable(true);
     }
 
-    public void ExpressoAction(ActionEvent actionEvent) {
+    public void ExpressoAction() {
         if (expresso.isSelected())
             agregarOrden.setDisable(false);
         else if (!expresso.isSelected())
             agregarOrden.setDisable(true);
     }
 
-    public void houseBlendAction(ActionEvent actionEvent) {
+    public void houseBlendAction() {
         if (houseBlend.isSelected())
             agregarOrden.setDisable(false);
         else if (!houseBlend.isSelected())
             agregarOrden.setDisable(true);
     }
 
-    public void deleteCoffe(ActionEvent actionEvent) {
+    public void deleteCoffe() {
         if (listView.getSelectionModel().getSelectedItem() != null) {
             for (int i = 0; i < orden.cafelist.size(); i++) {
-                if (orden.cafelist.get(i).getTipo() == listView.getSelectionModel().getSelectedItem())
+                String x = listView.getSelectionModel().getSelectedItem();
+                if (orden.cafelist.get(i).getTipo().equals(x)) {
                     orden.cafelist.remove(i);
-                listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
-                listView.refresh();
-                totalOrden.setText("₡ " + String.valueOf(orden.total()));
-                return;
+                    listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
+                    listView.refresh();
+                    totalOrden.setText("₡ " + orden.total());
+                    return;
+                }
             }
-        } else
+        } else {
             notificaAgregado.setText("No ha sleccionado nada");
+        }
+
     }
 
+    public void dobleVapor() {
+        lecheAlvapor.setSelected(vaporX2.isSelected());
+    }
+
+    public void dobleMoca() {
+        moca.setSelected(mocax2.isSelected());
+    }
+
+    public void dobleCaramelo() {
+        caramel.setSelected(caramelox2.isSelected());
+    }
+
+    public void dobleBatida() {
+        lecheBatida.setSelected(batidax2.isSelected());
+    }
+
+    public void dobleSoya() {
+        soya.setSelected(soyaX2.isSelected());
+    }
+
+    public void vaporBox() {
+        if (!lecheAlvapor.isSelected())
+            vaporX2.setSelected(false);
+    }
+
+    public void batidaBox() {
+        if (!lecheBatida.isSelected())
+            batidax2.setSelected(false);
+    }
+
+    public void MocaBox() {
+        if (!moca.isSelected())
+            mocax2.setSelected(false);
+    }
+
+    public void soyaBox() {
+        if (!soya.isSelected())
+            soyaX2.setSelected(false);
+    }
+
+    public void CarameloBox(ActionEvent actionEvent) {
+        if (!caramel.isSelected())
+            caramelox2.setSelected(false);
+    }
 }
 

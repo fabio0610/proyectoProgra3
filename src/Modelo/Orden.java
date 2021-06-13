@@ -21,8 +21,8 @@ cafelist=new ArrayList<>();
     }
     public double total(){
         total=0;
-        for (AbstractCoffee abstractCoffee : cafelist) {
-            total += abstractCoffee.getPrecio();
+        for (int i=0;i<cafelist.size();i++) {
+            total +=cafelist.get(i).getPrecio();
         }
         return total;
     }
