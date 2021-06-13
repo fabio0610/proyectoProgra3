@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerMenu implements DataManagement {
-    public static int posicion = 0;
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
     public CheckBox lecheBatida;
@@ -31,11 +30,9 @@ public class ControllerMenu implements DataManagement {
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
     public Label notificaAgregado;
-    public Label ordenes = new Label();
     public static ArrayList<String> ListaPrueba = new ArrayList<>();
     public CheckBox caramel;
     public TextField empleadoNombre = new TextField();
-    public Label estadoDeOrden = new Label();
     public ListView<String> listView = new ListView<>();
     public Button eliminar;
     public Label totalOrden;
@@ -49,7 +46,7 @@ public class ControllerMenu implements DataManagement {
     public ToggleButton mocax2;
     public ToggleGroup VaporX2;
     public ToggleButton vaporX2;
-    public ListView<String> kitchenList=new ListView<>();
+    public ListView<String> kitchenList = new ListView<>();
     public Button marcarListo;
     public Label warningCocina;
 
@@ -211,7 +208,7 @@ public class ControllerMenu implements DataManagement {
                 else
                     expresso1.addDecorator(new Caramel(expresso1));
             }
-expresso.setDisable(true);
+            expresso.setDisable(true);
             expresso1.changeTheComa();
             orden.addCoffee(expresso1);
             listView.getItems().add(expresso1.getTipo());
@@ -233,10 +230,10 @@ expresso.setDisable(true);
             empleadoNombre.setText("No se ingreso...");
         orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
-        String pedido = orden.print() + "Vendedor: " + empleadoNombre.getText() + "\n" +"Codigo: " +
-                ( (int) Math.floor(Math.random()*(9 +1)+0))+  ( (int) Math.floor(Math.random()*(9 +1)+0))+
-                ( (int) Math.floor(Math.random()*(9 +1)+0))+  ( (int) Math.floor(Math.random()*(9 +1)+0))+
-                ( (int) Math.floor(Math.random()*(9 +1)+0)) +"\n" +"----------------------\n";
+        String pedido = orden.print() + "Vendedor: " + empleadoNombre.getText() + "\n" + "Codigo: " +
+                ((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
+                ((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
+                ((int) Math.floor(Math.random() * (9 + 1) + 0)) + "\n" + "----------------------\n";
         System.out.println(pedido);
         Path path = Paths.get("Factura.txt");
         try {
@@ -262,19 +259,18 @@ expresso.setDisable(true);
     }
 
     public void BotonOrdenLista() throws IOException {
-        if (kitchenList.getSelectionModel().getSelectedItem()!=null){
-            String x=kitchenList.getSelectionModel().getSelectedItem();
-            for(int i=0; i<ListaPrueba.size();i++)
-        if (ListaPrueba.get(i).equals(x)) {
-            warningCocina.setText("");
-            String leerArchivo = readOrdenes();
-            leerArchivo = leerArchivo + ListaPrueba.get(i);
-            writeOrdenes(leerArchivo);
-            ListaPrueba.remove(ListaPrueba.get(i));
-            kitchenList.getItems().remove(kitchenList.getSelectionModel().getSelectedItem());
-        }
-        }
-        else
+        if (kitchenList.getSelectionModel().getSelectedItem() != null) {
+            String x = kitchenList.getSelectionModel().getSelectedItem();
+            for (int i = 0; i < ListaPrueba.size(); i++)
+                if (ListaPrueba.get(i).equals(x)) {
+                    warningCocina.setText("");
+                    String leerArchivo = readOrdenes();
+                    leerArchivo = leerArchivo + ListaPrueba.get(i);
+                    writeOrdenes(leerArchivo);
+                    ListaPrueba.remove(ListaPrueba.get(i));
+                    kitchenList.getItems().remove(kitchenList.getSelectionModel().getSelectedItem());
+                }
+        } else
             warningCocina.setText("No hay ningun pedido seleccionado");
     }
 

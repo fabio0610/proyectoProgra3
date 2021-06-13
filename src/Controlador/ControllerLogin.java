@@ -1,7 +1,6 @@
 package Controlador;
 
 import Modelo.Archivo;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -32,6 +31,7 @@ public class ControllerLogin implements DataManagement {
     Archivo archivo = new Archivo();
     LocalDate fecha = LocalDate.now();
     int tam = archivo.leerArchivo().size();
+
     public void escribirFecha() throws IOException {
         String leerArchivo = readOrdenes();
         leerArchivo = leerArchivo + (fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021\n");
@@ -48,7 +48,7 @@ public class ControllerLogin implements DataManagement {
         return false;
     }
 
-    public void Button(ActionEvent actionEvent) {
+    public void Button() {
         if (revisaLista()) {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
@@ -77,15 +77,15 @@ public class ControllerLogin implements DataManagement {
 
     @Override
     public String readOrdenes() throws IOException {
-        String mensaje = "";
+        StringBuilder mensaje = new StringBuilder();
         String ruta = "OrdenesListas.txt";
         Path path = Paths.get(ruta);
         if (Files.exists(path)) {
             List<String> x = Files.readAllLines(path, StandardCharsets.UTF_8);
-            for (int i = 0; i < x.size(); i++) {
-                mensaje = mensaje + x.get(i) + "\n";
+            for (String s : x) {
+                mensaje.append(s).append("\n");
             }
-            return mensaje;
+            return mensaje.toString();
         } else
             writeOrdenes("");
         return "";

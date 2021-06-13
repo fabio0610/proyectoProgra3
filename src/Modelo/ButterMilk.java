@@ -4,16 +4,17 @@ public class ButterMilk extends Decorator {
     public ButterMilk(AbstractCoffee coffee) {
         super(coffee);
     }
+
     public ButterMilk(AbstractCoffee coffee, int cantidad) {
         super(coffee);
-        if(cantidad>1)
-            this.cantidad=2;
-        else this.cantidad=1;
+        if (cantidad > 1)
+            this.cantidad = 2;
+        else this.cantidad = 1;
     }
 
     @Override
     public void doble() {
-        cantidad=2;
+        cantidad = 2;
     }
 
     @Override
@@ -23,15 +24,15 @@ public class ButterMilk extends Decorator {
 
     @Override
     public double getPrecio() {
-        return (300*cantidad);
+        return (300 * cantidad);
     }
 
     @Override
     public String getTipo() {
-        if(cantidad==2)
+        if (cantidad == 2)
             return ("Doble de Leche batida");
         else
-            return  ("Leche batida");
+            return ("Leche batida");
     }
 
 }

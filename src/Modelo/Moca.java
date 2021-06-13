@@ -5,17 +5,18 @@ public class Moca extends Decorator {
     public Moca(AbstractCoffee coffee) {
         super(coffee);
     }
+
     public Moca(AbstractCoffee coffee, int cantidad) {
         super(coffee);
-        if(cantidad>1)
-            this.cantidad=2;
-        else this.cantidad=1;
+        if (cantidad > 1)
+            this.cantidad = 2;
+        else this.cantidad = 1;
     }
 
 
     @Override
     public void doble() {
-        cantidad=2;
+        cantidad = 2;
     }
 
     @Override
@@ -24,15 +25,15 @@ public class Moca extends Decorator {
     }
 
     public String getTipo() {
-        if(cantidad==2)
+        if (cantidad == 2)
             return ("Doble de Moca");
         else
-            return  ("Moca");
+            return ("Moca");
     }
 
     @Override
     public double getPrecio() {
-        return (cantidad*300);
+        return (cantidad * 300);
     }
 
 }

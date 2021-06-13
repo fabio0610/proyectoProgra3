@@ -5,9 +5,10 @@ public class Decaffeinated extends AbstractCoffee {
         tipo = "Decaffeinated\n";
         precio = 1100;
     }
+
     @Override
     public void changeTheComa() {
-        tipo=tipo.replaceFirst(",","");
+        tipo = tipo.replaceFirst(",", "");
     }
 
     @Override
