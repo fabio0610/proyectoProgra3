@@ -14,13 +14,14 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/login.fxml")));
         primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root, 330, 311));
-        primaryStage.show();
+
         Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/kitchenView.fxml")));
         Stage stage2 = new Stage();
         Scene scene2 = new Scene(root2);
         stage2.setTitle("Kitchen");
         stage2.setScene(scene2);
         stage2.show();
+        primaryStage.show();
     }
 
 

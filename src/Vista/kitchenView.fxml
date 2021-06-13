@@ -5,27 +5,23 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="443.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4bb93" height="605.0" layoutX="-83.0" stroke="BLACK"
-              strokeType="INSIDE" width="1138.0"/>
+<AnchorPane prefHeight="443.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4bb93" height="605.0" layoutX="-83.0" stroke="BLACK" strokeType="INSIDE" width="1138.0" />
    <Label layoutX="473.0" prefHeight="62.0" prefWidth="108.0" text="Cocina" textFill="#482f24">
       <font>
-         <Font name="Gabriola" size="50.0"/>
+         <Font name="Gabriola" size="50.0" />
       </font>
    </Label>
-   <ListView fx:id="kitchenList" layoutX="22.0" layoutY="63.0" prefHeight="479.0" prefWidth="1012.0"
-             style="-fx-background-radius: 10; -fx-border-radius: 8; -fx-border-color: #745437;"/>
-   <Button fx:id="marcarListo" layoutX="468.0" layoutY="552.0" mnemonicParsing="false" onAction="#BotonOrdenLista"
-           style="-fx-background-color: #745437; -fx-background-radius: 6;" text="Orden Lita" textFill="WHITE">
+   <Button fx:id="marcarListo" layoutX="468.0" layoutY="552.0" mnemonicParsing="false" onAction="#BotonOrdenLista" style="-fx-background-color: #745437; -fx-background-radius: 6;" text="Orden Lita" textFill="WHITE">
       <font>
-         <Font name="Gabriola" size="20.0"/>
+         <Font name="Gabriola" size="20.0" />
       </font>
    </Button>
-   <Line endX="100.0" layoutX="528.0" layoutY="53.0" startX="-100.0" stroke="#482f24" strokeWidth="2.0"/>
+   <Line endX="100.0" layoutX="528.0" layoutY="53.0" startX="-100.0" stroke="#482f24" strokeWidth="2.0" />
    <Label fx:id="warningCocina" layoutX="106.0" layoutY="547.0" prefHeight="52.0" prefWidth="259.0">
       <font>
-         <Font name="Times New Roman" size="18.0"/>
+         <Font name="Times New Roman" size="18.0" />
       </font>
    </Label>
+   <ListView fx:id="kitchenList" layoutX="22.0" layoutY="63.0" prefHeight="479.0" prefWidth="1012.0" style="-fx-background-radius: 10; -fx-border-radius: 8; -fx-border-color: #745437;" />
 </AnchorPane>

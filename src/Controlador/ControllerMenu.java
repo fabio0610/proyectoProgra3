@@ -46,7 +46,7 @@ public class ControllerMenu implements DataManagement {
     public ToggleButton mocax2;
     public ToggleGroup VaporX2;
     public ToggleButton vaporX2;
-    public ListView<String> kitchenList = new ListView<>();
+    public static ListView<String> kitchenList = new ListView<>();
     public Button marcarListo;
     public Label warningCocina;
 
@@ -259,17 +259,22 @@ public class ControllerMenu implements DataManagement {
     }
 
     public void BotonOrdenLista() throws IOException {
-        if (kitchenList.getSelectionModel().getSelectedItem() != null) {
-            String x = kitchenList.getSelectionModel().getSelectedItem();
-            for (int i = 0; i < ListaPrueba.size(); i++)
+
+        if (kitchenList.getItems() != null) {
+            String x = kitchenList.getItems().toString().replace("]","").replace("[","");
+            for (int i = 0; i < ListaPrueba.size(); i++) {
+
                 if (ListaPrueba.get(i).equals(x)) {
+                    kitchenList.setDisable(false);
+                    kitchenList.refresh();
                     warningCocina.setText("");
                     String leerArchivo = readOrdenes();
                     leerArchivo = leerArchivo + ListaPrueba.get(i);
                     writeOrdenes(leerArchivo);
                     ListaPrueba.remove(ListaPrueba.get(i));
-                    kitchenList.getItems().remove(kitchenList.getSelectionModel().getSelectedItem());
+                    kitchenList.getItems().remove(kitchenList.getItems().get(i));
                 }
+            }
         } else
             warningCocina.setText("No hay ningun pedido seleccionado");
     }
