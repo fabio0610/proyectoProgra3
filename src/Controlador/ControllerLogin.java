@@ -20,7 +20,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 
 public class ControllerLogin implements DataManagement {
     public PasswordField clave;
@@ -51,7 +50,10 @@ public class ControllerLogin implements DataManagement {
     public void Button() {
         if (revisaLista()) {
             try {
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/PrincipalView.fxml")));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Vista/PrincipalView.fxml"));
+                Parent root = loader.load();
+                ControllerMenu controllerMenu = loader.getController();
+                controllerMenu.empleadoNombre.setText(field.getText());
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
                 stage.setTitle("Orders");

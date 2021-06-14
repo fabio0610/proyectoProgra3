@@ -50,6 +50,9 @@ public class ControllerMenu implements DataManagement {
     public Button marcarListo;
     public Label warningCocina;
 
+    public ControllerMenu() throws IOException {
+    }
+
 
     public void articuloAgre() {
         notificaAgregado.setText("Artículo agregado");
@@ -256,7 +259,7 @@ public class ControllerMenu implements DataManagement {
     public void BotonOrdenLista() throws IOException {
 
         if (kitchenList.getItems() != null) {
-            String x = kitchenList.getItems().toString().replace("]","").replace("[","");
+            String x = kitchenList.getItems().toString().replace("]", "").replace("[", "");
             for (int i = 0; i < ListaPrueba.size(); i++) {
 
                 if (ListaPrueba.get(i).equals(x)) {
