@@ -6,22 +6,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.Objects;
-
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/login.fxml")));
-        primaryStage.setTitle("Login");
-        primaryStage.setScene(new Scene(root, 330, 311));
-
-        Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Vista/kitchenView.fxml")));
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("../Vista/kitchenView.fxml"));
+        Parent root2 = loader2.load();
+        kitchenController kitchen = loader2.getController();
         Stage stage2 = new Stage();
         Scene scene2 = new Scene(root2);
         stage2.setTitle("Kitchen");
         stage2.setScene(scene2);
         stage2.show();
         primaryStage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Vista/login.fxml"));
+        Parent root = loader.load();
+        ControllerLogin controllerLogin = loader.getController();
+        controllerLogin.setKitchen(kitchen);
+        primaryStage.setTitle("Login");
+        primaryStage.setScene(new Scene(root, 330, 311));
     }
 
 

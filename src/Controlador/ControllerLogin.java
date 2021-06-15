@@ -30,11 +30,16 @@ public class ControllerLogin implements DataManagement {
     Archivo archivo = new Archivo();
     LocalDate fecha = LocalDate.now();
     int tam = archivo.leerArchivo().size();
+    kitchenController kitchen;
 
     public void escribirFecha() throws IOException {
         String leerArchivo = readOrdenes();
         leerArchivo = leerArchivo + (fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021\n");
         writeOrdenes(leerArchivo);
+    }
+
+    public void setKitchen(kitchenController x) {
+        kitchen = x;
     }
 
     public boolean revisaLista() {
@@ -54,6 +59,7 @@ public class ControllerLogin implements DataManagement {
                 Parent root = loader.load();
                 ControllerMenu controllerMenu = loader.getController();
                 controllerMenu.empleadoNombre.setText(field.getText());
+                controllerMenu.setKitchen(kitchen);
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
                 stage.setTitle("Orders");

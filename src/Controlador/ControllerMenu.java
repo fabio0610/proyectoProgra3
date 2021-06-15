@@ -46,6 +46,7 @@ public class ControllerMenu implements DataManagement {
     public ToggleButton mocax2;
     public ToggleGroup VaporX2;
     public ToggleButton vaporX2;
+    private kitchenController kitchenController = new kitchenController();
 
     public ControllerMenu() {
     }
@@ -220,6 +221,10 @@ public class ControllerMenu implements DataManagement {
 
     }
 
+    public void setKitchen(kitchenController x) {
+        kitchenController = x;
+    }
+
     public void facturar() {
 
         if (empleadoNombre.getText() == null || empleadoNombre.getText().equals(""))
@@ -235,6 +240,8 @@ public class ControllerMenu implements DataManagement {
         try {
             ListaPrueba.add(pedido);
             Files.writeString(path, pedido, StandardCharsets.UTF_8);
+            kitchenController.kitchenList.getItems().add(pedido);
+            kitchenController.kitchenList.refresh();
         } catch (IOException e) {
             e.printStackTrace();
         }
