@@ -31,6 +31,7 @@ public class ControllerLogin implements DataManagement {
     LocalDate fecha = LocalDate.now();
     int tam = archivo.leerArchivo().size();
     kitchenController kitchen;
+    private Stage stageP;
 
     public void escribirFecha() throws IOException {
         String leerArchivo = readOrdenes();
@@ -41,7 +42,9 @@ public class ControllerLogin implements DataManagement {
     public void setKitchen(kitchenController x) {
         kitchen = x;
     }
-
+public void setStageP(Stage x){
+        stageP=x;
+}
     public boolean revisaLista() {
         for (int i = 0; i < tam; i++) {
             if (field.getText().equals(archivo.leerArchivo().get(i).getUsername()) &&
@@ -60,11 +63,10 @@ public class ControllerLogin implements DataManagement {
                 ControllerMenu controllerMenu = loader.getController();
                 controllerMenu.empleadoNombre.setText(field.getText());
                 controllerMenu.setKitchen(kitchen);
-                Stage stage = new Stage();
                 Scene scene = new Scene(root);
-                stage.setTitle("Orders");
-                stage.setScene(scene);
-                stage.show();
+                stageP.setTitle("Orders");
+                stageP.setScene(scene);
+                stageP.show();
                 escribirFecha();
 
             } catch (Exception exception) {

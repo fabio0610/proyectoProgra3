@@ -21,6 +21,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../Vista/login.fxml"));
         Parent root = loader.load();
         ControllerLogin controllerLogin = loader.getController();
+        controllerLogin.setStageP(primaryStage);
         controllerLogin.setKitchen(kitchen);
         primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root, 330, 311));
