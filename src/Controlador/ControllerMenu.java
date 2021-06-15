@@ -3,13 +3,16 @@ package Controlador;
 import Modelo.*;
 import javafx.scene.control.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-
 public class ControllerMenu {
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
@@ -43,6 +46,7 @@ public class ControllerMenu {
     public ToggleGroup VaporX2;
     public ToggleButton vaporX2;
     private kitchenController kitchenController = new kitchenController();
+    EnviaOrden enviaOrden=new EnviaOrden();
 
     public ControllerMenu() {
     }
@@ -236,9 +240,10 @@ public class ControllerMenu {
         try {
             ListaPrueba.add(pedido);
             Files.writeString(path, pedido, StandardCharsets.UTF_8);
-            kitchenController.warningCocina.setText("");
-            kitchenController.kitchenList.getItems().add("Estado del pedido: Pendiente\n" + pedido);
-            kitchenController.kitchenList.refresh();
+            enviaOrden.actionPerformed(pedido);
+            //kitchenController.warningCocina.setText("");
+            //kitchenController.kitchenList.getItems().add("Estado del pedido: Pendiente\n" + pedido);
+           // kitchenController.kitchenList.refresh();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -385,6 +390,21 @@ public class ControllerMenu {
     public void CarameloBox() {
         if (!caramel.isSelected())
             caramelox2.setSelected(false);
+    }
+    private class EnviaOrden implements ActionListener{
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+
+        public void actionPerformed(String orden) throws IOException {
+            Socket socket=new Socket("192.168.0.188",9979);
+            DataOutputStream flujoSalida=new DataOutputStream(socket.getOutputStream());
+            flujoSalida.writeUTF(orden);
+            flujoSalida.close();
+        }
     }
 
 

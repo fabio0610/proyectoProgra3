@@ -10,10 +10,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,7 +20,7 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 
-public class ControllerLogin implements DataManagement {
+public class ControllerLogin implements DataManagement, Runnable {
     public PasswordField clave;
     public TextField field;
     public Button ingresarBoton;
@@ -32,6 +31,9 @@ public class ControllerLogin implements DataManagement {
     int tam = archivo.leerArchivo().size();
     kitchenController kitchen;
     private Stage stageP;
+
+    public ControllerLogin() throws IOException {
+    }
 
     public void escribirFecha() throws IOException {
         String leerArchivo = readOrdenes();
@@ -70,6 +72,8 @@ public class ControllerLogin implements DataManagement {
                 stageP.setScene(scene);
                 stageP.show();
                 escribirFecha();
+                Thread hilo = new Thread(this);
+                hilo.start();
 
             } catch (Exception exception) {
                 exception.printStackTrace();
@@ -111,8 +115,24 @@ public class ControllerLogin implements DataManagement {
         BufferedWriter escritura = new BufferedWriter(fw);
         escritura.write(mensaje);
         escritura.newLine();
-
         escritura.close();
     }
+
+    @Override
+    public void run() {
+
+        try {
+            ServerSocket servidor = new ServerSocket(9979);
+            Socket socket = servidor.accept();
+            DataInputStream flujoEntrada = new DataInputStream(socket.getInputStream());
+            String ordenRecibida = flujoEntrada.readUTF();
+            kitchen.kitchenList.getItems().add(ordenRecibida);
+            kitchen.kitchenList.refresh();
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
