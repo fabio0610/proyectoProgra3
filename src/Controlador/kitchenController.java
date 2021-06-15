@@ -14,25 +14,25 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class kitchenController implements DataManagement{
+public class kitchenController implements DataManagement {
     public ListView<String> kitchenList = new ListView<>();
     public Label warningCocina;
     public Button marcarListo;
 
     public void BotonOrdenLista() throws IOException {
-        if(kitchenList.getItems().size()<=0){
+        if (kitchenList.getItems().size() <= 0) {
             warningCocina.setText("No hay pedidos");
-        return;}
+            return;
+        }
 
         if (kitchenList.getSelectionModel().getSelectedItem() != null) {
             warningCocina.setText("");
-            String orden=kitchenList.getSelectionModel().getSelectedItem();
-            writeOrdenes(readOrdenes()+ orden);
-           kitchenList.getItems().remove( kitchenList.getSelectionModel().getSelectedItem());
-           kitchenList.refresh();
-        }
-        else {
-           warningCocina.setText("No se ha seleccionado nada");
+            String orden = kitchenList.getSelectionModel().getSelectedItem();
+            writeOrdenes(readOrdenes() + orden);
+            kitchenList.getItems().remove(kitchenList.getSelectionModel().getSelectedItem());
+            kitchenList.refresh();
+        } else {
+            warningCocina.setText("No se ha seleccionado nada");
         }
     }
 

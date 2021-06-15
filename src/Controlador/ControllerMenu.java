@@ -3,18 +3,14 @@ package Controlador;
 import Modelo.*;
 import javafx.scene.control.*;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 
-public class ControllerMenu implements DataManagement {
+public class ControllerMenu {
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
     public CheckBox lecheBatida;
@@ -298,32 +294,6 @@ public class ControllerMenu implements DataManagement {
         totalOrden.setText(String.valueOf(orden.getTotal()));
     }
 
-    @Override
-    public String readOrdenes() throws IOException {
-        StringBuilder mensaje = new StringBuilder();
-        String ruta = "OrdenesListas.txt";
-        Path path = Paths.get(ruta);
-        if (Files.exists(path)) {
-            List<String> x = Files.readAllLines(path, StandardCharsets.UTF_8);
-            for (String s : x) {
-                mensaje.append(s).append("\n");
-            }
-            return mensaje.toString();
-        } else
-            writeOrdenes("");
-        return "";
-    }
-
-    @Override
-    public void writeOrdenes(String mensaje) throws IOException {
-        String ruta = "OrdenesListas.txt";
-        File f = new File(ruta);
-        FileWriter fw = new FileWriter(f);
-        BufferedWriter escritura = new BufferedWriter(fw);
-        escritura.write(mensaje);
-        escritura.newLine();
-        escritura.close();
-    }
 
     public void DecaffeinatedAction() {
         if (decaffeinated.isSelected())

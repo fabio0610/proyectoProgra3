@@ -1,8 +1,8 @@
 ----------------------
-Orden 2:
+Orden 1:
 Cafe Dark Roast
-  Leche batida
-Precio: ₡1750.0
+  Leche batida, Caramelo
+Precio: ₡1850.0
 Vendedor: a
-Codigo: 32154
+Codigo: 02788
 ----------------------
