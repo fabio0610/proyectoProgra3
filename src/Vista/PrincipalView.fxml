@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="627.0" prefWidth="1017.0" style="-fx-background-color: #d7bb93;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+<AnchorPane prefHeight="627.0" prefWidth="1017.0" style="-fx-background-color: #d7bb93;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
    <children>
       <ImageView fitHeight="690.0" fitWidth="1027.0" layoutX="-10.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -106,7 +106,7 @@
             <Font name="Times New Roman Bold" size="13.0" />
          </font></CheckBox>
       <TextField fx:id="empleadoNombre" layoutX="582.0" layoutY="290.0" prefHeight="18.0" prefWidth="149.0" promptText="Nombre del vendedor" />
-      <ListView fx:id="listView" layoutX="163.0" layoutY="389.0" prefHeight="286.0" prefWidth="541.0" style="-fx-border-radius: 10; -fx-background-radius: 12; -fx-border-color: #482f24;">
+      <ListView fx:id="listView" layoutX="163.0" layoutY="389.0" prefHeight="286.0" prefWidth="541.0" style="-fx-border-radius: 8; -fx-background-radius: 10; -fx-border-color: #482f24;">
          <effect>
             <DisplacementMap>
                <mapData>
@@ -127,7 +127,7 @@
             <Font name="Times New Roman" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="totalOrden" layoutX="709.0" layoutY="516.0" prefHeight="41.0" prefWidth="122.0" text="₡ 0.00" textFill="#482f24">
+      <Label fx:id="totalOrden" layoutX="709.0" layoutY="512.0" prefHeight="41.0" prefWidth="122.0" text="₡ 0.00" textFill="#482f24">
          <font>
             <Font name="Times New Roman" size="26.0" />
          </font>
