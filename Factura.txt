@@ -1,8 +1,8 @@
 ----------------------
-Orden 1:
+Orden 2:
 Cafe Dark Roast
   Leche batida
 Precio: ₡1750.0
 Vendedor: a
-Codigo: 35962
+Codigo: 32154
 ----------------------

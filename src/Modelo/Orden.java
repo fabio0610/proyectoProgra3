@@ -18,7 +18,6 @@ public class Orden {
 
     public void eraseAll() {
         cafelist.clear();
-        contador = 0;
         total = 0;
     }
 
