@@ -35,7 +35,7 @@
          <Font name="Times New Roman" size="20.0" />
       </font>
    </Label>
-   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="293.0" layoutY="84.0" prefHeight="42.0" prefWidth="469.0" text="Un cafe bien servido, es un cliente agredecido." textFill="#482f24">
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="293.0" layoutY="84.0" prefHeight="42.0" prefWidth="469.0" text="Un café bien servido, es un cliente agredecido." textFill="#482f24">
       <font>
          <Font name="Gabriola" size="33.0" />
       </font>
