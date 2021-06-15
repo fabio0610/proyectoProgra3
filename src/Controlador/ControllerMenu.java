@@ -42,6 +42,7 @@ public class ControllerMenu {
     public ToggleButton mocax2;
     public ToggleGroup VaporX2;
     public ToggleButton vaporX2;
+    public Button logOut;
     private kitchenController kitchenController = new kitchenController();
 
     public ControllerMenu() {
@@ -387,5 +388,8 @@ public class ControllerMenu {
     }
 
 
+    public void cerrarSesion() {
+
+    }
 }
 

@@ -111,12 +111,12 @@
             <Font name="Times New Roman" size="15.0" />
          </font>
       </Button>
-      <Label layoutX="709.0" layoutY="540.0" prefHeight="34.0" prefWidth="122.0" text="Total Orden: " textFill="#482f24">
+      <Label layoutX="709.0" layoutY="482.0" prefHeight="34.0" prefWidth="122.0" text="Total Orden: " textFill="#482f24">
          <font>
             <Font name="Times New Roman" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="totalOrden" layoutX="709.0" layoutY="575.0" prefHeight="41.0" prefWidth="122.0" text="₡ 0.00" textFill="#482f24">
+      <Label fx:id="totalOrden" layoutX="709.0" layoutY="516.0" prefHeight="41.0" prefWidth="122.0" text="₡ 0.00" textFill="#482f24">
          <font>
             <Font name="Times New Roman" size="26.0" />
          </font>
@@ -161,5 +161,10 @@
             <Font name="Times New Roman" size="10.0" />
          </font>
       </ToggleButton>
+      <Button fx:id="logOut" layoutX="744.0" layoutY="623.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Salir">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -32,6 +32,7 @@ public class ControllerLogin implements DataManagement {
     int tam = archivo.leerArchivo().size();
     kitchenController kitchen;
     private Stage stageP;
+    private Stage stage2;
 
     public void escribirFecha() throws IOException {
         String leerArchivo = readOrdenes();
@@ -42,9 +43,11 @@ public class ControllerLogin implements DataManagement {
     public void setKitchen(kitchenController x) {
         kitchen = x;
     }
-public void setStageP(Stage x){
-        stageP=x;
-}
+
+    public void setStageP(Stage x) {
+        stageP = x;
+    }
+
     public boolean revisaLista() {
         for (int i = 0; i < tam; i++) {
             if (field.getText().equals(archivo.leerArchivo().get(i).getUsername()) &&
@@ -58,6 +61,7 @@ public void setStageP(Stage x){
     public void Button() {
         if (revisaLista()) {
             try {
+                stage2 = stageP;
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../Vista/PrincipalView.fxml"));
                 Parent root = loader.load();
                 ControllerMenu controllerMenu = loader.getController();
