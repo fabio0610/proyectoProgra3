@@ -161,10 +161,5 @@
             <Font name="Times New Roman" size="10.0" />
          </font>
       </ToggleButton>
-      <Button fx:id="logOut" layoutX="744.0" layoutY="623.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Salir">
-         <font>
-            <Font name="Times New Roman" size="16.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>
