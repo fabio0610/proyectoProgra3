@@ -28,7 +28,7 @@ public class kitchenController implements DataManagement {
         if (kitchenList.getSelectionModel().getSelectedItem() != null) {
             warningCocina.setText("");
             String orden = kitchenList.getSelectionModel().getSelectedItem();
-            writeOrdenes(readOrdenes() + orden.replaceFirst(" Pendiente", " Listo"));
+            writeOrdenes(readOrdenes() + orden.replaceFirst(" Pendiente", " Completado"));
             kitchenList.getItems().remove(kitchenList.getSelectionModel().getSelectedItem());
             kitchenList.refresh();
         } else {

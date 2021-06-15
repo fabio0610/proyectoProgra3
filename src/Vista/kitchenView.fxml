@@ -30,7 +30,7 @@
             </input>
          </DisplacementMap>
       </effect></ListView>
-   <Label fx:id="warningCocina" alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="484.0" prefHeight="52.0" prefWidth="224.0">
+   <Label fx:id="warningCocina" alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="496.0" prefHeight="52.0" prefWidth="224.0">
       <font>
          <Font name="Times New Roman" size="20.0" />
       </font>
