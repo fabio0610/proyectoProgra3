@@ -220,7 +220,7 @@ public class ControllerMenu implements DataManagement {
 
     }
 
-    public void facturar() throws IOException {
+    public void facturar() {
 
         if (empleadoNombre.getText() == null || empleadoNombre.getText().equals(""))
             empleadoNombre.setText("No se ingreso...");
