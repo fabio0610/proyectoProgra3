@@ -21,7 +21,7 @@ public class kitchenController implements DataManagement {
 
     public void BotonOrdenLista() throws IOException {
         if (kitchenList.getItems().size() <= 0) {
-            warningCocina.setText("No hay pedidos");
+            warningCocina.setText("No hay pedidos pendientes");
             return;
         }
 

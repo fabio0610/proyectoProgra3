@@ -12,3 +12,40 @@ Codigo: 98755
 
 14/6/2021
 
+14/6/2021
+
+Estado del pedido: Completado
+----------------------
+Orden 1:
+Cafe House Blend 
+ Leche batida
+Precio: ₡1700.0
+Vendedor: a
+Codigo: 33745
+----------------------
+
+14/6/2021
+
+Estado del pedido: Completado
+----------------------
+Orden 1:
+Cafe Dark Roast
+  Leche batida, Doble de Caramelo
+Precio: ₡1950.0
+Cafe Decaffeinated
+ Leche batida
+Precio: ₡1400.0
+Vendedor: a
+Codigo: 87028
+----------------------
+
+Estado del pedido: Completado
+----------------------
+Orden 2:
+Cafe House Blend 
+ Doble de Leche al vapor, Doble de Leche batida, Doble de Moca, Doble de Soya, Doble de Caramelo
+Precio: ₡3400.0
+Vendedor: a
+Codigo: 02609
+----------------------
+

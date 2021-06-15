@@ -13,7 +13,7 @@
          <Font name="Gabriola" size="50.0" />
       </font>
    </Label>
-   <Button fx:id="marcarListo" layoutX="473.0" layoutY="552.0" mnemonicParsing="false" onAction="#BotonOrdenLista" style="-fx-background-color: #745437; -fx-background-radius: 6;" text="Orden Lita" textFill="WHITE">
+   <Button fx:id="marcarListo" layoutX="473.0" layoutY="552.0" mnemonicParsing="false" onAction="#BotonOrdenLista" style="-fx-background-color: #745437; -fx-background-radius: 6;" text="Orden Lista" textFill="WHITE">
       <font>
          <Font name="Gabriola" size="20.0" />
       </font>
@@ -30,7 +30,7 @@
             </input>
          </DisplacementMap>
       </effect></ListView>
-   <Label fx:id="warningCocina" alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="496.0" prefHeight="52.0" prefWidth="224.0">
+   <Label fx:id="warningCocina" alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="496.0" prefHeight="52.0" prefWidth="224.0" textFill="#482f24">
       <font>
          <Font name="Times New Roman" size="20.0" />
       </font>

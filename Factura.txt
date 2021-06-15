@@ -1,8 +1,8 @@
 ----------------------
-Orden 1:
+Orden 2:
 Cafe House Blend 
- Leche batida
-Precio: ₡1700.0
+ Doble de Leche al vapor, Doble de Leche batida, Doble de Moca, Doble de Soya, Doble de Caramelo
+Precio: ₡3400.0
 Vendedor: a
-Codigo: 71411
+Codigo: 02609
 ----------------------
