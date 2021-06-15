@@ -1,4 +1,4 @@
-package Modelo;
+package Controlador;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

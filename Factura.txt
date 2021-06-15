@@ -1,8 +1,8 @@
 ----------------------
 Orden 1:
-Cafe Decaffeinated
- Leche batida, Doble de Caramelo
-Precio: ₡1600.0
-Vendedor: No se ingreso...
-Codigo: 44369
+Cafe Dark Roast
+  Leche batida, Doble de Caramelo
+Precio: ₡1950.0
+Vendedor: a
+Codigo: 81725
 ----------------------

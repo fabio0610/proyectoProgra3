@@ -46,13 +46,9 @@ public class ControllerMenu implements DataManagement {
     public ToggleButton mocax2;
     public ToggleGroup VaporX2;
     public ToggleButton vaporX2;
-    public ListView<String> kitchenList = new ListView<>();
-    public Button marcarListo;
-    public Label warningCocina;
 
-    public ControllerMenu() throws IOException {
+    public ControllerMenu() {
     }
-
 
     public void articuloAgre() {
         notificaAgregado.setText("Artículo agregado");
@@ -224,7 +220,8 @@ public class ControllerMenu implements DataManagement {
 
     }
 
-    public void facturar() {
+    public void facturar() throws IOException {
+
         if (empleadoNombre.getText() == null || empleadoNombre.getText().equals(""))
             empleadoNombre.setText("No se ingreso...");
         orden.contador = orden.contador + 1;
@@ -237,8 +234,6 @@ public class ControllerMenu implements DataManagement {
         Path path = Paths.get("Factura.txt");
         try {
             ListaPrueba.add(pedido);
-            kitchenList.getItems().add(pedido);
-            kitchenList.refresh();
             Files.writeString(path, pedido, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
@@ -256,26 +251,6 @@ public class ControllerMenu implements DataManagement {
 
     }
 
-    public void BotonOrdenLista() throws IOException {
-
-        if (kitchenList.getItems() != null) {
-            String x = kitchenList.getItems().toString().replace("]", "").replace("[", "");
-            for (int i = 0; i < ListaPrueba.size(); i++) {
-
-                if (ListaPrueba.get(i).equals(x)) {
-                    kitchenList.setDisable(false);
-                    kitchenList.refresh();
-                    warningCocina.setText("");
-                    String leerArchivo = readOrdenes();
-                    leerArchivo = leerArchivo + ListaPrueba.get(i);
-                    writeOrdenes(leerArchivo);
-                    ListaPrueba.remove(ListaPrueba.get(i));
-                    kitchenList.getItems().remove(kitchenList.getItems().get(i));
-                }
-            }
-        } else
-            warningCocina.setText("No hay ningun pedido seleccionado");
-    }
 
     public void clean() {
         lecheBatida.setSelected(true);

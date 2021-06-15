@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="443.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerMenu">
+<AnchorPane prefHeight="443.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.kitchenController">
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4bb93" height="605.0" layoutX="-83.0" stroke="BLACK" strokeType="INSIDE" width="1138.0" />
    <Label layoutX="473.0" prefHeight="62.0" prefWidth="108.0" text="Cocina" textFill="#482f24">
       <font>
