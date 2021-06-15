@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
@@ -105,7 +106,17 @@
             <Font name="Times New Roman Bold" size="13.0" />
          </font></CheckBox>
       <TextField fx:id="empleadoNombre" layoutX="582.0" layoutY="290.0" prefHeight="18.0" prefWidth="149.0" promptText="Nombre del vendedor" />
-      <ListView fx:id="listView" layoutX="163.0" layoutY="389.0" prefHeight="286.0" prefWidth="541.0" style="-fx-border-radius: 10; -fx-background-radius: 12; -fx-border-color: #482f24;" />
+      <ListView fx:id="listView" layoutX="163.0" layoutY="389.0" prefHeight="286.0" prefWidth="541.0" style="-fx-border-radius: 10; -fx-background-radius: 12; -fx-border-color: #482f24;">
+         <effect>
+            <DisplacementMap>
+               <mapData>
+                  <FloatMap />
+               </mapData>
+               <input>
+                  <DropShadow />
+               </input>
+            </DisplacementMap>
+         </effect></ListView>
       <Button fx:id="eliminar" alignment="CENTER" disable="true" layoutX="725.0" layoutY="408.0" mnemonicParsing="false" onAction="#deleteCoffe" prefHeight="34.0" prefWidth="90.0" style="-fx-border-radius: 6; -fx-border-color: #482f24;" text="Eliminar" textFill="#482f24">
          <font>
             <Font name="Times New Roman" size="15.0" />

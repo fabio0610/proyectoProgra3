@@ -236,7 +236,7 @@ public class ControllerMenu {
         try {
             ListaPrueba.add(pedido);
             Files.writeString(path, pedido, StandardCharsets.UTF_8);
-            kitchenController.kitchenList.getItems().add(pedido);
+            kitchenController.kitchenList.getItems().add("Estado del pedido: Pendiente\n" + pedido);
             kitchenController.kitchenList.refresh();
         } catch (IOException e) {
             e.printStackTrace();
@@ -387,8 +387,5 @@ public class ControllerMenu {
     }
 
 
-    public void cerrarSesion() {
-
-    }
 }
 

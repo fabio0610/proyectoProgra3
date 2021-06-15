@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -18,10 +19,25 @@
       </font>
    </Button>
    <Line endX="100.0" layoutX="528.0" layoutY="53.0" startX="-100.0" stroke="#482f24" strokeWidth="2.0" />
-   <ListView fx:id="kitchenList" layoutX="22.0" layoutY="63.0" prefHeight="479.0" prefWidth="1012.0" style="-fx-background-radius: 10; -fx-border-radius: 8; -fx-border-color: #745437;" />
+   <ListView fx:id="kitchenList" layoutX="21.0" layoutY="146.0" orientation="HORIZONTAL" prefHeight="350.0" prefWidth="1012.0" style="-fx-background-radius: 10; -fx-border-radius: 8; -fx-border-color: #745437;">
+      <effect>
+         <DisplacementMap>
+            <mapData>
+               <FloatMap />
+            </mapData>
+            <input>
+               <DropShadow />
+            </input>
+         </DisplacementMap>
+      </effect></ListView>
    <Label fx:id="warningCocina" alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="484.0" prefHeight="52.0" prefWidth="224.0">
       <font>
          <Font name="Times New Roman" size="20.0" />
+      </font>
+   </Label>
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="363.0" layoutY="78.0" prefHeight="42.0" prefWidth="327.0" text="Tripa vacia, corazon sin alegria." textFill="#482f24">
+      <font>
+         <Font name="Gabriola" size="33.0" />
       </font>
    </Label>
 </AnchorPane>

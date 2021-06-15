@@ -1,8 +1,8 @@
 ----------------------
 Orden 1:
-Cafe Dark Roast
-  Leche batida, Caramelo
-Precio: ₡1850.0
+Cafe House Blend 
+ Doble de Leche al vapor, Leche batida
+Precio: ₡1800.0
 Vendedor: a
-Codigo: 02788
+Codigo: 81281
 ----------------------
