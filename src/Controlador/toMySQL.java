@@ -16,12 +16,11 @@ import java.util.List;
 
         public static Connection getConnection() throws Exception {
             String driver = "org.gjt.mm.mysql.Driver";
-            String url = "jdbc:mysql://localhost/databaseName";
-            String username = "root";
-            String password = "root";
+            String url = "jdbc:mysql://127.0.0.1:3306/proyecto2";
+            String username = "sebas";
+            String password = "1234";
             Class.forName(driver);
-            Connection conn = DriverManager.getConnection(url, username, password);
-            return conn;
+            return DriverManager.getConnection(url, username, password);
         }
 
         public static long writeJavaObject(Connection conn, Object object) throws Exception {
@@ -59,13 +58,13 @@ import java.util.List;
             System.out.println("readJavaObject: done de-serializing: " + className);
             return object;
         }
-        public static void main(String args[])throws Exception {
+        public static void main(String[] args)throws Exception {
             Connection conn = null;
             try {
                 conn = getConnection();
                 System.out.println("conn=" + conn);
                 conn.setAutoCommit(false);
-                List<Object> list = new ArrayList<Object>();
+                List<Object> list = new ArrayList<>();
                 list.add("This is a short string.");
                 list.add(1234);
                 list.add(new Date());
@@ -78,6 +77,7 @@ import java.util.List;
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
+                assert conn != null;
                 conn.close();
             }
         }
