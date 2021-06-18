@@ -7,33 +7,33 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="328.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerLogin">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="311.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControllerLogin">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="389.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="338.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="311.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="330.0">
          <fill>
-            <LinearGradient endX="1.0" endY="0.02857142857142858" startX="1.0" startY="0.7977098890843283">
+            <LinearGradient endX="1.0" endY="0.02857142857142858" startX="1.0" startY="1.0">
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.4745098054409027" green="0.3529411852359772" blue="0.3019607961177826" />
+                        <Color red="0.3199999928474426" green="0.21199999749660492" blue="0.17599999904632568" />
                      </color>
                   </Stop>
                   <Stop offset="0.007662835249042145">
                      <color>
-                        <Color red="0.4745098054409027" green="0.3529411852359772" blue="0.3019607961177826" />
+                        <Color red="0.3199999928474426" green="0.21199999749660492" blue="0.17599999904632568" />
                      </color>
                   </Stop>
                   <Stop offset="0.007662835249042145">
                      <color>
-                        <Color red="0.4745098054409027" green="0.3529411852359772" blue="0.3019607961177826" />
+                        <Color red="0.3199999928474426" green="0.21199999749660492" blue="0.17599999904632568" />
                      </color>
                   </Stop>
-                  <Stop offset="0.5440613026819922">
+                  <Stop offset="0.3793103448275862">
                      <color>
                         <Color red="0.8399999737739563" green="0.7315000295639038" blue="0.5795999765396118" />
                      </color>
                   </Stop>
-                  <Stop offset="0.8827270213690404">
+                  <Stop offset="0.5593869731800764">
                      <color>
                         <Color red="0.843137264251709" green="0.7333333492279053" blue="0.5764706134796143" />
                      </color>
@@ -46,22 +46,17 @@
                </stops>
             </LinearGradient>
          </fill></Rectangle>
-      <ImageView fitHeight="310.0" fitWidth="294.0" layoutX="37.0" layoutY="48.0" opacity="0.27" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="https://freepngimg.com/thumb/coffee/5-2-coffee-png-pic-thumb.png" />
-         </image>
-      </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-6.0" prefHeight="97.0" prefWidth="338.0" text="Bienvenido" textAlignment="CENTER" textFill="#452d23" textOverrun="CLIP">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-4.0" layoutY="-10.0" prefHeight="97.0" prefWidth="338.0" text="Bienvenido" textAlignment="CENTER" textFill="#421801" textOverrun="CLIP">
          <font>
             <Font name="Gabriola" size="55.0" />
          </font>
       </Label>
-      <TextField fx:id="field" layoutX="126.0" layoutY="158.0" promptText="Ej: admin" style="-fx-background-color: #E4D2C9;" />
-      <Label layoutX="55.0" layoutY="161.0" text="Usuario:" textFill="#472f24">
+      <TextField fx:id="field" layoutX="124.0" layoutY="123.0" promptText="Ej: admin" style="-fx-background-color: #E4D2C9;" />
+      <Label layoutX="44.0" layoutY="126.0" text="Usuario:" textFill="#3c1703">
          <font>
             <Font name="Times New Roman Bold" size="16.0" />
          </font></Label>
-      <Label layoutX="35.0" layoutY="209.0" text="Contraseña:" textFill="#472f24">
+      <Label layoutX="34.0" layoutY="184.0" text="Contraseña:" textFill="#3c1703">
          <font>
             <Font name="Times New Roman Bold" size="15.0" />
          </font></Label>
@@ -69,20 +64,20 @@
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font></Label>
-      <Button fx:id="ingresarBoton" defaultButton="true" layoutX="134.0" layoutY="252.0" mnemonicParsing="false" onAction="#Button" style="-fx-background-color: #452d23;" text="Ingresar" textFill="WHITE">
+      <Button fx:id="ingresarBoton" defaultButton="true" layoutX="135.0" layoutY="239.0" mnemonicParsing="false" onAction="#Button" style="-fx-background-color: #3C1703;" text="Ingresar" textFill="WHITE">
          <font>
             <Font name="Times New Roman" size="13.0" />
          </font></Button>
-      <PasswordField fx:id="clave" layoutX="126.0" layoutY="206.0" promptText="Ej: admin" style="-fx-background-color: #D6C8C2;" />
-      <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#b28774" height="2.0" layoutX="26.0" layoutY="73.0" stroke="#452d23" strokeType="INSIDE" width="286.0" />
-      <ImageView fitHeight="72.0" fitWidth="61.0" layoutX="139.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+      <PasswordField fx:id="clave" layoutX="124.0" layoutY="180.0" promptText="Ej: admin" style="-fx-background-color: #D6C8C2;" />
+      <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#b28774" height="2.0" layoutX="22.0" layoutY="73.0" stroke="#4c1a00" strokeType="INSIDE" width="286.0" />
+      <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="25.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="https://www.pngix.com/pngfile/big/530-5303858_login-icon-sign-up-icon-png-transparent-png.png" />
+            <Image url="@../../B9D3EFBF-3E1C-45DC-9A84-DA409B33995C.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="320.0" fitWidth="365.0" layoutX="1.0" layoutY="337.0" opacity="0.66" pickOnBounds="true" preserveRatio="true" rotate="-0.5">
+      <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="263.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
-            <Image url="https://lh3.googleusercontent.com/proxy/B74I99Ckp87XItODSbJ2Qh48bFrgkkjX_bMvI7CDQ8uREPTxP-kzRIJdiLE2Cf73JfySN1nS04Bwm0tqVPQyDB7IiiRy_Z6rzbql656xAbEY-Lo" />
+            <Image url="@../../B9D3EFBF-3E1C-45DC-9A84-DA409B33995C.png" />
          </image>
       </ImageView>
    </children>
