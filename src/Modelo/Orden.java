@@ -21,6 +21,7 @@ public class Orden {
         total = 0;
     }
 
+
     public double total() {
         total = 0;
         for (AbstractCoffee abstractCoffee : cafelist) {
@@ -36,6 +37,13 @@ public class Orden {
 
     public String print() {
         StringBuilder mensaje = new StringBuilder("");
+        for (AbstractCoffee abstractCoffee : cafelist) {
+            mensaje.append("Cafe ").append(abstractCoffee.getTipo()).append("\n");
+        }
+        return mensaje.toString();
+    }
+    public String send() {
+        StringBuilder mensaje = new StringBuilder("-----------------\n"+ "Orden "+contador+": \n");
         for (AbstractCoffee abstractCoffee : cafelist) {
             mensaje.append("Cafe ").append(abstractCoffee.getTipo()).
                     append("\n").append("Precio: ").append("₡").append(abstractCoffee.getPrecio()).append("\n");

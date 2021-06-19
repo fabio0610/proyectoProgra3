@@ -1,3 +1,6 @@
-Cafe Decaffeinated
- Leche batida
-Precio: ₡1400.0
+-----------------
+Orden 2: 
+Cafe Dark Roast
+  Leche batida
+Precio: ₡1750.0
+Codigo 22

@@ -32,7 +32,7 @@ public class ControllerLogin implements DataManagement, Runnable {
     kitchenController kitchen;
     private Stage stageP;
 
-    public ControllerLogin() throws IOException {
+    public ControllerLogin() {
     }
 
     public void escribirFecha() throws IOException {

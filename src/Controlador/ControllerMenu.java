@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -48,7 +49,7 @@ public class ControllerMenu {
     public ToggleButton mocax2;
     public ToggleGroup VaporX2;
     public ToggleButton vaporX2;
-    private kitchenController kitchenController = new kitchenController();
+    kitchenController kitchen = new kitchenController();
     EnviaOrden enviaOrden = new EnviaOrden();
     private final toMySQL mySQL = new toMySQL();
 
@@ -225,32 +226,35 @@ public class ControllerMenu {
 
     }
 
-    public void setKitchen(kitchenController x) {
-        kitchenController = x;
+    public void setKitchen(kitchenController kitchen) {
+        this.kitchen = kitchen;
     }
 
     public void facturar() {
 
         if (empleadoNombre.getText() == null || empleadoNombre.getText().equals(""))
             empleadoNombre.setText("No se ingreso...");
-        //  orden.contador = orden.contador + 1;
+        orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
         String pedido = orden.print();
-        String Codigo = String.valueOf((
-                ((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
+        String pedi2 = orden.send();
+        String Codigo =
+                String.valueOf(((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
                         ((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
-                        ((int) Math.floor(Math.random() * (9 + 1) + 0))));
-        System.out.println(pedido);
+                        ((int) Math.floor(Math.random() * (9 + 1) + 0)));
+        System.out.println(pedi2);
         Path path = Paths.get("Factura.txt");
         try {
-            for (int i = 0; i < orden.cafelist.size(); i++) {
-                mySQL.generarFactura(fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021",
+                mySQL.generarFactura(Codigo, fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021",
                         empleadoNombre.getText(), orden.total(), pedido);
-            }
-            ListaPrueba.add(pedido);
-            Files.writeString(path, pedido, StandardCharsets.UTF_8);
-            enviaOrden.actionPerformed(pedido);
-        } catch (IOException e) {
+            mySQL.annadircafes(orden, Codigo);
+            pedi2 += "Codigo " + Codigo;
+            ListaPrueba.add(pedi2);
+            Files.writeString(path, pedi2, StandardCharsets.UTF_8);
+            enviaOrden.actionPerformed(pedi2);
+            kitchen.warningCocina.setText("");// kitchen.kitchenList.getItems().add(pedi2);
+            kitchen.kitchenList.refresh();
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
         totalOrden.setText("₡ " + orden.total());
