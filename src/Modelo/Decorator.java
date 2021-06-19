@@ -2,11 +2,7 @@ package Modelo;
 
 public abstract class Decorator {
     int cantidad = 1;
-    private AbstractCoffee coffee;
-
-    public void setCoffee(AbstractCoffee coffee) {
-        this.coffee = coffee;
-    }
+    private final AbstractCoffee coffee;
 
     public Decorator(AbstractCoffee coffee) {
         this.coffee = coffee;
@@ -16,10 +12,6 @@ public abstract class Decorator {
         this.coffee = coffee;
         this.cantidad = cantidad;
     }
-
-    public abstract void doble();
-
-    public abstract int getCantidad();
 
     public abstract String getTipo();
 

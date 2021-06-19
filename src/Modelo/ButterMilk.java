@@ -13,16 +13,6 @@ public class ButterMilk extends Decorator {
     }
 
     @Override
-    public void doble() {
-        cantidad = 2;
-    }
-
-    @Override
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    @Override
     public double getPrecio() {
         return (300 * cantidad);
     }

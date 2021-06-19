@@ -13,17 +13,6 @@ public class Moca extends Decorator {
         else this.cantidad = 1;
     }
 
-
-    @Override
-    public void doble() {
-        cantidad = 2;
-    }
-
-    @Override
-    public int getCantidad() {
-        return cantidad;
-    }
-
     public String getTipo() {
         if (cantidad == 2)
             return ("Doble de Moca");

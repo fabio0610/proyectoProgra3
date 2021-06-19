@@ -27,14 +27,4 @@ public class SteamedMilk extends Decorator {
         else this.cantidad = 1;
     }
 
-
-    @Override
-    public void doble() {
-        cantidad = 2;
-    }
-
-    @Override
-    public int getCantidad() {
-        return cantidad;
-    }
 }

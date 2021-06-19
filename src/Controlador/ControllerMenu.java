@@ -8,15 +8,12 @@ import java.awt.event.ActionListener;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class ControllerMenu {
+    public static final Orden orden = new Orden();
+    private final toMySQL mySQL = new toMySQL();
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
     public CheckBox lecheBatida;
@@ -28,12 +25,9 @@ public class ControllerMenu {
     public ToggleButton decaffeinated;
     public ToggleButton darkRoast;
     public ToggleButton expresso;
-    public static final Orden orden = new Orden();
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
-    LocalDate fecha = LocalDate.now();
     public Label notificaAgregado;
-    public static ArrayList<String> ListaPrueba = new ArrayList<>();
     public CheckBox caramel;
     public TextField empleadoNombre = new TextField();
     public ListView<String> listView = new ListView<>();
@@ -49,9 +43,9 @@ public class ControllerMenu {
     public ToggleButton mocax2;
     public ToggleGroup VaporX2;
     public ToggleButton vaporX2;
-    kitchenController kitchen = new kitchenController();
-    EnviaOrden enviaOrden = new EnviaOrden();
-    private final toMySQL mySQL = new toMySQL();
+    private final LocalDate fecha = LocalDate.now();
+    private kitchenController kitchen = new kitchenController();
+    private final EnviaOrden enviaOrden = new EnviaOrden();
 
     public ControllerMenu() {
     }
@@ -236,23 +230,19 @@ public class ControllerMenu {
             empleadoNombre.setText("No se ingreso...");
         orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
-        String pedi2 = orden.send();
+        String pedi2 = orden.print();
         String Codigo =
-                String.valueOf((int) Math.floor(Math.random() * (9 + 1) + 0)) + String.valueOf((int) Math.floor(Math.random() * (9 + 1) + 0)) +
-                        String.valueOf((int) Math.floor(Math.random() * (9 + 1) + 0)) + String.valueOf((int) Math.floor(Math.random() * (9 + 1) + 0)) +
-                        String.valueOf ((int) Math.floor(Math.random() * (9 + 1) + 0));
+                String.valueOf((int) Math.floor(Math.random() * (9 + 1) + 0)) + (int) Math.floor(Math.random() * (9 + 1) + 0) +
+                        (int) Math.floor(Math.random() * (9 + 1) + 0) + (int) Math.floor(Math.random() * (9 + 1) + 0) +
+                        (int) Math.floor(Math.random() * (9 + 1) + 0);
         System.out.println(pedi2);
-        Path path = Paths.get("Factura.txt");
         try {
-                mySQL.generarFactura(Codigo, fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021",
-                        empleadoNombre.getText(), orden.total());
+            mySQL.generarFactura(Codigo, fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021",
+                    empleadoNombre.getText(), orden.total());
             mySQL.annadircafes(orden, Codigo);
-            pedi2 += "Codigo " + Codigo;
-            ListaPrueba.add(pedi2);
-            Files.writeString(path, pedi2, StandardCharsets.UTF_8);
+            pedi2 += "-----------------" + "Codigo " + Codigo + "\n-----------------";
             enviaOrden.actionPerformed(pedi2);
-            kitchen.warningCocina.setText("");// kitchen.kitchenList.getItems().add(pedi2);
-            kitchen.kitchenList.refresh();
+            kitchen.warningCocina.setText("");
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }

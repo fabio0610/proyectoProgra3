@@ -10,7 +10,6 @@ public abstract class AbstractCoffee {
     }
 
     public void changeTheComa() {
-
     }
 
     public double getPrecio() {
