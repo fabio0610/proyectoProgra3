@@ -35,7 +35,7 @@ public class Orden {
 
 
     public String print() {
-        StringBuilder mensaje = new StringBuilder("----------------------\n" + "Orden " + contador + ":\n");
+        StringBuilder mensaje = new StringBuilder("");
         for (AbstractCoffee abstractCoffee : cafelist) {
             mensaje.append("Cafe ").append(abstractCoffee.getTipo()).
                     append("\n").append("Precio: ").append("₡").append(abstractCoffee.getPrecio()).append("\n");

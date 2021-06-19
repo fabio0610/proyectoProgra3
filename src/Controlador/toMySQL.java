@@ -1,86 +1,120 @@
 package Controlador;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.sql.*;
+// Notice, do not import com.mysql.cj.jdbc.*
+// or you will have problems!
+public class toMySQL {
+   public void generarFactura(String fecha, String vendedor, double total, String detalle){
+       Connection conn = null;
+       Statement statement=null;
+       try {
+           Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+       } catch (Exception ex) {
+           System.out.println("SQLException: " + ex.getMessage());
+       }
+       try {
+           conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/new_schema?" +
+                   "user=root&password=1234");
+           statement=conn.createStatement();
+       } catch (SQLException ex) {
+           System.out.println("SQLException: " + ex.getMessage());
+           System.out.println("SQLState: " + ex.getSQLState());
+           System.out.println("VendorError: " + ex.getErrorCode());
+       }
+       try {
+           String x="INSERT INTO ordenes (Fecha, Vendedor, Total, Detalle) VALUES ('"+fecha+"', '"+vendedor+"', "+total+", '"+detalle+"' )";
+System.out.println(x);
+         statement.executeUpdate( x);
 
-    public class toMySQL {
-        static final String WRITE_OBJECT_SQL = "INSERT INTO java_objects(name, object_value) VALUES (?, ?)";
+       } catch (SQLException ec){
+System.out.println("No ejecuta el comando");
+       }
+   }
+    public static void main(String[] args) {
+      // generarFactura("2/2/2", "Sebas", 8000);
+       /* Connection conn = null;
 
-        static final String READ_OBJECT_SQL = "SELECT object_value FROM java_objects WHERE id = ?";
+        try {
+            // The newInstance() call is a work around for some
+            // broken Java implementations
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+        } catch (Exception ex) {
+            // handle the error
+            System.out.println("SQLException: " + ex.getMessage());
+        }
+       // jdbc:mysql://127.0.0.1:3306/?user=root
 
-        public static Connection getConnection() throws Exception {
-            String driver = "org.gjt.mm.mysql.Driver";
-            String url = "jdbc:mysql://127.0.0.1:3306/proyecto2";
-            String username = "sebas";
-            String password = "1234";
-            Class.forName(driver);
-            return DriverManager.getConnection(url, username, password);
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/new_schema?" +
+                            "user=root&password=1234");
+            // Do something with the Connection
+
+
+
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
         }
 
-        public static long writeJavaObject(Connection conn, Object object) throws Exception {
-            String className = object.getClass().getName();
-            PreparedStatement pstmt = conn.prepareStatement(WRITE_OBJECT_SQL);
 
-            // set input parameters
-            pstmt.setString(1, className);
-            pstmt.setObject(2, object);
-            pstmt.executeUpdate();
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM ordenes;");
+            // or alternatively, if you don't know ahead of time that
+            // the query will be a SELECT...
+            if (stmt.execute("SELECT * FROM ordenes;")) {
+                rs = stmt.getResultSet();
+            }
+            // Now do something with the ResultSet ....
 
-            // get the generated key for the id
-            ResultSet rs = pstmt.getGeneratedKeys();
-            int id = -1;
-            if (rs.next()) {
-                id = rs.getInt(1);
+            while (rs.next()) {
+                long codigo = rs.getInt("Codigo");
+               String fecha = rs.getString("Fecha");
+               float total = rs.getFloat("Total");
+               String vendedor = rs.getString("Vendedor");
+               String estado = rs.getString("Estado");
+                System.out.println(codigo);
+                System.out.println(fecha);
+                System.out.println(total);
+                System.out.println(vendedor);
+                System.out.println(estado);
+
             }
 
-            rs.close();
-            pstmt.close();
-            System.out.println("writeJavaObject: done serializing: " + className);
-            return id;
         }
-
-        public static Object readJavaObject(Connection conn, long id) throws Exception {
-            PreparedStatement pstmt = conn.prepareStatement(READ_OBJECT_SQL);
-            pstmt.setLong(1, id);
-            ResultSet rs = pstmt.executeQuery();
-            rs.next();
-            Object object = rs.getObject(1);
-            String className = object.getClass().getName();
-
-            rs.close();
-            pstmt.close();
-            System.out.println("readJavaObject: done de-serializing: " + className);
-            return object;
+        catch (SQLException ex){
+            // handle any errors
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
         }
-        public static void main(String[] args)throws Exception {
-            Connection conn = null;
-            try {
-                conn = getConnection();
-                System.out.println("conn=" + conn);
-                conn.setAutoCommit(false);
-                List<Object> list = new ArrayList<>();
-                list.add("This is a short string.");
-                list.add(1234);
-                list.add(new Date());
-
-                long objectID = writeJavaObject(conn, list);
-                conn.commit();
-                System.out.println("Serialized objectID => " + objectID);
-                List listFromDatabase = (List) readJavaObject(conn, objectID);
-                System.out.println("[After De-Serialization] list=" + listFromDatabase);
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                assert conn != null;
-                conn.close();
+        finally {
+            // it is a good idea to release
+            // resources in a finally{} block
+            // in reverse-order of their creation
+            // if they are no-longer needed
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ignored) { } // ignore
+                rs = null;
             }
-        }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException ignored) { } // ignore
+                stmt = null;
+            }
+        }*/
+
+
     }
+}
+
 
 

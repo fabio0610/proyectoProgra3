@@ -1,8 +1,3 @@
-----------------------
-Orden 1:
-Cafe Dark Roast
-  Leche batida
-Precio: ₡1750.0
-Vendedor: a
-Codigo: 76449
-----------------------
+Cafe Decaffeinated
+ Leche batida
+Precio: ₡1400.0

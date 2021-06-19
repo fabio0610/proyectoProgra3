@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
 public class ControllerMenu {
     public ToggleButton generarFactura;
@@ -28,6 +29,7 @@ public class ControllerMenu {
     public static final Orden orden = new Orden();
     public ToggleGroup factura;
     public ToggleButton agregarOrden;
+    LocalDate fecha = LocalDate.now();
     public Label notificaAgregado;
     public static ArrayList<String> ListaPrueba = new ArrayList<>();
     public CheckBox caramel;
@@ -47,6 +49,7 @@ public class ControllerMenu {
     public ToggleButton vaporX2;
     private kitchenController kitchenController = new kitchenController();
     EnviaOrden enviaOrden=new EnviaOrden();
+    private final toMySQL mySQL=new toMySQL();
 
     public ControllerMenu() {
     }
@@ -229,21 +232,23 @@ public class ControllerMenu {
 
         if (empleadoNombre.getText() == null || empleadoNombre.getText().equals(""))
             empleadoNombre.setText("No se ingreso...");
-        orden.contador = orden.contador + 1;
+      //  orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
-        String pedido = orden.print() + "Vendedor: " + empleadoNombre.getText() + "\n" + "Codigo: " +
+        String pedido = orden.print();
+               String Codigo= String.valueOf((
                 ((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
                 ((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
-                ((int) Math.floor(Math.random() * (9 + 1) + 0)) + "\n" + "----------------------\n";
+                ((int) Math.floor(Math.random() * (9 + 1) + 0))));
         System.out.println(pedido);
         Path path = Paths.get("Factura.txt");
         try {
+            for(int i=0; i<orden.cafelist.size();i++){
+               mySQL.generarFactura(fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021",
+                       empleadoNombre.getText(), orden.total(),pedido);
+            }
             ListaPrueba.add(pedido);
             Files.writeString(path, pedido, StandardCharsets.UTF_8);
             enviaOrden.actionPerformed(pedido);
-            //kitchenController.warningCocina.setText("");
-            //kitchenController.kitchenList.getItems().add("Estado del pedido: Pendiente\n" + pedido);
-           // kitchenController.kitchenList.refresh();
         } catch (IOException e) {
             e.printStackTrace();
         }
