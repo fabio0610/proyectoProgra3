@@ -1,38 +1,42 @@
 package Controlador;
 
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 // Notice, do not import com.mysql.cj.jdbc.*
 // or you will have problems!
 public class toMySQL {
-   public void generarFactura(String fecha, String vendedor, double total, String detalle){
-       Connection conn = null;
-       Statement statement=null;
-       try {
-           Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-       } catch (Exception ex) {
-           System.out.println("SQLException: " + ex.getMessage());
-       }
-       try {
-           conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/new_schema?" +
-                   "user=root&password=1234");
-           statement=conn.createStatement();
-       } catch (SQLException ex) {
-           System.out.println("SQLException: " + ex.getMessage());
-           System.out.println("SQLState: " + ex.getSQLState());
-           System.out.println("VendorError: " + ex.getErrorCode());
-       }
-       try {
-           String x="INSERT INTO ordenes (Fecha, Vendedor, Total, Detalle) VALUES ('"+fecha+"', '"+vendedor+"', "+total+", '"+detalle+"' )";
-System.out.println(x);
-         statement.executeUpdate( x);
+    public void generarFactura(String fecha, String vendedor, double total, String detalle) {
+        Connection conn;
+        Statement statement = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (Exception ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+        }
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/new_schema?" +
+                    "user=root&password=1234");
+            statement = conn.createStatement();
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+        try {
+            String x = "INSERT INTO ordenes (Fecha, Vendedor, Total, Detalle) VALUES ('" + fecha + "', '" + vendedor + "', " + total + ", '" + detalle + "' )";
+            statement.executeUpdate(x);
 
-       } catch (SQLException ec){
-System.out.println("No ejecuta el comando");
-       }
-   }
+        } catch (SQLException ec) {
+            System.out.println("No ejecuta el comando");
+        }
+    }
+
     public static void main(String[] args) {
-      // generarFactura("2/2/2", "Sebas", 8000);
+        // generarFactura("2/2/2", "Sebas", 8000);
        /* Connection conn = null;
 
         try {

@@ -14,6 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
+
 public class ControllerMenu {
     public ToggleButton generarFactura;
     public CheckBox lecheAlvapor;
@@ -48,8 +49,8 @@ public class ControllerMenu {
     public ToggleGroup VaporX2;
     public ToggleButton vaporX2;
     private kitchenController kitchenController = new kitchenController();
-    EnviaOrden enviaOrden=new EnviaOrden();
-    private final toMySQL mySQL=new toMySQL();
+    EnviaOrden enviaOrden = new EnviaOrden();
+    private final toMySQL mySQL = new toMySQL();
 
     public ControllerMenu() {
     }
@@ -232,19 +233,19 @@ public class ControllerMenu {
 
         if (empleadoNombre.getText() == null || empleadoNombre.getText().equals(""))
             empleadoNombre.setText("No se ingreso...");
-      //  orden.contador = orden.contador + 1;
+        //  orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
         String pedido = orden.print();
-               String Codigo= String.valueOf((
+        String Codigo = String.valueOf((
                 ((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
-                ((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
-                ((int) Math.floor(Math.random() * (9 + 1) + 0))));
+                        ((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
+                        ((int) Math.floor(Math.random() * (9 + 1) + 0))));
         System.out.println(pedido);
         Path path = Paths.get("Factura.txt");
         try {
-            for(int i=0; i<orden.cafelist.size();i++){
-               mySQL.generarFactura(fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021",
-                       empleadoNombre.getText(), orden.total(),pedido);
+            for (int i = 0; i < orden.cafelist.size(); i++) {
+                mySQL.generarFactura(fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021",
+                        empleadoNombre.getText(), orden.total(), pedido);
             }
             ListaPrueba.add(pedido);
             Files.writeString(path, pedido, StandardCharsets.UTF_8);
@@ -396,7 +397,8 @@ public class ControllerMenu {
         if (!caramel.isSelected())
             caramelox2.setSelected(false);
     }
-    private class EnviaOrden implements ActionListener{
+
+    private class EnviaOrden implements ActionListener {
 
 
         @Override
@@ -405,8 +407,8 @@ public class ControllerMenu {
         }
 
         public void actionPerformed(String orden) throws IOException {
-            Socket socket=new Socket("192.168.0.188",9979);
-            DataOutputStream flujoSalida=new DataOutputStream(socket.getOutputStream());
+            Socket socket = new Socket("192.168.0.188", 9979);
+            DataOutputStream flujoSalida = new DataOutputStream(socket.getOutputStream());
             flujoSalida.writeUTF(orden);
             flujoSalida.close();
         }
