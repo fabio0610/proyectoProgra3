@@ -11,7 +11,7 @@ import java.sql.Statement;
 // Notice, do not import com.mysql.cj.jdbc.*
 // or you will have problems!
 public class toMySQL {
-    public void generarFactura(String codigo,String fecha, String vendedor, double total, String detalle) throws SQLException {
+    public void generarFactura(String codigo,String fecha, String vendedor, double total) throws SQLException {
         Connection conn = null;
         Statement statement = null;
         try {
@@ -32,12 +32,14 @@ public class toMySQL {
             int cod= Integer.parseInt(codigo);
             String x = "INSERT INTO ordenes (Codigo, Fecha, Vendedor, Total) VALUES ("+cod+", '" + fecha + "', '" +
                     vendedor + "', " + total + " )";
+            assert statement != null;
             statement.executeUpdate(x);
 
         } catch (SQLException ec) {
             System.out.println("No ejecuta el comando");
         }
         finally {
+            assert conn != null;
             conn.close();
         }
     }
@@ -63,12 +65,14 @@ public class toMySQL {
             for(int i=0; i<orden.cafelist.size(); i++){
             String x = "INSERT INTO tabledetalle (Codigo, Producto, Precio) VALUES (" + codigo + ", '" +
                     orden.cafelist.get(i).getTipo() + "', "+ orden.cafelist.get(i).getPrecio()+")";
-            statement.executeUpdate(x);}
+                assert statement != null;
+                statement.executeUpdate(x);}
 
         } catch (SQLException ec) {
             System.out.println("No ejecuta el comando tabledetalle");
         }
         finally {
+            assert conn != null;
             conn.close();
         }
     }
@@ -92,12 +96,14 @@ public class toMySQL {
         try {
 
                 String x = "UPDATE ordenes SET Estado ='Listo' WHERE Codigo = "+codigo+";";
-                statement.executeUpdate(x);
+            assert statement != null;
+            statement.executeUpdate(x);
 
         } catch (SQLException ec) {
             System.out.println("No ejecuta el comando tabledetalle");
         }
         finally {
+            assert conn != null;
             conn.close();
         }
     }
@@ -121,12 +127,14 @@ public class toMySQL {
         try {
 
             String x = "DELETE FROM tabledetalle WHERE tabledetalle.Precio="+precio+" AND tabledetalle.Codigo="+codigo+";";
+            assert statement != null;
             statement.executeUpdate(x);
 
         } catch (SQLException ec) {
             System.out.println("No ejecuta el comando tabledetalle");
         }
         finally {
+            assert conn != null;
             conn.close();
         }
     }

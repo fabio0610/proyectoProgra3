@@ -236,17 +236,16 @@ public class ControllerMenu {
             empleadoNombre.setText("No se ingreso...");
         orden.contador = orden.contador + 1;
         System.out.println("Factura: ");
-        String pedido = orden.print();
         String pedi2 = orden.send();
         String Codigo =
-                String.valueOf(((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
-                        ((int) Math.floor(Math.random() * (9 + 1) + 0)) + ((int) Math.floor(Math.random() * (9 + 1) + 0)) +
-                        ((int) Math.floor(Math.random() * (9 + 1) + 0)));
+                String.valueOf((int) Math.floor(Math.random() * (9 + 1) + 0)) + String.valueOf((int) Math.floor(Math.random() * (9 + 1) + 0)) +
+                        String.valueOf((int) Math.floor(Math.random() * (9 + 1) + 0)) + String.valueOf((int) Math.floor(Math.random() * (9 + 1) + 0)) +
+                        String.valueOf ((int) Math.floor(Math.random() * (9 + 1) + 0));
         System.out.println(pedi2);
         Path path = Paths.get("Factura.txt");
         try {
                 mySQL.generarFactura(Codigo, fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/2021",
-                        empleadoNombre.getText(), orden.total(), pedido);
+                        empleadoNombre.getText(), orden.total());
             mySQL.annadircafes(orden, Codigo);
             pedi2 += "Codigo " + Codigo;
             ListaPrueba.add(pedi2);
@@ -402,7 +401,7 @@ public class ControllerMenu {
             caramelox2.setSelected(false);
     }
 
-    private class EnviaOrden implements ActionListener {
+    private static class EnviaOrden implements ActionListener {
 
 
         @Override
@@ -411,7 +410,7 @@ public class ControllerMenu {
         }
 
         public void actionPerformed(String orden) throws IOException {
-            Socket socket = new Socket("192.168.0.188", 9979);
+            Socket socket = new Socket("127.0.0.1", 9979);
             DataOutputStream flujoSalida = new DataOutputStream(socket.getOutputStream());
             flujoSalida.writeUTF(orden);
             flujoSalida.close();

@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Archivo;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -90,6 +91,10 @@ public class ControllerLogin implements DataManagement, Runnable {
             }
         }
     }
+    private void addtoKitchen(String x){
+        kitchen.kitchenList.getItems().add(x);
+        kitchen.kitchenList.refresh();
+    }
 
     @Override
     public String readOrdenes() throws IOException {
@@ -106,7 +111,6 @@ public class ControllerLogin implements DataManagement, Runnable {
             writeOrdenes("");
         return "";
     }
-
     @Override
     public void writeOrdenes(String mensaje) throws IOException {
         String ruta = "OrdenesListas.txt";
@@ -119,16 +123,23 @@ public class ControllerLogin implements DataManagement, Runnable {
     }
 
     @Override
+
     public void run() {
 
         try {
             ServerSocket servidor = new ServerSocket(9979);
-            Socket socket = servidor.accept();
-            DataInputStream flujoEntrada = new DataInputStream(socket.getInputStream());
-            String ordenRecibida = flujoEntrada.readUTF();
-            kitchen.kitchenList.getItems().add(ordenRecibida);
-            kitchen.kitchenList.refresh();
-            socket.close();
+            while (true) {
+                Socket socket = servidor.accept();
+                DataInputStream flujoEntrada = new DataInputStream(socket.getInputStream());
+                String ordenRecibida = flujoEntrada.readUTF();
+                Platform.runLater(new Runnable(){
+                    @Override
+                    public void run() {
+                        addtoKitchen(ordenRecibida);
+                    }
+                });
+                socket.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
